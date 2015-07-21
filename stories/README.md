@@ -10,6 +10,8 @@ TODO
 4. Post :recycle: after having made changes and
 5. Merge + deploy after receiving :thumbsup:
 
+TODO: Cover translation flow
+
 ## If it's a bugfix
 
 TODO
