@@ -1,7 +1,7 @@
 # Guides
 
 Guides for getting things done, programming well, and programming in style.
-Inspired by [Thoughtbot](https://github.com/thoughtbot/guides) and [this discussion](/MANIFESTO.md)
+Inspired by [Thoughtbot](https://github.com/thoughtbot/guides) and [this discussion](/MANIFESTO.md).
 
 * [Working on stories](/stories)
 * [Code Review](/code-review)
