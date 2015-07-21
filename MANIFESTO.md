@@ -3,7 +3,7 @@ Based on a couple of discussions we've had recently, it seems there may be a few
 I think we'll have a much better time if we all share the same vision, so consider this an honest attempt to address the issue and "sell" one viewpoint.
 My hope is that we're already mostly on the same page (or that I can somehow convince anyone on the fence :grin:), but of course any discussion is welcome and encouraged!
 
-__NOTE:__ I'll try to focus on _mindset_ to avoid getting bogged down in details, but I also recognize the need for some sort of manual/best practices/style guide, so [this repo](/) will serve as the place for that going forward.
+__NOTE:__ I'll try to focus on _mindset_ to avoid getting bogged down in details, but I also recognize the need for some sort of manual/best practices/style guide, so this repo will serve as the place for that going forward.
 
 # Outline
 
