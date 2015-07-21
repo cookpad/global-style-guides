@@ -8,6 +8,6 @@ Inspired by Thoughtbot and this original /MANIFESTO.md
 * [Style](/style)
 * [CSS](/css)
 
-# Contributing
+## Contributing
 
 Submit a pull request or issue if you have a suggestion or something is unclear.
