@@ -25,9 +25,9 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 
 ### Purpose
 
-1. Knowledge transfer
-2. Increased team awareness
-3. Finding alternative solutions
+- Knowledge transfer
+- Increased team awareness
+- Finding alternative solutions
 
 ### Flow
 
