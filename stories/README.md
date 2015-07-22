@@ -2,6 +2,8 @@
 
 ## Pivotal Tracker, GitHub, and PT-Flow
 
+Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed.
+
 ### Flow
 
 1. `git start` to pick a story to work on from [Pivotal Tracker]()
