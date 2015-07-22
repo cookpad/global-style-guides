@@ -16,7 +16,3 @@ Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date 
 ## Bigger releases ("epics")
 
 TODO: Release branches
-
-## Translation
-
-TODO: Cover translation flow
