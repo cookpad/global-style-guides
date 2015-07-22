@@ -28,7 +28,7 @@ Code review is the discipline of explaining your code to your peers.
 
 ### Flow
 
-1. Provide a description
+1. Provide a description to help reviewers
   - For bugfixes provide screenshots / specs showing the bug
   - For features, provide a [demo gif](http://www.cockos.com/licecap/)
   - For new features, provide a hypothesis and expected outcome
