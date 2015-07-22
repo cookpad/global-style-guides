@@ -19,7 +19,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 4. Comment :recycle: after having made changes to ask for a new review
 5. Merge + deploy after receiving a :thumbsup: from at least 1 reviewer
 
-## Reviewing Code
+### Reviewing Code
 
 - Be aware of  _negativity bias_. Ask, don't tell.
 - Identify ways to simplify the code while still solving the problem.
@@ -27,7 +27,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 - Consider switching to Slack/Hangouts if higher bandwith communication is needed
 - Sign off on the pull request with a :thumbsup:
 
-## Having Your Code Reviewed
+### Having Your Code Reviewed
 
 - Be grateful for the reviewer's suggestions.
 - Don't take it personally. The review is of the code, not you.
