@@ -10,7 +10,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 
 ## Flow
 
-1. Provide a description to help reviewers
+1. Write a description to provide context for reviewers
   - For bugfixes provide screenshots / specs showing the bug
   - For features, provide a [demo gif](http://www.cockos.com/licecap/)
   - For new features, provide a hypothesis and expected outcome
