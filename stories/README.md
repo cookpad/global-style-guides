@@ -18,7 +18,7 @@ TODO: Release branches
 
 ## Code Review
 
-Code review is the discipline of explaining your code to your peers.
+Code review is [the discipline of explaining your code to your peers](https://www.youtube.com/watch?v=PJjmw9TRB7s).
 
 ### Purpose
 
