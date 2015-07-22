@@ -2,27 +2,39 @@
 
 ## Pivotal Tracker, GitHub, and PT-Flow
 
-TODO
+### Flow
 
-1. [WIP] Title + label to start an early PR that does not yet need review, but may need help, preliminary discussions etc
-2. Remove [WIP] + label when ready for final review
-3. Respond to comments w/ code or comments
-4. Post :recycle: after having made changes and
-5. Merge + deploy after receiving :thumbsup:
+1. `git start` to pick a story to work on from [Pivotal Tracker]()
+2. 
+ - TODO: `git wip` to submit a WIP pull request to ask for help or feedback
+ - `git finish` if done to submit a pull request for [code review](#code-review)
+3. After completing code review merge in GitHub and [deploy]()
+
+### Bigger releases ("epics")
+
+TODO: Release branches
+
+## Code Review
+
+Code review is the discipline of explaining your code to your peers.
+
+### Purpose
+
+1. Knowledge transfer
+2. Increased team awareness
+3. Finding alternative solutions
+
+### Flow
+
+1. Provide a description
+  - For bugfixes provide screenshots / specs showing the bug
+  - For features, provide a [demo gif](http://www.cockos.com/licecap/)
+  - For new features, provide a hypothesis and expected outcome
+2. Fix or address any [hound comments]()
+3. Respond to reviewer comments w/ new commits or comments
+4. Comment :recycle: after having made changes to ask for a new review
+5. Merge + deploy after receiving a :thumbsup: from at least 1 reviewer
+
+## Translation
 
 TODO: Cover translation flow
-
-## If it's a bugfix
-
-TODO
-
-- Screenshots
-- Specs
-
-## If it's a new feature
-
-TODO
-
-- Hypothesis
-- Validation
-- Demos
