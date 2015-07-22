@@ -8,7 +8,7 @@ Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed.
 
 1. `git start` to pick a story to work on from [Pivotal Tracker]()
 2. 
- - TODO: `git wip` to submit a WIP pull request to ask for help or feedback
+ - TODO: `git wip` to submit a WIP pull request early to ask for help or feedback
  - `git finish` if done to submit a pull request for [code review](#code-review)
 3. After completing code review merge in GitHub and [deploy]()
 
