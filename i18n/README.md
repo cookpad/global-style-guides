@@ -11,6 +11,10 @@ Spanish and Indonesian at minimum.
 1. Do not use shorthand syntax in views, but use fully qualified name.
    eg. `recipes.show.title` rather than `.title`
 
+## Common keys
+1. Very generic phrases can be scoped under `common.` eg. 'Delete' or
+   'Cookpad' are good candidates for common
+
 ## Onesky Flow
 1. `en.yml` is our working master.
    [Import](http://ospft7w.oneskyapp.com/admin/project-group/projects/project-group/4526) `en.yml` ONLY to
@@ -18,6 +22,5 @@ Spanish and Indonesian at minimum.
 2. After translations have been entered in onesky, download all locale
    files, test then commit to the repo.
 
-## Common keys
-1. Very generic phrases can be scoped under `common.` eg. 'Delete' or
-   'Cookpad' are good candidates for common
+
+![Onesky](https://github.com/cookpad/guides/blob/i18n/i18n/onesky.png)
