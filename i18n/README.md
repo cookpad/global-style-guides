@@ -23,4 +23,4 @@ Spanish and Indonesian at minimum.
    files, test then commit to the repo.
 
 
-![Onesky](https://github.com/cookpad/guides/blob/i18n/i18n/onesky.png)
+![Onesky](https://github.com/cookpad/guides/blob/master/i18n/onesky.png)
