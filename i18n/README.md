@@ -24,3 +24,15 @@ Spanish and Indonesian at minimum.
 
 
 ![Onesky](https://github.com/cookpad/guides/blob/master/i18n/onesky.png)
+
+## I18n Best Practices
+
+### DON'T use the zero key to display a "no results" message.
+
+This is a very common misuse of pluralization; the main misconception
+being that we can use the value of the zero pluralization to display a
+special message in our app. This is misleading for translators who might
+not even have pluralizations in their locale (Chinese, Japanese etc…). A
+no_results translation is always clearer and doesn't need to infer
+meaning from a numeric value.
+
