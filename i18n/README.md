@@ -7,13 +7,12 @@ tranlsations. Our current goal is to always release with English,
 Spanish and Indonesian at minimum.
 
 
-## Naming keys
+## Usage
 1. Do not use shorthand syntax in views, but use fully qualified name.
    eg. `recipes.show.title` rather than `.title`
-
-## Common keys
-1. Very generic phrases can be scoped under `common.` eg. 'Delete' or
+2. Very generic phrases can be scoped under `common.` eg. 'Delete' or
    'Cookpad' are good candidates for common
+3. Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
 
 ## Onesky Flow
 1. `en.yml` is our working master.
