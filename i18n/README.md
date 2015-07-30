@@ -8,8 +8,7 @@ Spanish and Indonesian at minimum.
 
 
 ## Usage
-- Do not use shorthand syntax in views, but use fully qualified name.
-   eg. `recipes.show.title` rather than `.title`
+- Use fully qualified name. eg. `recipes.show.title` rather than shorthand `.title`
 - Very generic phrases can be scoped under `common.` eg. 'Delete' or
    'Cookpad' are good candidates for common
 - Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
