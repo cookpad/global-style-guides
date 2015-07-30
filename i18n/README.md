@@ -25,9 +25,9 @@ Spanish and Indonesian at minimum.
 
 ![Onesky](https://github.com/cookpad/guides/blob/master/i18n/onesky.png)
 
-# I18n Best Practices
+## I18n Best Practices
 
-## DON'T use the zero key to display a "no results" message.
+### DON'T use the zero key to display a "no results" message.
 
 This is a very common misuse of pluralization; the main misconception
 being that we can use the value of the zero pluralization to display a
