@@ -8,11 +8,11 @@ Spanish and Indonesian at minimum.
 
 
 ## Usage
-1. Do not use shorthand syntax in views, but use fully qualified name.
+- Do not use shorthand syntax in views, but use fully qualified name.
    eg. `recipes.show.title` rather than `.title`
-2. Very generic phrases can be scoped under `common.` eg. 'Delete' or
+- Very generic phrases can be scoped under `common.` eg. 'Delete' or
    'Cookpad' are good candidates for common
-3. Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
+- Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
 
 ## Onesky Flow
 1. `en.yml` is our working master.
