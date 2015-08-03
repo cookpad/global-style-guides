@@ -16,3 +16,12 @@ Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date 
 ## Bigger releases ("epics")
 
 TODO: Release branches
+
+# Deploying
+
+## Migrations
+
+1. create a migration-only PR in the `global` API repo
+2. migration files must be checked into the API `global` repo
+3. deploy the migration-only PR
+
