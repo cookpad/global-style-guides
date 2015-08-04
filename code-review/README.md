@@ -13,7 +13,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 1. Write a description to provide context for reviewers
   - For bugfixes provide screenshots / specs showing the bug
   - For features, provide a [demo gif](http://www.cockos.com/licecap/)
-  - For new features, provide a [hypothesis and expected outcome](http://www.thoughtworks.com/es/insights/blog/how-implement-hypothesis-driven-development)
+  - For new features, provide a [hypothesis and expected outcome](#hypothesis-format)
 2. Fix or address any [hound comments]()
 3. Respond to reviewer comments w/ new commits or comments
 4. Comment :recycle: after having made changes to ask for a new review
@@ -33,3 +33,14 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 - Don't take it personally. The review is of the code, not you.
 - Explain why the code exists and try to rework the code so no explanation is necessary ("It's like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?")
 - Merge once you feel confident in the code and its impact on the project.
+
+
+### Hypothesis format
+
+```
+We believe <this capability>
+Will result in <this outcome>
+We will know we have succeeded when <we see a measurable signal>
+```
+
+http://www.thoughtworks.com/insights/blog/how-implement-hypothesis-driven-development
