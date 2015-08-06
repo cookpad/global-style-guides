@@ -43,7 +43,7 @@ SCSS:
 }
 ```
 
-**Caveat:** Boostrap classes don't follow this standard so we accept some inconsistencies when using those :sweat:
+**Caveat:** Bootstrap classes don't follow this standard so we accept some inconsistencies when using those :sweat:
 
 
 ## OOCSS and Modules
