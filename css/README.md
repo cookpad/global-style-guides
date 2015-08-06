@@ -67,7 +67,7 @@ When adding styles to something, first consider: _Do we already have one/several
 - Take a look inside _modules.scss (TBD: Need to break this up)
 - Look at what [bootstrap provides](http://getbootstrap.com/css/)
 
-### Guidelines
+## Guidelines
 
 - Strive to use _UI-specific_ names rather than _business-specific_ names whenever possible
 - Create meaningful and fully-formed modules. Ie don't add something called `margin_20` that adds 20px of margin!
