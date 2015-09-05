@@ -22,7 +22,7 @@ HTML:
 ```html
 <ul class="tab-list">
   <li class="tab-list__item">Home</li>
-  <li class="tab-list__item--active">Users</li>
+  <li class="tab-list__item tab-list__item--active">Users</li>
   <li class="tab-list__item">Posts</li>
 </ul>
 ```
