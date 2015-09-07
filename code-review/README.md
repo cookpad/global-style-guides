@@ -13,7 +13,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 1. Write a description to provide context for reviewers
   - For bugfixes provide screenshots / specs showing the bug
   - For features, provide a [demo gif](http://www.cockos.com/licecap/)
-  - For new features, provide a hypothesis and expected outcome
+  - For new features, provide a [hypothesis and expected outcome](http://www.thoughtworks.com/es/insights/blog/how-implement-hypothesis-driven-development)
 2. Fix or address any [hound comments]()
 3. Respond to reviewer comments w/ new commits or comments
 4. Comment :recycle: after having made changes to ask for a new review
