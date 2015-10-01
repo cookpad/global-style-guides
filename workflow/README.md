@@ -17,6 +17,11 @@ Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date 
 
 TODO: Release branches
 
+## Discussions, ideas, new features, bug reports
+
+- Submit stories to Pivotal Tracker when they are fully formed with hypothesis, design (or steps to reproduce for bugs)
+- Submit an issue on github if you would like to start a more general discussion/brainstorm on something
+
 # Deploying
 
 ## Migrations
