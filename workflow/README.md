@@ -22,7 +22,7 @@ For bigger features that consist of multiple stories, it is a good idea to creat
 branch_.  Reviewers will then be able to review each _smaller_ PR as they come in.
 
 1. `git co -b my_new_epic` to start a release branch
-2. `git commit -m'init commit' --allow-empty` to add an empty commit
+2. `git commit -m'init commit [ci skip]' --allow-empty` to add an empty commit
 3. `git push -u origin my_new_epic` to push to GitHub
 4. Create a PR from the new branch with information about the feature
 5. Running `git start` and `git finish` from a release branch will automatically target that branch instead of master
