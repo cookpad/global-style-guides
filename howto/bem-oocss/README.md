@@ -61,11 +61,6 @@ We try to have as much as possible of:
 - "Form with chromeless inputs"
 - "Hint text"
 
-When adding styles to something, first consider:
-
-- Do we already have one/several components that can create the effect I want?
-- Look at what [bootstrap provides](http://getbootstrap.com/css/)
-
 ## Useful links
 
 - http://fullstackradio.com/episodes/1/

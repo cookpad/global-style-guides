@@ -1,7 +1,7 @@
 ## SCSS
 
-- Use [BEM & OOCSS](/best-practices/bem-oocss)
-- Strive to use _UI-specific_ names rather than _business-specific_ names whenever possible
+- Use [BEM & OOCSS](/howto/bem-oocss)
+- Strive to use _UI-specific_ names rather than _business-specific_ names whenever possible (eg `.list-item` instead of `.recipe`)
 - Create meaningful and fully-formed modules. Ie don't add something called `margin_20` that adds 20px of margin!
 - Use relative font-sizes (`em` and `rem`) as much as possible
 - When you really want something to have a specific size _no matter what the context_, use `rem`

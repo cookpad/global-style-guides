@@ -32,7 +32,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 - Be grateful for the reviewer's suggestions.
 - Don't take it personally. The review is of the code, not you.
 - Explain why the code exists and try to rework the code so no explanation is necessary ("It's like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?")
-- Merge once you feel confident in the code and its impact on the project.
+- Merge only once you feel confident in the code and its impact on the project.
 
 
 ### Hypothesis format
