@@ -19,5 +19,6 @@ Spanish and Indonesian at minimum.
 2. After translations have been entered in onesky, download all locale
    files, test then commit to the repo.
 
+<img src="https://github.com/cookpad/guides/blob/master/i18n/onesky.png" width="50%"/>
 
-![Onesky](https://github.com/cookpad/guides/blob/master/i18n/onesky.png)
+__Note:__ To move an existing translation to `common`, add the new key to `en.yml`, upload,  use OneSky translation memory to add each translation for the new key, then remove the old key from Onesky.
