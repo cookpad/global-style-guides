@@ -5,9 +5,7 @@ Inspired by [Thoughtbot](https://github.com/thoughtbot/guides) and [this discuss
 
 * [Workflow](/workflow)
 * [Code Review](/code-review)
-* [Style](/style)
-* [I18n](/i18n)
-* [CSS](/css)
+* [Best Practices](/best-practices)
 
 ## Contributing
 
