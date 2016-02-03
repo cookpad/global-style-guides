@@ -11,7 +11,7 @@ __NOTE:__ I'll try to focus on _mindset_ to avoid getting bogged down in details
   1. Knowledge transfer
   2. Increased team awareness
   3. Finding alternative solutions
-- [What is "gode code"?](#what-is-good-code)
+- [What is "good code"?](#what-is-good-code)
   1. Simple to understand
   2. Readable
 - [Why does readability matter?](#why-does-readability-matter)
