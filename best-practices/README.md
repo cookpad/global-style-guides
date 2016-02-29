@@ -11,3 +11,8 @@
 - Use fully qualified name. eg. `recipes.show.title` rather than shorthand `.title`
 - Scope _very_ generic phrases under `common.` eg. 'Delete' or 'Cookpad' are good candidates for common
 - Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
+
+## Database operations
+
+- When _changing data_ in production, don't use the console. Instead _create a rake task_ and submit it for review.
+- When _reading data_ from production, always use the _sandbox_ console: `bundle exec rails c -s production`
