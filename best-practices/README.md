@@ -6,6 +6,10 @@
 - Use relative font-sizes (`em` and `rem`) as much as possible
 - When you really want something to have a specific size _no matter what the context_, use `rem`
 
+## Javascript
+
+- Avoid using `.classes` as selectors (they are for styling). Use `[data-behavior~=]`, `[data-*]`, or `#ids`.
+
 ## I18n
 
 - Use fully qualified name. eg. `recipes.show.title` rather than shorthand `.title`
