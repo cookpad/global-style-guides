@@ -8,7 +8,7 @@ Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date 
 2. `git finish` if done to submit a pull request for [code review](/code-review)
 3. After completing code review merge in GitHub and _deploy_
 
-**NOTE:** It is vital to deploy right after merging new code, so that _you_ can follow up on any bugs/performance issues, instead of it becoming the problem of the next person to deploy.
+**NOTE:** It is vital to deploy right after merging new code, so that _you_ can follow up on any bugs/issues, instead of it becoming the problem of the next person to deploy.
 
 ## WIP branches
 
