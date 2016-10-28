@@ -2,7 +2,7 @@
 
 ## Prefer explicit specs over implicit
 
-- Should not use `subject`, `specify`, `described_class`, `shared_examples`, `shared_context`
+- Should not use `subject`, `described_class`, `shared_examples`, `shared_context`
 - `let`, `context` can be exceptional but prefer plain ruby methods whenever possible
 
 Why? It tends to DRY things too much that makes you feel good when _writing_ it, but not when _reading_ it, including future you and other developers. Quote Sandi Metz: "Code is read many more times that it is written, and computers are fast.", it's especially true for test code.
