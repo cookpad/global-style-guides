@@ -1,10 +1,10 @@
 # Workflow
 
-Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date <img src="https://badge.fury.io/rb/pt-flow.svg?style=flat" alt="Gem Version">
+Ensure [trello_flow](https://github.com/balvig/trello_flow) is installed and up to date <img src="https://badge.fury.io/rb/trello_flow.svg?style=flat" alt="Gem Version">
 
 ## Stories
 
-1. `git start` to pick a story to work on from [Pivotal Tracker]()
+1. `git start` to pick/create a story to work on in Trello
 2. `git finish` if done to submit a pull request for [code review](/code-review)
 3. After completing code review merge in GitHub and _deploy_
 
