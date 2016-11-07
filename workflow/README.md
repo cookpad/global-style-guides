@@ -1,10 +1,10 @@
 # Workflow
 
-Ensure [pt-flow](https://github.com/balvig/pt-flow) is installed and up to date <img src="https://badge.fury.io/rb/pt-flow.svg?style=flat" alt="Gem Version">
+Ensure [trello_flow](https://github.com/balvig/trello_flow) is installed and up to date <img src="https://badge.fury.io/rb/trello_flow.svg?style=flat" alt="Gem Version">
 
 ## Stories
 
-1. `git start` to pick a story to work on from [Pivotal Tracker]()
+1. `git start` to pick/create a story to work on in Trello
 2. `git finish` if done to submit a pull request for [code review](/code-review)
 3. After completing code review merge in GitHub and _deploy_
 
@@ -31,6 +31,5 @@ branch_.  Reviewers will then be able to review each _smaller_ PR as they come i
 
 ## Discussions, ideas, new features, bug reports
 
-- Submit a card on [Trello](https://trello.com/b/mlFCj2Zs/features-on-the-table) if you would like to start a general discussion/brainstorm on something
+- Submit a card on [Trello](https://trello.com/cookpadglobal) if you would like to start a general discussion/brainstorm on something
 - Submit an issue on GitHub if you would like to discuss something technical
-- Submit stories to Pivotal Tracker when they are more fully formed with hypothesis and design (or steps to reproduce for bugs)
