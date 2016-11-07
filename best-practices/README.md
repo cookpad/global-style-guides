@@ -10,6 +10,10 @@
 
 - Avoid using `.classes` as selectors (they are for styling). Use `[data-behavior~=]`, `[data-*]`, or `#ids`.
 
+## Test
+
+- [RSpec Style Guides](/best-practices/rspec)
+
 ## I18n
 
 - Use fully qualified name. eg. `recipes.show.title` rather than shorthand `.title`
