@@ -108,6 +108,14 @@ Only enable JS when your tests require it. Enabling JS slows down your test suit
 
 Unless the pages you are testing require JS, it's best to disable JS after you're done writing the test so that the test suite runs faster.
 
+To enable JS, add `:js` meta tag to the example like below:
+
+```ruby
+scenario "test that needs JavaScript", :js do
+  ...
+end
+```
+
 ## Other Tips
 
 - Use [TimeCop](https://github.com/travisjeffery/timecop) to mock and test methods that relies on time.
