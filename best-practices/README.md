@@ -1,7 +1,3 @@
-## Formatting
-
-- You should format source code so that no line is longer than 100 characters
-
 ## SCSS
 
 - Use [BEM & OOCSS](/best-practices/bem)
