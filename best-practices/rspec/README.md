@@ -121,3 +121,7 @@ end
 - Use [TimeCop](https://github.com/travisjeffery/timecop) to mock and test methods that relies on time.
 - Use [Webmock](https://github.com/bblimke/webmock) to mock HTTP calls to remote service that could not be available all the time and that you want to personalize.
 - Use [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) to write API specs, it'll generate api docs automatically.
+- <a name="have_text"></a>
+  Prefer `have_text` over `have_content` [Background][web-4154]
+  <sup>[[link](#have_text)]</sup>
+  [web-4154]: https://github.com/cookpad/global-web/pull/4154
