@@ -20,7 +20,7 @@ initial feedback.
 
 ## Bigger releases ("epics")
 
-For bigger features that consist of multiple stories, it is a good idea to create a _release
+For bigger features that consist of multiple stories that need to be released together, create a _release
 branch_.  Reviewers will then be able to review each _smaller_ PR as they come in.
 
 1. `git co -b my_new_epic` to start a release branch
@@ -29,7 +29,10 @@ branch_.  Reviewers will then be able to review each _smaller_ PR as they come i
 4. Create a PR from the new branch with information about the feature
 5. Running `git start` and `git finish` from a release branch will automatically target that branch instead of master
 
-## Discussions, ideas, new features, bug reports
+## Discussions and ideas around development
 
-- Submit a card on [Trello](https://trello.com/cookpadglobal) if you would like to start a general discussion/brainstorm on something
-- Submit an issue on GitHub if you would like to discuss something technical
+- New ideas on how we can improve our development flow are always welcome
+- Avoid making proposals for new coding styles inside story-based PRs
+- When proposing a change or new concept, submit an issue or isolated PR on GitHub
+- Clearly show the before/after and any pain points that inspired the proposal
+- The [kaizen board](https://trello.com/b/dpyiKTut/kaizen) is a good place to go for "known pain points"
