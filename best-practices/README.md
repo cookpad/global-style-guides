@@ -1,6 +1,9 @@
 ## Rails
 
 - Prefer Time.current over Time.now
+- Prefer extracting private methods over setting variables inside methods
+- Extract long chains of unnamed conditions (`Recipe.where(published: true).where.not(approved_at: nil)`) into named scopes (`Recipe.live`)
+- Use a query object if a scope can be clarified by extracting private methods/needs additional state
 
 ## SCSS
 
