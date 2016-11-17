@@ -1,3 +1,7 @@
+## Rails
+
+- Prefer Time.current over Time.now
+
 ## SCSS
 
 - Use [BEM & OOCSS](/best-practices/bem)
