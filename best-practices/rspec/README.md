@@ -118,6 +118,12 @@ end
 
 ## Other Tips
 
-- Use [TimeCop](https://github.com/travisjeffery/timecop) to mock and test methods that relies on time.
-- Use [Webmock](https://github.com/bblimke/webmock) to mock HTTP calls to remote service that could not be available all the time and that you want to personalize.
-- Use [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) to write API specs, it'll generate api docs automatically.
+- <a name="timecop"></a>
+  Use [TimeCop](https://github.com/travisjeffery/timecop) to mock and test methods that relies on time.
+  <sup>[[link](#timecop)]</sup>
+- <a name="webmock"></a>
+  Use [Webmock](https://github.com/bblimke/webmock) to mock HTTP calls to remote service that could not be available all the time and that you want to personalize.
+  <sup>[[link](#webmock)]</sup>
+- <a name="rspec-api-documentation"></a>
+  Use [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) to write API specs, it'll generate api docs automatically.
+  <sup>[[link](#rspec-api-documentation)]</sup>
