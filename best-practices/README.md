@@ -10,8 +10,11 @@
 
 - Avoid using `.classes` as selectors (they are for styling). Use `[data-behavior~=]`, `[data-*]`, or `#ids`.
 
-## Test
+## Testing
 
+- Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`, `let`, and `context`
+- Avoid adding explicit dummy data (`create(:recipe, title: "Dummy Title")`) that is not asserted in the spec
+- Only enable `:js` when the feature absolutely requires javascript
 - [RSpec Style Guides](/best-practices/rspec)
 
 ## I18n
