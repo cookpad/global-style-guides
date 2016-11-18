@@ -18,7 +18,7 @@ context "when condition A" do
     end
 
     it "does something c" do
-      # ...
+      # ...where am I? What setup has been done?
     end
   end
 end

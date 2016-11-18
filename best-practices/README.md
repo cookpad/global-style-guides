@@ -21,7 +21,8 @@
 ## Testing
 
 - Prefer explicitness in specs: Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
-- [Avoid using `let` and `context`](samples/testing/1.rb)
+- [Avoid using `context`](samples/testing/1.rb)
+- [Avoid using `let`](samples/testing/3.rb)
 - [Avoid adding dummy data that is not asserted in the spec](samples/testing/2.rb)
 - Only enable `:js` when the feature absolutely requires javascript
 
