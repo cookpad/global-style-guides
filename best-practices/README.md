@@ -1,3 +1,11 @@
+## Rails
+
+- Prefer Time.current over Time.now
+- Prefer Date.current over Date.today
+- [Prefer extracting private methods over setting variables inside methods](samples/rails/1.rb)
+- [Extract long chains of unnamed conditions into named scopes or class methods](samples/rails/2.rb)
+- [Use a query object if a scope can be clarified by extracting private methods/needs additional state](samples/rails/3.rb)
+
 ## SCSS
 
 - Use [BEM & OOCSS](/best-practices/bem)
@@ -10,9 +18,13 @@
 
 - Avoid using `.classes` as selectors (they are for styling). Use `[data-behavior~=]`, `[data-*]`, or `#ids`.
 
-## Test
+## Testing
 
-- [RSpec Style Guides](/best-practices/rspec)
+- Prefer explicitness in specs: Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
+- [Avoid using `context`](samples/testing/1.rb)
+- [Avoid using `let`](samples/testing/3.rb)
+- [Avoid adding dummy data that is not asserted in the spec](samples/testing/2.rb)
+- Only enable `:js` when the feature absolutely requires javascript
 
 ## I18n
 
