@@ -1,3 +1,7 @@
+## Ruby
+
+- [Prefer method invocation over instance variables](samples/ruby/1.rb)
+
 ## Rails
 
 - Prefer Time.current over Time.now
