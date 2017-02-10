@@ -13,19 +13,21 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 1. Write a description to provide context for reviewers
   - For bugfixes provide screenshots / specs showing the bug
   - For features, provide a [demo gif](http://www.cockos.com/licecap/)
-  - For new features, provide a [hypothesis and expected outcome](#hypothesis-format)
-2. Fix or address any [hound comments]()
+  - Provide a link to a Trello card containing hypothesis and expected outcome
+2. Fix or address any hound comments
 3. Respond to reviewer comments w/ new commits or comments
 4. Comment :recycle: after having made changes to ask for a new review
-5. Merge + deploy after receiving a :thumbsup: from at least 1 reviewer
+5. Merge + deploy after receiving an approved review from at least 1 reviewer
 
 ### Reviewing Code
 
-- Be aware of  _negativity bias_. Ask, don't tell.
-- Identify ways to simplify the code while still solving the problem.
-- Communicate which ideas you feel strongly about and those you don't.
+- Be aware of _negativity bias_. Ask, don't tell.
+- Identify ways to simplify the code while still solving the problem
+- Communicate which ideas you feel strongly about and those you don't
 - Consider switching to Slack/Hangouts if higher bandwith communication is needed
-- Sign off on the pull request with a :thumbsup:
+- Use the GitHub review tool
+- Follow up on changes you request
+- Help get the PR to a state where it can be approved
 
 ### Having Your Code Reviewed
 
@@ -33,14 +35,3 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 - Don't take it personally. The review is of the code, not you.
 - Explain why the code exists and try to rework the code so no explanation is necessary ("It's like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?")
 - Merge only once you feel confident in the code and its impact on the project.
-
-
-### Hypothesis format
-
-```
-We believe <this capability>
-Will result in <this outcome>
-We will know we have succeeded when <we see a measurable signal>
-```
-
-http://www.thoughtworks.com/insights/blog/how-implement-hypothesis-driven-development
