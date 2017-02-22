@@ -9,6 +9,7 @@
 - [Prefer extracting private methods over setting variables inside methods](samples/rails/1.rb)
 - [Extract long chains of unnamed conditions into named scopes or class methods](samples/rails/2.rb)
 - [Use a query object if a scope can be clarified by extracting private methods/needs additional state](samples/rails/3.rb)
+- [Prefer private methods over `before_action` to set instance variables](samples/rails/4.rb)
 
 ## SCSS
 
