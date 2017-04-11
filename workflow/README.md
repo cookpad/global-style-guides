@@ -6,7 +6,8 @@ Ensure [trello_flow](https://github.com/balvig/trello_flow) is installed and up 
 
 1. `git start` to pick/create a story to work on in Trello
 2. `git finish` if done to submit a pull request for [code review](/code-review)
-3. After completing code review merge in GitHub and _deploy_
+3. If necessary, [request and update translations](https://github.com/cookpad/global-web/blob/master/docs/operations.md#translations)
+4. After completing code review merge in GitHub and _deploy_
 
 **NOTE:** It is vital to deploy right after merging new code, so that _you_ can follow up on any bugs/issues, instead of it becoming the problem of the next person to deploy.
 
