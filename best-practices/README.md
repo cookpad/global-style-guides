@@ -31,6 +31,10 @@
 - [Avoid adding dummy data that is not asserted in the spec](samples/testing/2.rb)
 - Only enable `:js` when the feature absolutely requires javascript
 - [Prefer `have_text` over `have_content`](https://github.com/cookpad/global-digging/issues/2)
+- Prefer `data-role` attribute to [assert]/[count] element(s) over using class/ID in tests
+
+[assert]: samples/testing/4.md
+[count]: samples/testing/5.md
 
 ## I18n
 
