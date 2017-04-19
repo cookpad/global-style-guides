@@ -38,4 +38,4 @@ New ideas on how we can improve our development flow are always welcome!
 - When proposing a change or new concept, submit an issue or isolated PR on GitHub
 - Clearly show the before/after and any pain points that inspired the proposal
 - Allow the issue or PR to sit long enough for everyone to have a look
-- The [kaizen board](https://trello.com/b/dpyiKTut/kaizen) is a good place to go for "known pain points"
+- The [kaizen suggestions board](https://trello.com/b/dpyiKTut/kaizen) is a good place to go to submit ideas for improvements
