@@ -1,6 +1,8 @@
 ## Ruby
 
 - [Prefer method invocation over instance variables](samples/ruby/1.rb)
+- Prefer short, focused methods (aim for 1-liners, longer than 5 is a red flag)
+- Prefer small, focused classes (100+ lines is a red flag)
 
 ## Rails
 
