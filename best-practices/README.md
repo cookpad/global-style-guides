@@ -1,6 +1,7 @@
 ## Ruby
 
 - [Prefer method invocation over instance variables](samples/ruby/1.rb)
+- [Avoid using ternary operator](samples/ruby/2.rb)
 
 ## Rails
 
