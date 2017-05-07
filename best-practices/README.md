@@ -2,6 +2,8 @@
 
 - [Prefer method invocation over instance variables](samples/ruby/1.rb)
 - [Avoid using ternary operator](samples/ruby/2.rb)
+- Prefer short, focused methods (aim for 1-liners, longer than 5 is a red flag)
+- Prefer small, focused classes (100+ lines is a red flag)
 
 ## Rails
 
@@ -10,6 +12,7 @@
 - [Prefer extracting private methods over setting variables inside methods](samples/rails/1.rb)
 - [Extract long chains of unnamed conditions into named scopes or class methods](samples/rails/2.rb)
 - [Use a query object if a scope can be clarified by extracting private methods/needs additional state](samples/rails/3.rb)
+- [Prefer private methods over `before_action` to set instance variables](samples/rails/4.rb)
 
 ## SCSS
 
@@ -31,6 +34,7 @@
 - [Avoid adding dummy data that is not asserted in the spec](samples/testing/2.rb)
 - Only enable `:js` when the feature absolutely requires javascript
 - [Prefer `have_text` over `have_content`](https://github.com/cookpad/global-digging/issues/2)
+- [Prefer "descriptive" dummy data over realistic dummy data](samples/testing/4.rb)
 
 ## I18n
 
