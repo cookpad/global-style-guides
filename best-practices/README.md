@@ -34,6 +34,7 @@
 - Only enable `:js` when the feature absolutely requires javascript
 - [Prefer `have_text` over `have_content`](https://github.com/cookpad/global-digging/issues/2)
 - [Prefer "descriptive" dummy data over realistic dummy data](samples/testing/4.rb)
+- [Do not use _should_ when describing your tests](samples/testing/5.rb)
 
 ## I18n
 
