@@ -1,11 +1,8 @@
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
-    - config/unicorn/**/*
     - db/schema.rb
-    - db_chat/schema.rb
     - vendor/**/*
-    - lib/tasks/dodocook/**/*
 
 Metrics/LineLength:
   AllowHeredoc: true
