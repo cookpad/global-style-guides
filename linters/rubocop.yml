@@ -1,9 +1,3 @@
-AllCops:
-  TargetRubyVersion: 2.3
-  Exclude:
-    - db/schema.rb
-    - vendor/**/*
-
 Metrics/LineLength:
   AllowHeredoc: true
   AllowURI: true
