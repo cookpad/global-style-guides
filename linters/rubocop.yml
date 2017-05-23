@@ -302,3 +302,12 @@ PercentLiteralDelimiters:
     "%w": ()
     "%W": ()
     "%x": ()
+
+Rails/Output:
+  Enabled: true
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - db/**/*.rb
+    - lib/**/*.rb
+    - spec/**/*.rb
