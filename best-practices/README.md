@@ -47,3 +47,13 @@
 
 - When _changing data_ in production, don't use the console. Instead _create a rake task_ and submit it for review.
 - When _reading data_ from production, always use the _sandbox_ console: `bundle exec rails c -s production`
+
+## Rails
+
+- <a name="query-object"></a>
+  Query Object
+  <sup>[[link](#query-object)]</sup>
+
+  If the collection of scopes you are chaining has meaning (you can describe it in English) then it should at least be a scope. If the scope you write could be improved by being able to utilize state or private methods, then extract a query object. <sup>[Background][web-4143]</sup>
+
+  [web-4143]: https://github.com/cookpad/global-web/pull/4143
