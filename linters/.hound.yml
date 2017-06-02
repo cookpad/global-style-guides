@@ -1,0 +1,11 @@
+ruby:
+  enabled: true
+  config_file: .rubocop.yml
+coffee_script:
+  enabled: true
+  config_file: .coffeelint.json
+java_script:
+  enabled: false
+scss:
+  enabled: true
+  config_file: .scss-lint.yml
