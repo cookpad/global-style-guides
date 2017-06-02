@@ -1,3 +1,7 @@
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
 Metrics/LineLength:
   AllowHeredoc: true
   AllowURI: true
