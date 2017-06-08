@@ -1,6 +1,7 @@
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+    - config/routes*
 
 Metrics/LineLength:
   AllowHeredoc: true
