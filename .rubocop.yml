@@ -316,3 +316,6 @@ Rails/Output:
     - db/**/*.rb
     - lib/**/*.rb
     - spec/**/*.rb
+
+Rails/SkipsModelValidations:
+  Enabled: false
