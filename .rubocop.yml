@@ -316,3 +316,7 @@ Rails/Output:
     - db/**/*.rb
     - lib/**/*.rb
     - spec/**/*.rb
+
+Rails/HttpPositionalArguments:
+  Exclude:
+    - spec/requests/api/**/*.rb
