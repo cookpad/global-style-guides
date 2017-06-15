@@ -39,4 +39,3 @@ New ideas on how we can improve our development flow are always welcome!
 - Clearly show the before/after and any pain points that inspired the proposal
 - Allow the issue or PR to sit long enough for everyone to have a look
 - The [kaizen suggestions board](https://trello.com/b/dpyiKTut/kaizen) is a good place to go to submit ideas for improvements
-- When fixing conflicts in a PR **merge** the base branch instead of **rebasing** in order to prevent loosing review history and conflicts with other developers working on the same branch.

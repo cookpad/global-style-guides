@@ -47,3 +47,8 @@
 
 - When _changing data_ in production, don't use the console. Instead _create a rake task_ and submit it for review.
 - When _reading data_ from production, always use the _sandbox_ console: `bundle exec rails c -s production`
+
+## GitHub
+
+- When syncing with master, if the branch is under PR review or being collaborated on,
+  use `merge` instead of `rebase` to avoid losing relevant context/breaking other local branches
