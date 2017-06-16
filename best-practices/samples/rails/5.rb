@@ -5,8 +5,8 @@ end
 
 ## Good
 class Recipe
-  def published_on(date)
-    self.where(published_on: date)
+  def self.published_on(date)
+    where(published_on: date)
   end
 end
 
