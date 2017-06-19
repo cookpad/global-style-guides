@@ -1,7 +1,9 @@
 Metrics/BlockLength:
   Exclude:
-    - spec/**/*
-    - config/routes*
+    - spec/**/*.rb
+    - config/**/*.rb
+    - lib/tasks/**/*.rake
+    - Gemfile
 
 Metrics/LineLength:
   AllowHeredoc: true
