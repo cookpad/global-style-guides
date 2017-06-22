@@ -37,6 +37,7 @@
 - [Prefer `have_text` over `have_content`](https://groups.google.com/forum/#!topic/ruby-capybara/NH4HHEm7400)
 - [Prefer "descriptive" dummy data over realistic dummy data](samples/testing/4.rb)
 - [Do not use _should_ when describing your tests](samples/testing/5.rb)
+- [Avoid assertions tied to html classes](samples/testing/6.rb)
 
 ## I18n
 
