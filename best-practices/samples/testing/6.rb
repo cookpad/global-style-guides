@@ -10,11 +10,11 @@ expect(page).to have_text("Recipe Title", count: 3)
 
 
 ## Bad
-within(".download-banner") do
+within(".android-download-banner") do
   expect(page).to have_text("Download Here")
 end
 
 ## Good
-within("#download_banner") do
+within("#android_download_banner") do
   expect(page).to have_text("Download Here")
 end
