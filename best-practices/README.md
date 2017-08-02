@@ -54,3 +54,4 @@
 
 - When syncing with master, if the branch is under PR review or being collaborated on,
   use `merge` instead of `rebase` to avoid losing relevant context/breaking other local branches
+- Avoid pushing temporary data files or big binary files to GitHub.
