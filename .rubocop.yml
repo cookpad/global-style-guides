@@ -2,6 +2,7 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
     - config/**/*.rb
+    - db/migrate/*.rb
     - lib/tasks/**/*.rake
     - Gemfile
 
