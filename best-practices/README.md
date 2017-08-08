@@ -15,6 +15,10 @@
 - [Use a query object if a scope can be clarified by extracting private methods/needs additional state](samples/rails/3.rb)
 - [Prefer private methods over `before_action` to set instance variables](samples/rails/4.rb)
 
+## Rake Tasks
+
+- Avoid defining methods inside of Rake namespaces since this will define methods at the top level and interfere with things like factories
+
 ## SCSS
 
 - Use [BEM & OOCSS](/best-practices/bem)
