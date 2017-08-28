@@ -310,6 +310,8 @@ PercentLiteralDelimiters:
     "%w": ()
     "%W": ()
     "%x": ()
+  Exclude:
+    - spec/**/*
 
 Rails/Output:
   Enabled: true
