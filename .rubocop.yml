@@ -215,6 +215,9 @@ Style/TrailingCommaInArguments:
   Enabled: true
   EnforcedStyleForMultiline: no_comma
 
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 TrivialAccessors:
   Enabled: false
 
