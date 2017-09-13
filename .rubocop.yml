@@ -295,7 +295,7 @@ Lint/UselessAssignment:
   Exclude:
     - spec/**/*
 
-Style/EmptyLines:
+Layout/EmptyLines:
   Exclude:
     - spec/**/*
 
