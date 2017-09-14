@@ -10,11 +10,14 @@ expect(page).to have_text("Recipe Title", count: 3)
 
 
 ## Bad
-within(".android-download-banner") do
-  expect(page).to have_text("Download Here")
+within(".user-info") do
+  click_link("Edit")
 end
 
-## Good
-within("#android_download_banner") do
-  expect(page).to have_text("Download Here")
+## Better
+within("#user_info") do
+  click_link("Edit")
 end
+
+## Best
+click_link("Edit User Info") # f.ex using unambiguous title="Edit User Info" or aria-label="Edit User Info" attribute
