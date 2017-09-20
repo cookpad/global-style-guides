@@ -49,9 +49,6 @@ CharacterLiteral:
 ClassAndModuleChildren:
   Enabled: false
 
-ClassLength:
-  Enabled: false
-
 ClassVars:
   Enabled: false
 
@@ -132,9 +129,6 @@ LambdaCall:
   Enabled: false
 
 LineEndConcatenation:
-  Enabled: false
-
-MethodLength:
   Enabled: false
 
 ModuleFunction:
