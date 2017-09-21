@@ -1,11 +1,11 @@
 # Workflow
 
-Ensure [trello_flow](https://github.com/balvig/trello_flow) is installed and up to date <img src="https://badge.fury.io/rb/trello_flow.svg?style=flat" alt="Gem Version">
+Ensure [cp8_cli](https://github.com/balvig/cp8_cli) is installed and up to date <img src="https://badge.fury.io/rb/cp8_cli.svg?style=flat" alt="Gem Version">
 
 ## Stories
 
-1. `git start` to pick/create a story to work on in Trello
-2. `git finish` if done to submit a pull request for [code review](/code-review)
+1. `cp8 start <URL>` to start work on a Trello card / GitHub issue
+2. `cp8 submit` if done to open a pull request for [code review](/code-review)
 3. If necessary, [request and update translations](https://github.com/cookpad/global-web/blob/master/docs/operations.md#translations)
 4. After completing code review merge in GitHub and _deploy_
 
@@ -16,7 +16,7 @@ Ensure [trello_flow](https://github.com/balvig/trello_flow) is installed and up 
 It can often be helpful to start _early_ with a WIP pull request to get
 initial feedback.
 
-1. `git finish --wip` to submit a WIP pull request early to ask for help or feedback
+1. `cp8 submit --wip` to submit a WIP pull request early to ask for help or feedback
 2. Remove [WIP] from title when ready for final review
 
 ## Bigger releases ("epics")
@@ -28,7 +28,7 @@ branch_.  Reviewers will then be able to review each _smaller_ PR as they come i
 2. `git commit -m'init commit' --allow-empty` to add an empty commit
 3. `git push -u origin my_new_epic` to push to GitHub
 4. Create a PR from the new branch with information about the feature
-5. Running `git start` and `git finish` from a release branch will automatically target that branch instead of master
+5. Running `cp8 start` and `cp8 submit` from a release branch will automatically target that branch instead of master
 
 ## Discussions and ideas around development
 
@@ -38,4 +38,4 @@ New ideas on how we can improve our development flow are always welcome!
 - When proposing a change or new concept, submit an issue or isolated PR on GitHub
 - Clearly show the before/after and any pain points that inspired the proposal
 - Allow the issue or PR to sit long enough for everyone to have a look
-- The [kaizen suggestions board](https://trello.com/b/dpyiKTut/kaizen) is a good place to go to submit ideas for improvements
+- The [Developer Happiness Squad](https://github.com/cookpad/developer-happiness-squad) is a good place to go to submit ideas for improvements
