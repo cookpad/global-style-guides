@@ -42,6 +42,8 @@
 - [Prefer "descriptive" dummy data over realistic dummy data](samples/testing/4.rb)
 - [Do not use _should_ when describing your tests](samples/testing/5.rb)
 - [Avoid assertions tied to html classes](samples/testing/6.rb)
+- [Use `actor_does_what_spec.rb` naming convention for feature specs](samples/testing/7.rb)
+- [Prefer multiple short & focused specs, over fewer long specs](samples/testing/8.rb)
 
 ## I18n
 
