@@ -5,6 +5,7 @@
 - Prefer short, focused methods (aim for 1-liners, longer than 5 is a red flag)
 - Prefer small, focused classes (100+ lines is a red flag)
 - [Prefer extracting private methods over setting variables inside methods](samples/ruby/3.rb)
+- Prefer `$stdin`, `$stdout`, `$stderr` over `STDIN`, `STDOUT`, `STDERR`
 
 ## Rails
 
