@@ -262,9 +262,6 @@ ElseLayout:
 HandleExceptions:
   Enabled: false
 
-InvalidCharacterLiteral:
-  Enabled: false
-
 LiteralInCondition:
   Enabled: false
 
