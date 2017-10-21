@@ -161,9 +161,6 @@ NumericLiterals:
 OneLineConditional:
   Enabled: false
 
-OpMethod:
-  Enabled: false
-
 ParallelAssignment:
   Enabled: false
 
