@@ -259,9 +259,6 @@ ElseLayout:
 HandleExceptions:
   Enabled: false
 
-LiteralInCondition:
-  Enabled: false
-
 LiteralInInterpolation:
   Enabled: false
 
