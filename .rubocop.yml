@@ -309,3 +309,6 @@ Rails/Output:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+Rails/RequestReferer:
+  EnforcedStyle: referrer
