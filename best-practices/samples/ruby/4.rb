@@ -1,13 +1,9 @@
 ## Bad
-def run
-  mark_related_items(:spam) if spam_detected?
-end
+mark_related_items(:spam) if spam_detected?
 
 ## Good
-def run
-  if spam_detected?
-    mark_related_items(:spam)
-  end
+if spam_detected?
+  mark_related_items(:spam)
 end
 
 ## OK for guard clauses, separate by space
