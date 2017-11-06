@@ -11,5 +11,5 @@ def approve
   return if approved?
   return if unapprovable?
 
-  update!(approved: true)
+  update(approved: true)
 end
