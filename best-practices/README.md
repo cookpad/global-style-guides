@@ -1,63 +1,60 @@
-## Table of Contents
-
-- [Ruby](#ruby)
-- [Rails](#rails)
-- [SCSS](#scss)
-- [Javascript](#javascript)
-- [Testing](#testing)
-- [I18n](#i18n)
-- [Database operations](#database-operations)
-- [GitHub](#github)
-
 ## Ruby
 
 - <a name="prefer-method-invocation"></a>
   Prefer method invocation over instance variables
   <sup>[link](#prefer-method-invocation)</sup>
 
-  ```ruby
-  ## Bad
-  class MarkRecipe
-    def initialize(recipe)
-      @recipe = recipe
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    class MarkRecipe
+      def initialize(recipe)
+        @recipe = recipe
+      end
+
+      def run
+        @recipe.mark
+      end
     end
 
-    def run
-      @recipe.mark
+    ## Good
+    class MarkRecipe
+      def initialize(recipe)
+        @recipe = recipe
+      end
+
+      def run
+        recipe.mark
+      end
+
+      private
+
+        attr_reader :recipe
     end
-  end
-
-  ## Good
-  class MarkRecipe
-    def initialize(recipe)
-      @recipe = recipe
-    end
-
-    def run
-      recipe.mark
-    end
-
-    private
-
-      attr_reader :recipe
-  end
-  ```
+    ```
+  </details>
 
 - <a name="avoid-using-ternary"></a>
   Avoid using ternary operator
   <sup>[link](#avoid-using-ternary)</sup>
 
-  ```ruby
-  ## Bad
-  published? ? published_message : standard_message
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  if published?
-    published_message
-  else
-    standard_message
-  end
-  ```
+    ```ruby
+    ## Bad
+    published? ? published_message : standard_message
+
+    ## Good
+    if published?
+      published_message
+    else
+      standard_message
+    end
+    ```
+  </details>
 
 - <a name="prefer-short-methods"></a>
   Prefer short, focused methods (aim for 1-liners, longer than 5 is a red flag)
@@ -71,34 +68,38 @@
   Prefer extracting private methods over setting variables inside methods
   <sup>[link](#prefer-extracting-private)</sup>
 
-  ```ruby
-  ## Bad
-  def method
-    var_1 = # ...
-    var_2 = # ...
-    var_3 = # ...
-    var_1 + var_2 + var_3
-  end
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  def method
-    var_1 + var_2 + var_3
-  end
-
-    private
-
-    def var_1
-      # ...
+    ```ruby
+    ## Bad
+    def method
+      var_1 = # ...
+      var_2 = # ...
+      var_3 = # ...
+      var_1 + var_2 + var_3
     end
 
-    def var_2
-      # ...
+    ## Good
+    def method
+      var_1 + var_2 + var_3
     end
 
-    def var_3
-      # ...
-    end
-  ```
+      private
+
+      def var_1
+        # ...
+      end
+
+      def var_2
+        # ...
+      end
+
+      def var_3
+        # ...
+      end
+    ```
+  </details>
 
 - <a name="prefer-dollars"></a>
   Prefer `$stdin`, `$stdout`, `$stderr` over `STDIN`, `STDOUT`, `STDERR`
@@ -108,23 +109,27 @@
   Avoid lines that end with conditionals (exception is guard clauses)
   <sup>[link](#avoid-trailing-conditional)</sup>
 
-  ```ruby
-  ## Bad
-  mark_related_items(:spam) if spam_detected?
+  <details>
+    <summary>Example</summary>
 
-  ## Good
-  if spam_detected?
-    mark_related_items(:spam)
-  end
+    ```ruby
+    ## Bad
+    mark_related_items(:spam) if spam_detected?
 
-  ## OK for guard clauses, separate by space
-  def approve
-    return if approved?
-    return if unapprovable?
+    ## Good
+    if spam_detected?
+      mark_related_items(:spam)
+    end
 
-    update(approved: true)
-  end
-  ```
+    ## OK for guard clauses, separate by space
+    def approve
+      return if approved?
+      return if unapprovable?
+
+      update(approved: true)
+    end
+    ```
+  </details>
 
 ## Rails
 
@@ -136,190 +141,212 @@
   Extract long chains of unnamed conditions into named scopes or class methods
   <sup>[link](#extract-long-chains)</sup>
 
-  ```ruby
-  ## Bad
-  def index
-    @recipes = Recipe.where(published: true).where.not(approved_at: nil)
-  end
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  class Recipe
-    scope :published, -> { where(published: true) }
-    scope :approved, -> { where.not(approved_at: nil) }
-    scope :live, -> { published.approved }
-  end
+    ```ruby
+    ## Bad
+    def index
+      @recipes = Recipe.where(published: true).where.not(approved_at: nil)
+    end
 
-  def index
-    @recipes = Recipe.live
-  end
-  ```
+    ## Good
+    class Recipe
+      scope :published, -> { where(published: true) }
+      scope :approved, -> { where.not(approved_at: nil) }
+      scope :live, -> { published.approved }
+    end
+
+    def index
+      @recipes = Recipe.live
+    end
+    ```
+  </details>
 
 - <a name="prefer-class-methods-over-scope"></a>
   Prefer class method over scope if the scope takes an argument or spans multiple lines
   <sup>[link](#prefer-class-methods-over-scope)</sup>
 
-  ```ruby
-  ## Bad
-  class Recipe
-    scope :published_on, -> (date) { where(published_on: date) }
-  end
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  class Recipe
-    def self.published_on(date)
-      where(published_on: date)
+    ```ruby
+    ## Bad
+    class Recipe
+      scope :published_on, -> (date) { where(published_on: date) }
     end
-  end
 
-  ## Bad
-  class Recipe
-    scope :fresh, -> {
-      recently_active.
-        published(4.weeks.ago).
-        popular.
-        approved
-    }
-  end
-
-  ## Good
-  class Recipe
-    def self.fresh
-      recently_active.
-        published(4.weeks.ago).
-        popular.
-        approved
+    ## Good
+    class Recipe
+      def self.published_on(date)
+        where(published_on: date)
+      end
     end
-  end
-  ```
+
+    ## Bad
+    class Recipe
+      scope :fresh, -> {
+        recently_active.
+          published(4.weeks.ago).
+          popular.
+          approved
+      }
+    end
+
+    ## Good
+    class Recipe
+      def self.fresh
+        recently_active.
+          published(4.weeks.ago).
+          popular.
+          approved
+      end
+    end
+    ```
+  </details>
 
 - <a name="use-query-object"></a>
   Use a query object if a scope can be clarified by extracting private methods/needs additional state
   <sup>[link](#use-query-object)</sup>
 
-  ```ruby
-  ## Bad
-  class Recipe
-    def self.local
-      radius_maximum = Config.radius_maximum
-      distance = radius_maximum  / (Math::PI * 6371)
-      where(distance: distance)
-    end
-  end
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  class Recipe
-    def self.local
-      GeoSquareQuery.new(self).to_relation
-    end
-  end
-
-  class GeoSquareQuery
-    EARTH_RADIUS_IN_KM = 6371
-
-    def initialize(relation)
-      @relation = relation
+    ```ruby
+    ## Bad
+    class Recipe
+      def self.local
+        radius_maximum = Config.radius_maximum
+        distance = radius_maximum  / (Math::PI * 6371)
+        where(distance: distance)
+      end
     end
 
-    def to_relation
-      relation.where(distance: distance)
+    ## Good
+    class Recipe
+      def self.local
+        GeoSquareQuery.new(self).to_relation
+      end
     end
 
-    private
+    class GeoSquareQuery
+      EARTH_RADIUS_IN_KM = 6371
 
-      attr_reader :relation
-
-      def distance
-        radius_maximum / (Math::PI * EARTH_RADIUS_IN_KM)
+      def initialize(relation)
+        @relation = relation
       end
 
-      def radius_maximum
-        Config.radius_maximum
+      def to_relation
+        relation.where(distance: distance)
       end
-  end
-  ```
+
+      private
+
+        attr_reader :relation
+
+        def distance
+          radius_maximum / (Math::PI * EARTH_RADIUS_IN_KM)
+        end
+
+        def radius_maximum
+          Config.radius_maximum
+        end
+    end
+    ```
+  </details>
 
 - <a name="prefer-private-methods"></a>
   Prefer private methods over `before_action` to set instance variables
   <sup>[link](#prefer-private-methods)</sup>
 
-  When setting context:
+  <details>
+    <summary><em>Example (when setting context)</em></summary>
 
-  ```ruby
-  ## Bad
-  class EntriesController < ApplicationController
-    before_action :set_contest
+    ```ruby
+    ## Bad
+    class EntriesController < ApplicationController
+      before_action :set_contest
 
-    def index
-      @entries = @contest.entries
-    end
-
-    private
-
-      def set_contest
-        @contest = Contest.find(params[:contest_id])
+      def index
+        @entries = @contest.entries
       end
-  end
 
-  ## Good
-  class EntriesController < ApplicationController
-    def index
-      @entries = contest.entries
+      private
+
+        def set_contest
+          @contest = Contest.find(params[:contest_id])
+        end
     end
 
-    private
-
-      def contest
-        @_contest ||= Contest.find(params[:contest_id])
+    ## Good
+    class EntriesController < ApplicationController
+      def index
+        @entries = contest.entries
       end
-  end
-  ```
 
-  When assiging vars to use in view:
+      private
 
-  ```ruby
-  ## Bad
-  class EntriesController < ApplicationController
-    before_action :set_entry
+        def contest
+          @_contest ||= Contest.find(params[:contest_id])
+        end
+    end
+    ```
+  </details>
 
-    def show
+  <details>
+    <summary><em>Example (when assiging vars to use in view)</em></summary>
+
+    ```ruby
+    ## Bad
+    class EntriesController < ApplicationController
+      before_action :set_entry
+
+      def show
+      end
+
+      private
+
+        def set_entry
+          @entry = contest.entries.find(params[:id])
+        end
     end
 
-    private
-
-      def set_entry
+    ## Good
+    class EntriesController < ApplicationController
+      def show
         @entry = contest.entries.find(params[:id])
       end
-  end
-
-  ## Good
-  class EntriesController < ApplicationController
-    def show
-      @entry = contest.entries.find(params[:id])
     end
-  end
+    ```
+  </details>
 
-  ## If particular complicated/used more than once in the controller:
-  class EntriesController < ApplicationController
-    def show
-      @entry = entry
-    end
+  <details>
+    <summary><em>Example (when particular complicated/used more than once in the controller)</em></summary>
 
-    def update
-      @entry = entry
-      if @entry.update(entry_params)
-        redirect_to @entry
-      else
-        render :edit
+    ```ruby
+    ## If particular complicated/used more than once in the controller:
+    class EntriesController < ApplicationController
+      def show
+        @entry = entry
       end
-    end
 
-    private
-
-      def entry
-        @_entry ||=  contest.entries.published.active.find(params[:id])
+      def update
+        @entry = entry
+        if @entry.update(entry_params)
+          redirect_to @entry
+        else
+          render :edit
+        end
       end
-  end
-  ```
+
+      private
+
+        def entry
+          @_entry ||=  contest.entries.published.active.find(params[:id])
+        end
+    end
+    ```
+  </details>
 
 - <a name="prefer-private-methods"></a>
   Prefer private methods over `before_action` to set instance variables
@@ -370,116 +397,128 @@
   Avoid using `context`
   <sup>[link](#avoid-using-context)</sup>
 
-  ```ruby
-  ## Bad
-  context "when condition A" do
-    before do
-      # setup for condition A
-    end
+  <details>
+    <summary><em>Example</em></summary>
 
-    it "does something a" do
-      # ...
-    end
-
-    it "does something b" do
-      # ...
-    end
-
-    context "and another condition B" do
+    ```ruby
+    ## Bad
+    context "when condition A" do
       before do
-        # setup for condition B
+        # setup for condition A
       end
 
-      it "does something c" do
-        # ...where am I? What setup has been done?
+      it "does something a" do
+        # ...
+      end
+
+      it "does something b" do
+        # ...
+      end
+
+      context "and another condition B" do
+        before do
+          # setup for condition B
+        end
+
+        it "does something c" do
+          # ...where am I? What setup has been done?
+        end
       end
     end
-  end
 
-  ## Good
-  it "does something a when condition A" do
-    # setup for condition A
-    # expect a
-  end
-
-  it "does something b when condition A" do
-    # setup for condition A
-    # expect b
-  end
-
-  it "does something c when condition A and condition B" do
-    # setup for condition A
-    # setup for condition B
-    # expect c
-  end
-  ```
-
-  If setup is kind of tedious, then we can introduce a helper method:
-
-  ```ruby
-  it "does something a when condition A" do
-    setup_condition_a
-    # expect a
-  end
-
-  it "does something b when condition A" do
-    setup_condition_a
-    # expect b
-  end
-
-  private
-
-    def setup_condition_A
-      # ...
+    ## Good
+    it "does something a when condition A" do
+      # setup for condition A
+      # expect a
     end
-  ```
+
+    it "does something b when condition A" do
+      # setup for condition A
+      # expect b
+    end
+
+    it "does something c when condition A and condition B" do
+      # setup for condition A
+      # setup for condition B
+      # expect c
+    end
+    ```
+
+    If setup is tedious, then we can introduce a helper method:
+
+    ```ruby
+    it "does something a when condition A" do
+      setup_condition_a
+      # expect a
+    end
+
+    it "does something b when condition A" do
+      setup_condition_a
+      # expect b
+    end
+
+    private
+
+      def setup_condition_A
+        # ...
+      end
+    ```
+  </details>
 
 - <a name="avoid-using-let"></a>
   Avoid using `let`
   <sup>[link](#avoid-using-let)</sup>
 
-  ```ruby
-  ## Bad
-  let(:recipe) { create(:recipe) }
+  <details>
+    <summary><em>Example</em></summary>
 
-  it "does something" do
-  end
+    ```ruby
+    ## Bad
+    let(:recipe) { create(:recipe) }
 
-  it "does something" do
-  end
+    it "does something" do
+    end
 
-  it "does something" do
-  end
+    it "does something" do
+    end
 
-  it "does something" do
-  end
+    it "does something" do
+    end
 
-  it "spec faaaar down the page" do
-    recipe.publish # huh? where does this recipe come from?
-  end
+    it "does something" do
+    end
 
-  ## Good
-  it "does something" do
-    recipe = create(:recipe)
-    recipe.publish
-  end
-  ```
+    it "spec faaaar down the page" do
+      recipe.publish # huh? where does this recipe come from?
+    end
+
+    ## Good
+    it "does something" do
+      recipe = create(:recipe)
+      recipe.publish
+    end
+    ```
+  </details>
 
 - <a name="avoid-unused-dummy-data"></a>
   Avoid adding dummy data that is not asserted in the spec
   <sup>[link](#avoid-unused-dummy-data)</sup>
 
-  ```ruby
-  ## Bad
-  user = create(:user, name: "Name", profile_message: "Not Asserted")
-  login(user)
-  expect(page).to have_text("Name")
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  user = create(:user, name: "Name")
-  login(user)
-  expect(page).to have_text("Name")
-  ```
+    ```ruby
+    ## Bad
+    user = create(:user, name: "Name", profile_message: "Not Asserted")
+    login(user)
+    expect(page).to have_text("Name")
+
+    ## Good
+    user = create(:user, name: "Name")
+    login(user)
+    expect(page).to have_text("Name")
+    ```
+  </details>
 
 - <a name="only-enable-js-when-needed"></a>
   Only enable `:js` when the feature absolutely requires javascript
@@ -493,170 +532,190 @@
   Prefer "descriptive" dummy data over realistic dummy data
   <sup>[link](#prefer-descriptive-dummy-data)</sup>
 
-  ```ruby
-  ## Bad
-  alice = create(:user, name: "Alice")
-  alice.friends << create(:user, name: "Bob")
-  create(:user, name: "Mary")
+  <details>
+    <summary><em>Example</em></summary>
 
-  visit friends_path(alice)
-  expect(page).to have_text("Bob")
-  expect(page).to_not have_text("Mary") # Who is Bob/Mary and how are they related again?
+    ```ruby
+    ## Bad
+    alice = create(:user, name: "Alice")
+    alice.friends << create(:user, name: "Bob")
+    create(:user, name: "Mary")
 
-  ## Good
-  user = create(:user)
-  user.friends << create(:user, name: "Friend of User")
-  create(:user, name: "Not Friend of User")
+    visit friends_path(alice)
+    expect(page).to have_text("Bob")
+    expect(page).to_not have_text("Mary") # Who is Bob/Mary and how are they related again?
 
-  visit friends_path(user)
-  expect(page).to have_text("Friend of User")
-  expect(page).to_not have_text("Not Friend of User")
-  ```
+    ## Good
+    user = create(:user)
+    user.friends << create(:user, name: "Friend of User")
+    create(:user, name: "Not Friend of User")
+
+    visit friends_path(user)
+    expect(page).to have_text("Friend of User")
+    expect(page).to_not have_text("Not Friend of User")
+    ```
+  </details>
 
 - <a name="do-not-use-should"></a>
   Do not use _should_ when describing your tests
   <sup>[link](#do-not-use-should)</sup>
 
-  ```ruby
-  ## Bad
+  <details>
+    <summary><em>Example</em></summary>
 
-  it "should deliver email" do
-  end
+    ```ruby
+    ## Bad
 
-  it "should not deliver email when user prints a recipe" do
-  end
+    it "should deliver email" do
+    end
 
-  it "should only send email that has been activated" do
-  end
+    it "should not deliver email when user prints a recipe" do
+    end
 
-  it "should be enabled" do
-  end
+    it "should only send email that has been activated" do
+    end
 
-  it "should have custom headers" do
-  end
+    it "should be enabled" do
+    end
 
-  it "should by default be true" do
-  end
+    it "should have custom headers" do
+    end
 
-  ## Good
+    it "should by default be true" do
+    end
 
-  it "delivers email" do
-  end
+    ## Good
 
-  it "does not deliver email when user prints a recipe" do
-  end
+    it "delivers email" do
+    end
 
-  it "only sends email that has been activated" do
-  end
+    it "does not deliver email when user prints a recipe" do
+    end
 
-  it "is enabled" do
-  end
+    it "only sends email that has been activated" do
+    end
 
-  it "has custom headers" do
-  end
+    it "is enabled" do
+    end
 
-  it "defaults to true" do
-  end
-  ```
+    it "has custom headers" do
+    end
+
+    it "defaults to true" do
+    end
+    ```
+  </details>
 
 - <a name="avoid-assertions-on-classes"></a>
   Avoid assertions tied to html classes
   <sup>[link](#avoid-assertions-on-classes)</sup>
 
-  ```ruby
-  ## Bad
-  create_list(3, :recipe)
-  visit recipes_path
-  expect(page).to have_css(".recipe", count: 3)
+  <details>
+    <summary><em>Example</em></summary>
 
-  ## Good
-  create_list(3, :recipe, title: "Recipe Title")
-  visit recipes_path
-  expect(page).to have_text("Recipe Title", count: 3)
+    ```ruby
+    ## Bad
+    create_list(3, :recipe)
+    visit recipes_path
+    expect(page).to have_css(".recipe", count: 3)
+
+    ## Good
+    create_list(3, :recipe, title: "Recipe Title")
+    visit recipes_path
+    expect(page).to have_text("Recipe Title", count: 3)
 
 
-  ## Bad
-  within(".user-info") do
-    click_link("Edit")
-  end
+    ## Bad
+    within(".user-info") do
+      click_link("Edit")
+    end
 
-  ## Better
-  within("#user_info") do
-    click_link("Edit")
-  end
+    ## Better
+    within("#user_info") do
+      click_link("Edit")
+    end
 
-  ## Best
-  click_link("Edit User Info") # f.ex using unambiguous title="Edit User Info" or aria-label="Edit User Info" attribute
-  ```
+    ## Best
+    click_link("Edit User Info") # f.ex using unambiguous title="Edit User Info" or aria-label="Edit User Info" attribute
+    ```
+  </details>
 
 - <a name="use-actor-does-what"></a>
   Use `actor_does_what_spec.rb` naming convention for feature specs
   <sup>[link](#use-actor-does-what)</sup>
 
-  ```ruby
-  ## Bad
-  # /features/recipes_spec.rb
-  feature "Recipes" do
-    scenario "Author viewing own recipe shows welcome message" do
-      # ...
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    # /features/recipes_spec.rb
+    feature "Recipes" do
+      scenario "Author viewing own recipe shows welcome message" do
+        # ...
+      end
+
+      scenario "Author has already seen welcome message" do
+        # ...
+      end
     end
 
-    scenario "Author has already seen welcome message" do
-      # ...
-    end
-  end
+    ## Good
+    # /features/author_views_recipe_spec.rb
+    feature "Author views recipe" do
+      scenario "Shows welcome message" do
+        # ...
+      end
 
-  ## Good
-  # /features/author_views_recipe_spec.rb
-  feature "Author views recipe" do
-    scenario "Shows welcome message" do
-      # ...
+      scenario "Already seen welcome message" do
+        # ...
+      end
     end
-
-    scenario "Already seen welcome message" do
-      # ...
-    end
-  end
-  ```
+    ```
+  </details>
 
 - <a name="prefer-multiple-short-specs"></a>
   Prefer multiple short & focused specs, over fewer long specs
   <sup>[link](#prefer-multiple-short-specs)</sup>
 
-  ```ruby
-  ## Bad
-  scenario "Bookmarking and unbookmarking a recipe" do
-    recipe = create(:recipe)
+  <details>
+    <summary><em>Example</em></summary>
 
-    visit recipe_path(recipe)
-    click_link t("recipes.show.bookmark_link")
+    ```ruby
+    ## Bad
+    scenario "Bookmarking and unbookmarking a recipe" do
+      recipe = create(:recipe)
 
-    expect(page).to have_text(t("bookmarks.bookmarked"))
+      visit recipe_path(recipe)
+      click_link t("recipes.show.bookmark_link")
 
-    click_link t("recipes.show.unbookmark_link")
+      expect(page).to have_text(t("bookmarks.bookmarked"))
 
-    expect(page).to have_text(t("bookmarks.unbookmarked"))
-  end
+      click_link t("recipes.show.unbookmark_link")
 
-  ## Good
-  scenario "Bookmarking a recipe" do
-    recipe = create(:recipe)
+      expect(page).to have_text(t("bookmarks.unbookmarked"))
+    end
 
-    visit recipe_path(recipe)
-    click_link t("recipes.show.bookmark_link")
+    ## Good
+    scenario "Bookmarking a recipe" do
+      recipe = create(:recipe)
 
-    expect(page).to have_text(t("bookmarks.bookmarked"))
-  end
+      visit recipe_path(recipe)
+      click_link t("recipes.show.bookmark_link")
 
-  scenario "Unbookmarking a recipe" do
-    bookmark = create(:bookmark)
+      expect(page).to have_text(t("bookmarks.bookmarked"))
+    end
 
-    visit recipe_path(bookmark.recipe)
-    click_link t("recipes.show.unbookmark_link")
+    scenario "Unbookmarking a recipe" do
+      bookmark = create(:bookmark)
 
-    expect(page).to have_text(t("bookmarks.unbookmarked"))
-  end
-  ```
+      visit recipe_path(bookmark.recipe)
+      click_link t("recipes.show.unbookmark_link")
+
+      expect(page).to have_text(t("bookmarks.unbookmarked"))
+    end
+    ```
+  </details>
 
 ## I18n
 
