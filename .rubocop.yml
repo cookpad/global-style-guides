@@ -312,3 +312,11 @@ Rails/SkipsModelValidations:
 
 Rails/RequestReferer:
   EnforcedStyle: referrer
+
+Rails/UnknownEnv:
+  Environments:
+  - production
+  - beta
+  - staging
+  - development
+  - test
