@@ -103,7 +103,7 @@
 
 - <a name="prefer-dollars"></a>
   Prefer `$stdin`, `$stdout`, `$stderr` over `STDIN`, `STDOUT`, `STDERR`
-  <sup>[link](prefer-dollars#)</sup>
+  <sup>[link](#prefer-dollars)</sup>
 
 - <a name="avoid-trailing-conditional"></a>
   Avoid lines that end with conditionals (exception is guard clauses)
