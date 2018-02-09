@@ -717,6 +717,24 @@
     ```
   </details>
 
+- <a name="use-i18n"></a>
+  Use I18n helpers when clicking/asserting
+  <sup>[link](#use-i18n)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    click_link "Sign up"
+    expect(page).to have_text("Welcome!")
+
+    ## Good
+    click_link t("signups.new.signup_button")
+    expect(page).to have_text t("signups.create.welcome_message")
+    ```
+  </details>
+
 ## I18n
 
 - <a name="use-fully-qualified"></a>
