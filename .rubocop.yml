@@ -201,7 +201,11 @@ Style/SpecialGlobalVars:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInHashLiteral:
   Enabled: true
   EnforcedStyleForMultiline: no_comma
 
