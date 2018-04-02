@@ -302,6 +302,9 @@ Style/PercentLiteralDelimiters:
     "%W": ()
     "%x": ()
 
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
 Rails/Output:
   Enabled: true
   Include:
