@@ -246,7 +246,7 @@ Lint/AmbiguousRegexpLiteral:
 Lint/AssignmentInCondition:
   Enabled: false
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: false
 
 Lint/DeprecatedClassMethods:
