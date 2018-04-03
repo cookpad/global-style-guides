@@ -131,6 +131,59 @@
     ```
   </details>
 
+- <a name="memoized-instance-variable-name"></a>
+  In memoized methods, use a instance variable that matches the method name prefixed with an underscore  
+  <sup>[link](#memoized-instance-variable-name)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    def author
+      @_user ||= User.find(params[:id])
+    end
+    
+    ## Bad
+    def author
+      @author ||= User.find(params[:id])
+    end
+    
+    ## Good
+    def author
+      @_author ||= User.find(params[:id])
+    end
+    
+    ## For Rails views, if you need an instance variable assign it in the action
+    
+    ## Bad
+    class RecipesController < ApplicationController
+      def show
+        author
+      end
+    
+      private
+    
+        def author
+          @author ||= User.find(params[:id])
+        end
+    end
+    
+    ## Good
+    class RecipesController < ApplicationController
+      def show
+        @author = author
+      end
+    
+      private
+    
+        def author
+          @_author ||= User.find(params[:id])
+        end
+    end
+    ```
+  </details>
+
 ## Rails
 
 - <a name="prefer-time-current"></a>
