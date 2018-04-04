@@ -153,34 +153,6 @@
     def author
       @_author ||= User.find(params[:id])
     end
-    
-    ## For Rails views, if you need an instance variable assign it in the action
-    
-    ## Bad
-    class RecipesController < ApplicationController
-      def show
-        author
-      end
-    
-      private
-    
-        def author
-          @author ||= User.find(params[:id])
-        end
-    end
-    
-    ## Good
-    class RecipesController < ApplicationController
-      def show
-        @author = author
-      end
-    
-      private
-    
-        def author
-          @_author ||= User.find(params[:id])
-        end
-    end
     ```
   </details>
 
