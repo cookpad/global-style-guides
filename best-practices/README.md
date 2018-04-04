@@ -131,6 +131,31 @@
     ```
   </details>
 
+- <a name="memoized-instance-variable-name"></a>
+  In memoized methods, use an instance variable that matches the method name prefixed with an underscore  
+  <sup>[link](#memoized-instance-variable-name)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    def author
+      @_user ||= User.find(params[:id])
+    end
+    
+    ## Bad
+    def author
+      @author ||= User.find(params[:id])
+    end
+    
+    ## Good
+    def author
+      @_author ||= User.find(params[:id])
+    end
+    ```
+  </details>
+
 ## Rails
 
 - <a name="prefer-time-current"></a>
