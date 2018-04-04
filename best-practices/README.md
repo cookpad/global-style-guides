@@ -132,7 +132,7 @@
   </details>
 
 - <a name="memoized-instance-variable-name"></a>
-  In memoized methods, use a instance variable that matches the method name prefixed with an underscore  
+  In memoized methods, use an instance variable that matches the method name prefixed with an underscore  
   <sup>[link](#memoized-instance-variable-name)</sup>
 
   <details>
