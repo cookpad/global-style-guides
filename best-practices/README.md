@@ -132,7 +132,7 @@
   </details>
 
 - <a name="memoized-instance-variable-name"></a>
-  In memoized methods, use an instance variable that matches the method name prefixed with an underscore  
+  In memoized methods, use an instance variable that matches the method name prefixed with an underscore
   <sup>[link](#memoized-instance-variable-name)</sup>
 
   <details>
@@ -143,12 +143,12 @@
     def author
       @_user ||= User.find(params[:id])
     end
-    
+
     ## Bad
     def author
       @author ||= User.find(params[:id])
     end
-    
+
     ## Good
     def author
       @_author ||= User.find(params[:id])
@@ -373,9 +373,37 @@
     ```
   </details>
 
-- <a name="prefer-private-methods"></a>
-  Prefer private methods over `before_action` to set instance variables
-  <sup>[link](#prefer-private-methods)</sup>
+- <a name="prefer-rest-verbs"></a>
+  Prefer adding new controllers with RESTful actions over using custom actions
+  <sup>[link](#prefer-rest-verbs)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    class UserController < ApplicationController
+      def ban
+        user.ban
+      end
+
+      def unban
+        user.unban
+      end
+    end
+
+    ## Good
+    class BansController < ApplicationController
+      def create
+        user.ban
+      end
+
+      def destroy
+        user.unban
+      end
+    end
+    ```
+  </details>
 
 ## Rake Tasks
 
