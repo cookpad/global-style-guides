@@ -25,7 +25,7 @@ Code review is [the discipline of explaining your code to your peers](https://ww
 - Be aware of _negativity bias_. Ask, don't tell.
 - Identify ways to simplify the code while still solving the problem
 - Communicate which ideas you feel strongly about and those you don't
-- Consider switching to Slack/Call if higher bandwith communication is needed
+- Consider switching to Slack/Zoom if higher bandwith communication is needed
 - Use the GitHub review tool: Only use _approve_ or _changes requested_ so your intention is clear
 - Follow up on changes you request
 - Help get the PR to a state where it can be approved
