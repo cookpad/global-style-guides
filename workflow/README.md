@@ -4,31 +4,14 @@ Ensure [cp8_cli](https://github.com/balvig/cp8_cli) is installed and up to date 
 
 ## Stories
 
-1. `cp8 start <URL>` to start work on a Trello card / GitHub issue
-2. `cp8 submit` if done to open a pull request for [code review](/code-review)
-3. If necessary, [request and update translations](https://github.com/cookpad/global-web/blob/master/docs/operations.md#translations)
-4. After completing code review merge in GitHub and _deploy_
+1. `cp8 start <URL>` to start work on a GitHub issue
+2. `cp8 start "Title of story"` to start an adhoc story
+3. `cp8 open` to open associated WIP pull request
+4. Remove [WIP] from title when ready for [code review](/code-review)
+5. If necessary, [request and update translations](https://github.com/cookpad/global-web/blob/master/docs/operations.md#translations)
+6. After completing code review merge in GitHub and _deploy_
 
 **NOTE:** It is vital to deploy right after merging new code, so that _you_ can follow up on any bugs/issues, instead of it becoming the problem of the next person to deploy.
-
-## WIP branches
-
-It can often be helpful to start _early_ with a WIP pull request to get
-initial feedback.
-
-1. `cp8 submit --wip` to submit a WIP pull request early to ask for help or feedback
-2. Remove [WIP] from title when ready for final review
-
-## Bigger releases ("epics")
-
-For bigger features that consist of multiple stories that need to be released together, create a _release
-branch_.  Reviewers will then be able to review each _smaller_ PR as they come in.
-
-1. `git co -b my_new_epic` to start a release branch
-2. `git commit -m'init commit' --allow-empty` to add an empty commit
-3. `git push -u origin my_new_epic` to push to GitHub
-4. Create a PR from the new branch with information about the feature
-5. Running `cp8 start` and `cp8 submit` from a release branch will automatically target that branch instead of master
 
 ## Discussions and ideas around development
 
@@ -38,4 +21,3 @@ New ideas on how we can improve our development flow are always welcome!
 - When proposing a change or new concept, submit an issue or isolated PR on GitHub
 - Clearly show the before/after and any pain points that inspired the proposal
 - Allow the issue or PR to sit long enough for everyone to have a look
-- The [Developer Happiness Squad](https://github.com/cookpad/developer-happiness-squad) is a good place to go to submit ideas for improvements
