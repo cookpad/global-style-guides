@@ -319,3 +319,6 @@ Rails/SkipsModelValidations:
 
 Rails/RequestReferer:
   EnforcedStyle: referrer
+
+Rails/DynamicFindBy:
+  Enabled: false
