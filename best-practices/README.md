@@ -409,7 +409,7 @@
 
 <a name="avoid-methods-inside-rake-namespace"></a>
 - Avoid defining methods inside of Rake namespaces. This will define methods at the top level and interfere with things like factories.
-- Avoid writing logic in rake tasks, use a class instead.
+- Avoid writing permanent logic in rake tasks, use a class instead.
   <details>
     <summary><em>Example</em></summary>
 
