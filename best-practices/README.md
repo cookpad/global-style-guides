@@ -426,7 +426,7 @@
     namespace :users do
       desc "Decrements all users rank"
       task decrement_rank: :environment do
-        User.all.decrement_rank!
+        User.decrement_all_ranks
       end
     end
     ```
