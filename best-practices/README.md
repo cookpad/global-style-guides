@@ -831,28 +831,28 @@
   </details>
   
   - <a name="use-minutes"></a>
-  Use minutes instead of second when a setting timestamps to asserting on results order
-  <sup>[link](#use-minutes)</sup>
+    Use minutes instead of second when a setting timestamps to asserting on results order
+    <sup>[link](#use-minutes)</sup>
 
-  <details>
-    <summary><em>Example</em></summary>
+    <details>
+      <summary><em>Example</em></summary>
 
-    ```ruby
-    ## Bad
-    older_recipe = create(:recipe, published_at: 2.seconds.ago)
-    newest_recipe = create(:recipe, published_at: 1.second.ago)
-    
-    expect(Recipe.recently_published.first).to eq(newest_recipe)
-    expect(Recipe.recently_published.last).to eq(older_recipe)
+      ```ruby
+      ## Bad
+      older_recipe = create(:recipe, published_at: 2.seconds.ago)
+      newest_recipe = create(:recipe, published_at: 1.second.ago)
 
-    ## Good
-    older_recipe = create(:recipe, published_at: 2.minutes.ago)
-    newest_recipe = create(:recipe, published_at: 1.minute.ago)
-    
-    expect(Recipe.recently_published.first).to eq(newest_recipe)
-    expect(Recipe.recently_published.last).to eq(older_recipe)
-    ```
-  </details>
+      expect(Recipe.recently_published.first).to eq(newest_recipe)
+      expect(Recipe.recently_published.last).to eq(older_recipe)
+
+      ## Good
+      older_recipe = create(:recipe, published_at: 2.minutes.ago)
+      newest_recipe = create(:recipe, published_at: 1.minute.ago)
+
+      expect(Recipe.recently_published.first).to eq(newest_recipe)
+      expect(Recipe.recently_published.last).to eq(older_recipe)
+      ```
+    </details>
 
 ## I18n
 
