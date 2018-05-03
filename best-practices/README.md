@@ -407,9 +407,15 @@
 
 ## Rake Tasks
 
-<a name="avoid-methods-inside-rake-namespace"></a>
-- Avoid defining methods inside of Rake namespaces. This will define methods at the top level and interfere with things like factories.
-- Avoid writing permanent logic in rake tasks, use a class instead.
+- <a name="avoid-methods-inside-rake-namespace"></a>
+  Avoid defining methods inside of Rake namespaces. This will define methods at the top level and interfere with things
+  like factories.
+  <sup>[link](#avoid-methods-inside-rake-namespace)</sup>
+
+- <a name="avoid-permanent-rake-logic"></a>
+  Except in one offs, avoid defining new logic in rake tasks, use a class instead.
+  <sup>[link](#avoid-permanent-rake-logic)</sup>
+
   <details>
     <summary><em>Example</em></summary>
 
@@ -431,8 +437,6 @@
     end
     ```
   </details>
-
-<sup>[link](#avoid-methods-inside-rake-namespace)</sup>
 
 ## SCSS
 
