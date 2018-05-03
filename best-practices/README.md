@@ -831,7 +831,7 @@
   </details>
   
 - <a name="use-minutes"></a>
-  Use minutes instead of second when a setting timestamps to asserting on results order
+  Use minutes instead of seconds when setting timestamps for the purpose of asserting the order of results
   <sup>[link](#use-minutes)</sup>
 
   <details>
