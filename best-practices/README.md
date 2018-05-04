@@ -829,6 +829,30 @@
     expect(page).to have_text t("signups.create.welcome_message")
     ```
   </details>
+  
+- <a name="use-minutes"></a>
+  Use minutes instead of seconds when setting timestamps for the purpose of asserting the order of results
+  <sup>[link](#use-minutes)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad: Causes random failures depending on the timing of each step
+    older_recipe = create(:recipe, published_at: 2.seconds.ago)
+    newest_recipe = create(:recipe, published_at: 1.second.ago)
+
+    expect(Recipe.recently_published.first).to eq(newest_recipe)
+    expect(Recipe.recently_published.last).to eq(older_recipe)
+
+    ## Good
+    older_recipe = create(:recipe, published_at: 2.minutes.ago)
+    newest_recipe = create(:recipe, published_at: 1.minute.ago)
+
+    expect(Recipe.recently_published.first).to eq(newest_recipe)
+    expect(Recipe.recently_published.last).to eq(older_recipe)
+    ```
+  </details>
 
 ## I18n
 
