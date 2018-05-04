@@ -838,7 +838,7 @@
     <summary><em>Example</em></summary>
 
     ```ruby
-    ## Bad
+    ## Bad: Causes random failures depending on the timing of each step
     older_recipe = create(:recipe, published_at: 2.seconds.ago)
     newest_recipe = create(:recipe, published_at: 1.second.ago)
 
