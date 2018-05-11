@@ -270,6 +270,9 @@ Lint/ParenthesesAsGroupedExpression:
 Performance/RedundantMerge:
   Enabled: false
 
+Performance/TimesMap:
+  Enabled: false
+
 Lint/RequireParentheses:
   Enabled: false
 
