@@ -296,3 +296,58 @@
 - <a name="dont-use-console"></a>
   When _reading data_ from production, avoid using the console, use redash instead.
   <sup>[link](#dont-use-console)</sup>
+
+- <a name="service-object-method"></a>
+  Service objects should have a single public method `#run`, which does not accept arguments
+  <sup>[link](#service-object-method)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    class ChatMessage
+      def run(chat:, :body)
+        chat.messages.create(body: body)
+      end
+    end
+
+    ## Good
+    class ChatMessage
+      def initialize(chat:, body:)
+        @chat = chat
+        @body = body
+      end
+
+      def run
+        chat.messages.create(body: body)
+      end
+
+      private
+        attr_reader :chat, :body
+    end
+    ```
+  </details>
+
+- <a name="service-object-return"></a>
+  If a service object needs to return a value, prefer a meaningful object, e.g. an invalid model over false
+  <sup>[link](#service-object-return)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    def run
+      message = chat.messages.new(body: body)
+      message.save # true/false
+    end
+
+    ## Good
+    def run
+      message = chat.messages.new(body: body)
+      message.save
+      message
+    end
+    ```
+  </details>
