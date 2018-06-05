@@ -868,6 +868,36 @@
   Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
   <sup>[link](#dont-abuse-zero-key)</sup>
 
+- <a name="avoid-html-in-locale"></a>
+  Avoid including HTML in locale file
+  <sup>[link](#avoid-html-in-locale)</sup>
+  
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```yml
+    ## Bad
+    current_time_html: "<strong>Current time:</strong> %{time}"
+    ```
+
+    ```erb
+    <!-- Bad -->
+    <%= t("current_time_html", time: Time.current) %>
+    ```
+
+    ```yml
+    ## Good
+    current_time:
+      label: "Current time:"
+      label_time: "%{label} %{time}"
+    ```
+
+    ```erb
+    <!-- Good -->
+    <%= t("current_time_html", label: content_tag(:strong, t("current_time_label")), time: Time.current) %>
+    ```
+  </details>
+
 ## Database operations
 
 - <a name="use-one-offs"></a>
