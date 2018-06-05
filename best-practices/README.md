@@ -868,9 +868,9 @@
   Don't use `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
   <sup>[link](#dont-abuse-zero-key)</sup>
 
-- <a name="avoid-html-in-locale"></a>
-  Avoid including HTML in locale file
-  <sup>[link](#avoid-html-in-locale)</sup>
+- <a name="dont-html-in-locale"></a>
+  Don't include HTML in locale file
+  <sup>[link](#dont-html-in-locale)</sup>
   
   <details>
     <summary><em>Example</em></summary>
