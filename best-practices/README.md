@@ -894,7 +894,7 @@
 
     ```erb
     <!-- Good -->
-    <%= t("current_time_html", label: content_tag(:strong, t("current_time_label")), time: Time.current) %>
+    <%= t("current_time.label_time", label: content_tag(:strong, t("current_time.label")), time: Time.current) %>
     ```
   </details>
 
