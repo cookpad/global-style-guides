@@ -1,8 +1,12 @@
-# Guides
+# Cookpad Global Style Guides
 
-* [Workflow](/workflow)
-* [Code Review](/code-review)
-* [Best Practices](/best-practices)
+- [Git](/git)
+- [Javascript](/javascript)
+- [Rails](/rails)
+- [Rake](/rake)
+- [Ruby](/ruby)
+- [SCSS](/scss)
+- [Testing](/testing)
 
 ## Contributing
 
