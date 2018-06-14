@@ -120,7 +120,7 @@ Style/IfWithSemicolon:
   Enabled: false
 
 Layout/IndentationConsistency:
-  Enabled: false
+  EnforcedStyle: rails
 
 Style/InlineComment:
   Enabled: false
