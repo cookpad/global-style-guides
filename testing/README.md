@@ -371,13 +371,17 @@
   </details>
   
 - <a name="testing-endpoints"></a>
-  Do not use the `document` meta tag when writing tests for endpoints
+  Do not use the `document` meta tag when writing tests for endpoints. Tests in the
+  `specs/requests/api/` path are intended to create documentation for endpoints but to 
+  test the assert on the endpoint response or side-effects.
   <sup>[link](#testing-endpoints)</sup>
 
   <details>
     <summary><em>Example</em></summary>
 
     ```ruby
+    ## spec/requests/api/bookmarks_spec.rb
+    
     ## Bad
     resource "Bookmarks" do
       get "/:version/users/:user_id/bookmarks" do
@@ -410,6 +414,8 @@
     <summary><em>Example</em></summary>
 
     ```ruby
+    ## spec/requests/docs/bookmarks_spec.rb
+    
     ## Bad
     resource "Bookmarks" do
       get "/:version/users/:user_id/bookmarks" do
