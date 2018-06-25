@@ -156,3 +156,63 @@
     ```
   </details>
 
+- <a name="explanatory-constants"></a>
+  Describe unexplained strings/numbers using constants
+  <sup>[link](#explanatory-constants)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    def params
+      { gak: "UA-4235" }
+    end
+
+    ## Good
+    def params
+      { gak: GOOGLE_ANALYTICS_KEY }
+    end
+
+    ## OK - string explained by hash key
+    def params
+      { google_analytics_key: "UA-4235" }
+    end
+    ```
+  </details>
+
+- <a name="dry-constants"></a>
+  DRY multiple occurrences of values using constants
+  <sup>[link](#dry-constants)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    class Logger
+      def log_params
+        { google_analytics_key: "UA-4235" }
+      end
+    end
+
+    class Tracker
+      def config
+        { google_analytics_key: "UA-4235" }
+      end
+    end
+
+    ## Good
+    class Logger
+      def log_params
+        { google_analytics_key: GoogleAnalytics::KEY }
+      end
+    end
+
+    class Tracker
+      def config
+        { google_analytics_key: GoogleAnalytics::KEY }
+      end
+    end
+    ```
+  </details>
