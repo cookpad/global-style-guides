@@ -1,8 +1,8 @@
 # Testing
 
-- <a name="prefer-explicitness"></a>
-  Prefer explicitness in specs: Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
-  <sup>[link](#prefer-explicitness)</sup>
+- <a name="avoid-subject-and-friends"></a>
+  Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
+  <sup>[link](#avoid-subject-and-friends)</sup>
 
 - <a name="avoid-using-context"></a>
   Avoid using `context`
