@@ -369,3 +369,92 @@
     expect(Recipe.recently_published.last).to eq(older_recipe)
     ```
   </details>
+  
+- <a name="testing-endpoints"></a>
+  Do not use the `document` meta tag when writing tests for endpoints. Tests in the
+  `specs/requests/api/` path are intended to create documentation for endpoints but to 
+  test the assert on the endpoint response or side-effects.
+  <sup>[link](#testing-endpoints)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## spec/requests/api/bookmarks_spec.rb
+    
+    ## Bad
+    resource "Bookmarks" do
+      get "/:version/users/:user_id/bookmarks" do
+        example "lists bookmarks for a user with specific IDs", document: true do
+          # ...
+        end
+      end
+    end
+
+    ## Good
+    resource "Bookmarks" do
+      get "/:version/users/:user_id/bookmarks" do
+        example "lists bookmarks for a user with specific IDs" do
+          # ...
+        end
+      end
+    end
+    ```
+  </details>
+
+- <a name="document-endpoints"></a>
+  Document endpoints creating tests in the `specs/requests/docs/` path. These tests 
+  should be simple and not focus on asserting on side effects or asserting specific
+  values in the response, Use regular request tests for that. Make sure you document 
+  every `parameter`, `header`, the `response_field` and make an assertion on the
+  response `status`. More details on what can be documented [here](https://github.com/zipmark/rspec_api_documentation#explanation).
+  <sup>[link](#document-endpoints)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## spec/requests/docs/bookmarks_spec.rb
+    
+    ## Bad
+    resource "Bookmarks" do
+      get "/:version/users/:user_id/bookmarks" do
+        example "List bookmarks" do
+          user = create(:user)
+          recipe = create(:recipe, title: "Recipe Title")
+          create(:bookmark, user: user, recipe: recipe)
+          set_auth_header user
+          
+          do_request user_id: user.id, query: "title", strategy, ids: [1, 2]
+          
+          expect_json_response("result/0/recipe").to include(title: "Recipe Title")
+          expect_json_response("extra").to include(total_count: 1)
+        end
+      end
+    end
+
+    ## Good
+    resource "Bookmarks" do
+      explanation "Bookmarks are recipes a user saves. They can be fetched when the user is signed-in"
+      
+      get "/:version/users/:user_id/bookmarks" do
+        parameter :query, "Search keyword"
+        parameter :strategy, "Either default 'incremental' or 'analyzed'"
+        parameter :ids, "Comma delimited list of bookmark IDs '1,2,3'"
+        
+        response_field "A list of bookmarks"
+        
+        example "Responds with a list of bookmarks for the given user" do
+          user = create(:user)
+          recipe = create(:recipe, title: "Recipe Title")
+          create(:bookmark, user: user, recipe: recipe)
+          set_auth_header user
+          
+          do_request user_id: user.id, query: "title", strategy, ids: [1, 2]
+          
+          expect(status).to eq(200)
+        end
+      end
+    end
+    ```
+  </details>
