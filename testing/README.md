@@ -370,7 +370,7 @@
     ```
   </details>
   
-  - <a name="use-minutes"></a>
+- <a name="use-minutes"></a>
   Prefer splitting up longer specs into tinier ones, even if they require the same setup
   <sup>[link](#use-minutes)</sup>
 
