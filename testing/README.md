@@ -369,3 +369,49 @@
     expect(Recipe.recently_published.last).to eq(older_recipe)
     ```
   </details>
+  
+  - <a name="use-minutes"></a>
+  Prefer splitting up longer specs into tinier ones, even if they require the same setup
+  <sup>[link](#use-minutes)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    it "sanitizes recipe titles" do
+      recipe = build(:recipe, title: "recipe title without capital letter")
+      expect(recipe.title).to eq("Recipe title without capital letter")
+    
+      recipe = build(:recipe, title: "Recipe title with period Brand Name v1.0. ")
+      expect(recipe.title).to eq("Recipe title with period Brand Name v1.0")
+
+      recipe = build(:recipe, title: "Recipe title ( very good   )")
+      expect(recipe.title).to eq("Recipe title (very good)")
+
+      recipe = build(:recipe, title: 'Recipe title " very good   "')
+      expect(recipe.title).to eq('Recipe title "very good"')
+    end
+
+    ## Good
+    it "capitalizes the first letter in recipe titles" do
+      recipe = build(:recipe, title: "recipe title without capital letter")
+      expect(recipe.title).to eq("Recipe title without capital letter")
+    end
+    
+    it "removes full stop from recipe titles" do
+      recipe = build(:recipe, title: "Recipe title with period Brand Name v1.0. ")
+      expect(recipe.title).to eq("Recipe title with period Brand Name v1.0")
+    end
+    
+    it "removes spaces inside parens from recipe titles" do
+      recipe = build(:recipe, title: "Recipe title ( very good   )")
+      expect(recipe.title).to eq("Recipe title (very good)")
+    end
+
+    it "removes spaces inside quotes from recipe titles" do
+      recipe = build(:recipe, title: 'Recipe title " very good   "')
+      expect(recipe.title).to eq('Recipe title "very good"')
+    end
+    ```
+  </details>
