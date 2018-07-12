@@ -306,7 +306,7 @@ Style/PercentLiteralDelimiters:
     "%x": ()
 
 Naming/MemoizedInstanceVariableName:
-  Enabled: false
+  EnforcedStyleForLeadingUnderscores: required
 
 Rails/Output:
   Enabled: true
