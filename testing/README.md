@@ -370,8 +370,8 @@
     ```
   </details>
   
-- <a name="use-minutes"></a>
-  Prefer splitting up longer specs into tinier ones, even if they require the same setup
+- <a name="split-long-specs"></a>
+  Prefer splitting up longer specs and give each scenario its own spec, even if they require a similar setup
   <sup>[link](#use-minutes)</sup>
 
   <details>
