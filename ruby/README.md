@@ -60,6 +60,35 @@
   Prefer short, focused methods (aim for 1-liners, longer than 5 is a red flag)
   <sup>[link](#prefer-short-methods)</sup>
 
+- <a name="avoid-bang-methods"></a>
+  Avoid method names ending in `!` ("bang") without a corresponding bang-less, safe version of the method.
+  <sup>[link](#avoid-bang-methods)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    def method!
+      # dangerous operation
+    end
+
+    ## Good
+    def method
+      # dangerous operation
+    end
+
+    ## Good
+    def method!
+      # dangerous operation
+    end
+
+    def method
+      # safe operation
+    end
+    ```
+  </details>
+
 - <a name="prefer-small-classes"></a>
   Prefer small, focused classes (100+ lines is a red flag)
   <sup>[link](#prefer-small-classes)</sup>
