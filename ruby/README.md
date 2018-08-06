@@ -79,12 +79,13 @@
     end
 
     ## Good
-    def method!
-      # dangerous operation
+    def method
+      # safe operation, preferably in terms of corresponding bang method, i.e.
+      dup.method!
     end
 
-    def method
-      # safe operation
+    def method!
+      # dangerous operation
     end
     ```
   </details>
