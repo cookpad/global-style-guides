@@ -70,22 +70,23 @@
     ```ruby
     ## Bad
     def method!
-      # dangerous operation
+      # dangerous operation, without any safe version (prima-donna)
     end
 
     ## Good
     def method
-      # dangerous operation
+      # dangerous operation, without any safe version
     end
 
     ## Good
     def method
-      # safe operation, preferably in terms of corresponding bang method, i.e.
+      # safe version
+      # It’s conventional to define the non-bang method in terms of the bang one, i.e.
       dup.method!
     end
 
     def method!
-      # dangerous operation
+      # dangerous operation, with a safe version
     end
     ```
   </details>
