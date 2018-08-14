@@ -415,3 +415,27 @@
     end
     ```
   </details>
+
+- <a name="not-user-expect-change-by"></a>
+  Do not use the `expect` .. `change` syntax with `by`. Use `from` and `to` instead.
+  <sup>[link](#not-user-expect-change-by)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    it "increment recipe counters" do
+      recipe = create(:recipe)
+       
+      expect{ create(:photo_comment) }.to change{ recipe.reload.photo_comments_count }.by(1)
+    end
+
+    ## Good
+    it "increment recipe counters" do
+      recipe = create(:recipe)
+       
+      expect{ create(:photo_comment) }.to change{ recipe.reload.photo_comments_count }.from(0).to(1)
+    end
+    ```
+  </details>
