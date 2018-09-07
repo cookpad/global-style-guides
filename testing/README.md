@@ -372,7 +372,7 @@
   
 - <a name="split-long-specs"></a>
   Prefer splitting up longer specs and give each scenario its own spec, even if they require a similar setup
-  <sup>[link](#use-minutes)</sup>
+  <sup>[link](#split-long-specs)</sup>
 
   <details>
     <summary><em>Example</em></summary>
