@@ -280,7 +280,7 @@ Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
 Lint/Void:
-  Enabled: false
+  Enabled: true
 
 Lint/UselessAssignment:
   Exclude:
