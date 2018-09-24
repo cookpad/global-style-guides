@@ -280,12 +280,12 @@
     ## Good
     current_time:
       label: "Current time:"
-      label_time: "%{label} %{time}"
+      label_time_html: "%{label} %{time}"
     ```
 
     ```erb
     <!-- Good -->
-    <%= t("current_time.label_time", label: content_tag(:strong, t("current_time.label")), time: Time.current) %>
+    <%= t("current_time.label_time_html", label: content_tag(:strong, t("current_time.label")), time: Time.current) %>
     ```
   </details>
 
