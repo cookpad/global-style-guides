@@ -1,8 +1,6 @@
 # Redis
 
-- <a name="dont-use-keys-in-production"></a>
-  Redis is threaded this means some commands can potentially block the instance while being 
-  executed, such is the case for `KEYS` (`redis.keys(*)`), look for alternative operation 
-  like `SCAN`. When in doubt look at [Redis' oficial docs](https://redis.io/commands) or 
-  consult with the [SRE team](https://github.com/orgs/cookpad/teams/infra/members).
-  <sup>[link](#dont-use-keys-in-production)</sup>
+- <a name="dont-use-keys-command-in-production"></a>
+  Don't use the `KEYS` (`redis.keys(*)`) command in production. Use [alternatives](https://redis.io/commands) such as `SCAN` (`redis.scan_each(match: key`) instead
+  <sup>[link](#dont-use-keys-command-in-production)</sup>
+  
