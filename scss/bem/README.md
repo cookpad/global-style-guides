@@ -111,6 +111,7 @@ We try to have as much as possible of:
 
 ## Useful links
 
+- https://en.bem.info/methodology/quick-start/
 - http://fullstackradio.com/episodes/1/
 - https://mattstauffer.co/blog/organizing-css-oocss-smacss-and-bem
 - https://css-tricks.com/bem-101/
