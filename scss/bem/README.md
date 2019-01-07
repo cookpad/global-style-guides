@@ -111,6 +111,7 @@ We try to have as much as possible of:
 
 ## Useful links
 
+- https://en.bem.info/methodology/quick-start Gotcha: ignore `block__element_modifier` and use `block__element--modifier` instead
 - http://fullstackradio.com/episodes/1/
 - https://mattstauffer.co/blog/organizing-css-oocss-smacss-and-bem
 - https://css-tricks.com/bem-101/
