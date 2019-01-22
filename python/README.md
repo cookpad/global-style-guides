@@ -6,7 +6,7 @@
   <sup>[link](#use-pep8)</sup>
 
 - <a name="multi-line-statements"></a>
-  PEP8 specifies a line length limit of 79 characters. Please try to adhere to this. If you have a specific reason for requiring a longer line length then this should be discussed in the review process. In this case, you must not extend beyond 125 characters per line, the limit on character length in the Github diff view. For multi-line statements, use the backslash `\` to indicate next-line continuation. Next line continuation should use indentation.
+  Restrict line length to 120 characters. For multi-line statements, use the backslash `\` to indicate next-line continuation. Next line continuation should use indentation.
     <sup>[link](#multi-line-statements)</sup>
     <details>
     <summary><em>Example</em></summary>
