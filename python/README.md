@@ -17,21 +17,25 @@
     ```
   </details>
 
+- <a name="use-pipenv"></a>
+  Use [pipenv](https://pipenv.readthedocs.io/en/latest/) to manage package dependencies.
+  <sup>[link](#use-pipenv)</sup
+
 - <a name="run-pylint"></a>
   Run [pylint](https://pylint.readthedocs.io/en/1.9/user_guide/ide-integration.html) over your code.
-  You can configure your editor to run pylint on your project.
+  You can configure your editor to run pylint on your project. We provide a custom [pylintrc](../pylintrc) file to override standard pylint options. This should go into the root of your project.
     <sup>[link](#run-pylint)</sup>
     <details>
     <summary><em>Example</em></summary>
 
     ```bash
-    $ pip install pylint
+    $ pipenv install pylint --dev
     
     # run on a python file
-    $ pylint my_python_file.py
+    $ pipenv run pylint my_python_file.py
     
     # run on a python project
-    $ pylint my-project/
+    $ pipenv run pylint my-project/
     ```
   </details>
 
@@ -40,7 +44,7 @@
   <sup>[link](#use-docstrings)</sup>
 
 - <a name="use-type-hinting"></a>
-  Use type hinting according to PEP-484 and type-check at build time with a tool (e.g. [pyre](https://github.com/facebook/pyre-check))
+  Use type hinting according to PEP-484 and type-check at build time with [pyre](https://github.com/facebook/pyre-check)
   <sup>[link](#use-type-hinting)</sup>
 
 - <a name="naming-conventions"></a>
