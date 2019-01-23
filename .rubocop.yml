@@ -98,7 +98,7 @@ Style/EvenOdd:
 Naming/FileName:
   Enabled: false
 
-Style/FlipFlop:
+Lint/FlipFlop:
   Enabled: false
 
 Style/FormatString:
