@@ -5,9 +5,9 @@
 - [Python](/python)
 - [Rails](/rails)
 - [Rake](/rake)
+- [RSpec](/rspec)
 - [Ruby](/ruby)
 - [SCSS](/scss)
-- [Testing](/testing)
 
 ## Contributing
 
