@@ -376,7 +376,7 @@
       <span><%= user.followees.size %> Following</span>
     </div>
     
-    # app/views/recipes/show.html.erb
+    # app/views/users/show.html.erb
     <%= render "users/follows_count", user: @user %>
     
     # app/views/me/show.html.erb
