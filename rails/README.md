@@ -353,15 +353,14 @@
   </details>
 
 - <a name="prefer-local-variables-in-partials"></a>
-  Always prefer local variables for a partial over instance variables
+  Prefer local variables for a partial over instance variables
   <sup>[link](#prefer-local-variables-in-partials)</sup>
 
   <details>
     <summary><em>Example</em></summary>
 
     ```erb
-    ## Bad
-    
+    ## Bad    
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count" %>
   
