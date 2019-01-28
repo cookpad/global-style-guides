@@ -351,3 +351,36 @@
     end
     ```
   </details>
+
+- <a name="prefer-local-variables-in-partials"></a>
+  Always prefer local variables for a partial over instance variables
+  <sup>[link](#prefer-local-variables-in-partials)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```erb
+    ## Bad
+    
+    <!-- app/views/users/show.html.erb -->
+    <%= render "users/follows_count" %>
+  
+    <!-- app/views/users/_follows_count.html.erb -->
+    <div>
+      <strong><%= @user.name %></strong><br>
+      <span><%= @user.followers.size %> Followers</span>
+      <span><%= @user.followees.size %> Following</span>
+    </div>
+
+    ## Good
+    <!-- app/views/users/show.html.erb -->
+    <%= render "users/follows_count", user: @user %>
+   
+    <!-- app/views/users/_follows_count.html.erb -->
+    <div>
+      <strong><%= user.name %></strong><br>
+      <span><%= user.followers.size %> Followers</span>
+      <span><%= user.followees.size %> Following</span>
+    </div>
+    ```
+  </details>
