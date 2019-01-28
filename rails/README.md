@@ -272,7 +272,6 @@
     ```
 
     ```erb
-    <!-- Bad -->
     <%= t("current_time_html", time: Time.current) %>
     ```
 
@@ -284,7 +283,6 @@
     ```
 
     ```erb
-    <!-- Good -->
     <%= t("current_time.label_time_html", label: content_tag(:strong, t("current_time.label")), time: Time.current) %>
     ```
   </details>
@@ -360,7 +358,8 @@
     <summary><em>Example</em></summary>
 
     ```erb
-    ## Bad    
+    <!-- Bad -->
+    
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count" %>
   
@@ -370,8 +369,10 @@
       <span><%= @user.followers.size %> Followers</span>
       <span><%= @user.followees.size %> Following</span>
     </div>
-
-    ## Good
+    ```
+    ```erb
+    <!-- Good -->
+    
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count", user: @user %>
    
