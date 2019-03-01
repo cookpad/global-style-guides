@@ -222,3 +222,33 @@
     end
     ```
   </details>
+
+- <a name="separate-multiline-fetch-method"></a>
+  Separate multiline fetch/query methods from the memoized method
+  <sup>[link](#separate-multiline-fetch-method)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    def pizza_recipes
+      @_pizza_recipes ||= Recipe.
+        published.
+        in_provider.
+        where("title LIKE ?", "%pizza%")
+    end
+
+    ## Good
+    def pizza_recipes
+      @_pizza_recipes ||= query_pizza_recipes
+    end
+
+    def query_pizza_recipes
+      Recipe.
+        published.
+        in_provider.
+        where("title LIKE ?", "%pizza%")
+    end
+    ```
+  </details>
