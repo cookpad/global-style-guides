@@ -241,10 +241,10 @@
 
     ## Good
     def pizza_recipes
-      @_pizza_recipes ||= query_pizza_recipes
+      @_pizza_recipes ||= fetch_pizza_recipes
     end
 
-    def query_pizza_recipes
+    def fetch_pizza_recipes
       Recipe.
         published.
         in_current_language.
