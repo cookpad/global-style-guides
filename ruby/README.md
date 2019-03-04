@@ -235,7 +235,7 @@
     def pizza_recipes
       @_pizza_recipes ||= Recipe.
         published.
-        in_provider.
+        in_current_language.
         where("title LIKE ?", "%pizza%")
     end
 
@@ -247,7 +247,7 @@
     def query_pizza_recipes
       Recipe.
         published.
-        in_provider.
+        in_current_language.
         where("title LIKE ?", "%pizza%")
     end
     ```
