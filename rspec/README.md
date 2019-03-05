@@ -415,3 +415,24 @@
     end
     ```
   </details>
+- <a name="built-in-matcher"></a>
+  Prefer to use [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) instead of just checking if it's `true` or `false`
+  <sup>[link](#built-in-matcher)</sup>
+  
+  <details>
+    <summary><em>Example</em></summary>
+  
+    ```ruby
+    ## Bad
+      expect(Achievement.where(id: deleted_achievement.id).any?).to be_falsey  
+    
+      expect(list.include?("HashTag")).to be_truthy
+    
+    ## Good    
+      expect(Achievement.where(id: deleted_achievement.id)).not_to exist
+    
+      expect(list).to include("HashTag") 
+    
+      # You will get better failure messages
+    ```
+  </details>
