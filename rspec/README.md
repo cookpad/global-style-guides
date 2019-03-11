@@ -369,7 +369,7 @@
     expect(Recipe.recently_published.last).to eq(older_recipe)
     ```
   </details>
-  
+
 - <a name="split-long-specs"></a>
   Prefer splitting up longer specs and give each scenario its own spec, even if they require a similar setup
   <sup>[link](#split-long-specs)</sup>
@@ -382,7 +382,7 @@
     it "sanitizes recipe titles" do
       recipe = build(:recipe, title: "recipe title without capital letter")
       expect(recipe.title).to eq("Recipe title without capital letter")
-    
+
       recipe = build(:recipe, title: "Recipe title with period Brand Name v1.0. ")
       expect(recipe.title).to eq("Recipe title with period Brand Name v1.0")
 
@@ -398,12 +398,12 @@
       recipe = build(:recipe, title: "recipe title without capital letter")
       expect(recipe.title).to eq("Recipe title without capital letter")
     end
-    
+
     it "removes full stop from recipe titles" do
       recipe = build(:recipe, title: "Recipe title with period Brand Name v1.0. ")
       expect(recipe.title).to eq("Recipe title with period Brand Name v1.0")
     end
-    
+
     it "removes spaces inside parens from recipe titles" do
       recipe = build(:recipe, title: "Recipe title ( very good   )")
       expect(recipe.title).to eq("Recipe title (very good)")
@@ -416,23 +416,31 @@
     ```
   </details>
 - <a name="built-in-matcher"></a>
-  Prefer to use [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) instead of just checking if it's `true` or `false`
+  Prefer using [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) over `be_truthy` or `be_falsey`.
   <sup>[link](#built-in-matcher)</sup>
-  
+
   <details>
     <summary><em>Example</em></summary>
-  
+
     ```ruby
     ## Bad
-      expect(Achievement.where(id: deleted_achievement.id).any?).to be_falsey  
-    
-      expect(list.include?("HashTag")).to be_truthy
-    
-    ## Good    
-      expect(Achievement.where(id: deleted_achievement.id)).not_to exist
-    
-      expect(list).to include("HashTag") 
-    
-      # You will get better failure messages
+    expect(list.include?("soup")).to be_truthy
+
+    #  expected: truthy value
+    #       got: false
+
+    expect(Achievement.unseen.exist?).to be_falsey
+
+    #  expected: falsey value
+    #       got: true
+
+    ## Good
+    expect(list).to include("soup")
+
+    #  expected ["pizza", "pasta"] to include "soup"
+
+    expect(Achievement.unseen).not_to exist
+
+    #  expected #<ActiveRecord::Relation [#<Achievement id: 1, user_id: 104, ...>]> not to exist
     ```
   </details>
