@@ -13,6 +13,10 @@ Metrics/LineLength:
   Exclude:
     - spec/**/*
 
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*
+
 Rails:
   Enabled: true
 
