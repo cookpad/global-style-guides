@@ -156,9 +156,6 @@ Style/Next:
 Style/NilComparison:
   Enabled: false
 
-Style/Not:
-  Enabled: false
-
 Style/NumericLiterals:
   Enabled: false
 
