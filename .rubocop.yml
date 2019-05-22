@@ -29,6 +29,9 @@ Rails/ActionFilter:
 Style/Alias:
   Enabled: false
 
+Style/AndOr:
+  Enabled: always
+
 Style/ArrayJoin:
   Enabled: false
 
@@ -157,7 +160,7 @@ Style/NilComparison:
   Enabled: false
 
 Style/Not:
-  Enabled: false
+  Enabled: true
 
 Style/NumericLiterals:
   Enabled: false
