@@ -29,9 +29,6 @@ Rails/ActionFilter:
 Style/Alias:
   Enabled: false
 
-Style/AndOr:
-  Enabled: always
-
 Style/ArrayJoin:
   Enabled: false
 
