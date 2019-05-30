@@ -455,9 +455,9 @@
     ## Bad
     it "does something" do
       user = create(:user)
-      
+
       recipe = create(:recipe, user: user)
-      
+
       recipe.delete
       expect(recipe).to be_deleted
     end
@@ -466,7 +466,7 @@
     it "does something" do
       user = create(:user)
       recipe = create(:recipe, user: user)
-      
+
       recipe.delete
 
       expect(recipe).to be_deleted
