@@ -445,7 +445,7 @@
     ```
   </details>
 - <a name="arrange-act-assert"></a>
-  Lay out specs according to the [Arrange, Act, Assert](http://wiki.c2.com/?ArrangeActAssert) pattern.
+  Lay out specs according to the [Arrange, Act, Assert](http://wiki.c2.com/?ArrangeActAssert) pattern. Each test should group these functional sections, separated by blank lines.
   <sup>[link](#arrange-act-assert)</sup>
 
   <details>
