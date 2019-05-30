@@ -444,3 +444,32 @@
     #  expected #<ActiveRecord::Relation [#<Achievement id: 1, user_id: 104, ...>]> not to exist
     ```
   </details>
+- <a name="arrange-act-assert"></a>
+  Lay out specs according to the [Arrange, Act, Assert](http://wiki.c2.com/?ArrangeActAssert) pattern. Each test should group these functional sections, separated by blank lines. You may also need to add a fourth teardown phase. If so, seperate this section with another blank line.
+  <sup>[link](#arrange-act-assert)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    it "does something" do
+      user = create(:user)
+
+      recipe = create(:recipe, user: user)
+
+      recipe.delete
+      expect(recipe).to be_deleted
+    end
+
+    ## Good
+    it "does something" do
+      user = create(:user)
+      recipe = create(:recipe, user: user)
+
+      recipe.delete
+
+      expect(recipe).to be_deleted
+    end
+    ```
+  </details>
