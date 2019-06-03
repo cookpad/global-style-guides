@@ -124,7 +124,7 @@
 
 - <a name="prefer-private-methods"></a>
   Prefer private methods over `before_action` to set instance variables
-  <sup>[link](#prefer-private-methods)</sup>
+  <sup>[link](#prefer-private-methods) [explanation](http://craftingruby.com/posts/2015/05/31/dont-use-before-action-to-load-data.html)</sup>
 
   <details>
     <summary><em>Example (when setting context)</em></summary>
@@ -217,7 +217,7 @@
 
 - <a name="prefer-rest-verbs"></a>
   Prefer adding new controllers with RESTful actions over using custom actions
-  <sup>[link](#prefer-rest-verbs)</sup>
+  <sup>[link](#prefer-rest-verbs) [explanation](http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/)</sup>
 
   <details>
     <summary><em>Example</em></summary>
