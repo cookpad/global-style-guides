@@ -259,12 +259,6 @@ Lint/Loop:
 Lint/ParenthesesAsGroupedExpression:
   Enabled: false
 
-Performance/RedundantMerge:
-  Enabled: false
-
-Performance/TimesMap:
-  Enabled: false
-
 Lint/RequireParentheses:
   Enabled: false
 
