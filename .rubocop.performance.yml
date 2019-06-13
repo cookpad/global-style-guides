@@ -1,3 +1,5 @@
+require: rubocop-performance
+
 Performance/RedundantMerge:
   Enabled: false
 
