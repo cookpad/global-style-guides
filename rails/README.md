@@ -266,25 +266,23 @@
   <details>
     <summary><em>Example</em></summary>
 
+    ### Bad
     ```yml
-    ## Bad
     current_time_html: "<strong>Current time:</strong> %{time}"
     ```
 
     ```erb
-    <!-- Bad -->
     <%= t("current_time_html", time: Time.current) %>
     ```
 
+    ### Good
     ```yml
-    ## Good
     current_time:
       label: "Current time:"
       label_time_html: "%{label} %{time}"
     ```
 
     ```erb
-    <!-- Good -->
     <%= t("current_time.label_time_html", label: content_tag(:strong, t("current_time.label")), time: Time.current) %>
     ```
   </details>
@@ -360,7 +358,8 @@
     <summary><em>Example</em></summary>
 
     ```erb
-    ## Bad    
+    <!-- Bad -->
+    
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count" %>
   
@@ -371,7 +370,8 @@
       <span><%= @user.followees.size %> Following</span>
     </div>
 
-    ## Good
+    <!-- Good -->
+    
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count", user: @user %>
    
