@@ -266,8 +266,8 @@
   <details>
     <summary><em>Example</em></summary>
 
+    ### Bad
     ```yml
-    ## Bad
     current_time_html: "<strong>Current time:</strong> %{time}"
     ```
 
@@ -275,8 +275,8 @@
     <%= t("current_time_html", time: Time.current) %>
     ```
 
+    ### Good
     ```yml
-    ## Good
     current_time:
       label: "Current time:"
       label_time_html: "%{label} %{time}"
@@ -369,8 +369,7 @@
       <span><%= @user.followers.size %> Followers</span>
       <span><%= @user.followees.size %> Following</span>
     </div>
-    ```
-    ```erb
+
     <!-- Good -->
     
     <!-- app/views/users/show.html.erb -->
