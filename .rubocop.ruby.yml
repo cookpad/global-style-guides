@@ -115,7 +115,7 @@ Style/IfWithSemicolon:
   Enabled: false
 
 Layout/IndentationConsistency:
-  EnforcedStyle: rails
+  EnforcedStyle: indented_internal_methods
 
 Style/InlineComment:
   Enabled: false
