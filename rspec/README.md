@@ -473,3 +473,6 @@
     end
     ```
   </details>
+- <a name="avoid-view-specs"></a>
+  Avoid writing view specs.
+  <sup>[link](#avoid-view-specs)</sup>
