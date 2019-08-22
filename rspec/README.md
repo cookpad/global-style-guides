@@ -474,5 +474,5 @@
     ```
   </details>
 - <a name="avoid-view-specs"></a>
-  Avoid writing view specs.
+  Avoid writing view specs, prefer request or feature specs instead.
   <sup>[link](#avoid-view-specs)</sup>
