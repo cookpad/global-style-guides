@@ -52,6 +52,26 @@
           !!@placeholder
         end
     end
+
+    ## Also acceptable
+    class Pager
+      def run
+        while continue?
+          # ...
+	  increment_page
+	end
+      end
+
+      private
+
+        def current_page
+          @page ||= 1
+        end
+
+        def increment_page
+          @page += 1
+        end
+    end
     ```
   </details>
 
