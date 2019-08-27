@@ -33,6 +33,25 @@
 
         attr_reader :recipe
     end
+
+    ## Also acceptable
+    class Image
+      def initialize(placeholder: false)
+        @placeholder = placeholder
+      end
+
+      def render
+        if placeholder?
+          # ...
+        end
+      end
+
+      private
+
+        def placeholder?
+          !!@placeholder
+        end
+    end
     ```
   </details>
 
