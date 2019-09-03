@@ -58,8 +58,8 @@
       def run
         while continue?
           # ...
-	  go_to_next_page
-	end
+          go_to_next_page
+        end
       end
 
       private
