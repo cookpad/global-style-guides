@@ -55,6 +55,10 @@
 
     ## Also acceptable
     class Pager
+      def initialize
+        @current_page = 1
+      end
+
       def run
         while continue?
           # ...
@@ -64,9 +68,7 @@
 
       private
 
-        def current_page
-          @current_page ||= 1
-        end
+        attr_reader :current_page
 
         def go_to_next_page
           @current_page += 1
