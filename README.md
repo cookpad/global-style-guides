@@ -5,6 +5,7 @@
 - [Python](/python)
 - [Rails](/rails)
 - [Rake](/rake)
+- [Redis](/redis)
 - [RSpec](/rspec)
 - [Ruby](/ruby)
 - [SCSS](/scss)
