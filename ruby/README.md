@@ -33,6 +33,47 @@
 
         attr_reader :recipe
     end
+
+    ## Also acceptable
+    class Image
+      def initialize(placeholder: false)
+        @placeholder = placeholder
+      end
+
+      def render
+        if placeholder?
+          # ...
+        end
+      end
+
+      private
+
+        def placeholder?
+          !!@placeholder
+        end
+    end
+
+    ## Also acceptable
+    class Pager
+      def initialize
+        @current_page = 1
+      end
+
+      def run
+        while continue?
+          # ...
+          go_to_next_page
+        end
+      end
+
+      private
+
+        attr_reader :current_page
+
+        def go_to_next_page
+          @current_page += 1
+        end
+    end
     ```
   </details>
 
