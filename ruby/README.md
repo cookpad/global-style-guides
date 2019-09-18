@@ -293,3 +293,32 @@
     end
     ```
   </details>
+
+- <a name="avoid-unless-with-operator"></a>
+  Avoid `unless` with boolean operator(s) in the conditional
+  <sup>[link](#avoid-unless-with-operator)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    unless client_id.present? && client_secret.present?
+      raise "Missing credentials for OauthApplication #{name}."
+    end
+
+    ## Good - flip to if
+    if client_id.blank? || client_secret.blank?
+      raise "Missing credentials for OauthApplication #{name}."
+    end
+
+    ## Good - extract method
+    if missing_credentials?
+      raise "Missing credentials for OauthApplication #{name}."
+    end
+
+    def missing_credentials?
+      client_id.blank? || client_secret.blank?
+    end
+    ```
+  </details>
