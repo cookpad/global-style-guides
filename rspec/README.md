@@ -1,5 +1,12 @@
 # Testing
 
+In general we favor testing behavior and functionality over implementation details. This means we favor writing feature and request specs over unit/model/controller/view specs. For additional testing guidance, see also the READMEs in the spec directories:
+
+- [Feature Specs](https://github.com/cookpad/global-web/blob/7c9ad1e70f113eea942edbdec7c840cab4587aac/spec/features/README.md) 
+- [Request (API) Specs](https://github.com/cookpad/global-web/blob/7c9ad1e70f113eea942edbdec7c840cab4587aac/spec/requests/api/README.md)
+
+These are some of the conventions we follow:
+
 - <a name="avoid-subject-and-friends"></a>
   Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
   <sup>[link](#avoid-subject-and-friends)</sup>
