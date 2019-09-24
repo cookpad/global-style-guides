@@ -287,14 +287,6 @@
     ```
   </details>
 
-- <a name="use-one-offs"></a>
-  When _changing data_ in production, don't use the console. Instead _create a rake task_ and submit it for review.
-  <sup>[link](#use-one-offs)</sup>
-
-- <a name="dont-use-console"></a>
-  When _reading data_ from production, avoid using the console, use redash instead.
-  <sup>[link](#dont-use-console)</sup>
-
 - <a name="service-object-method"></a>
   Service objects should have a single public method `#run`, which does not accept arguments
   <sup>[link](#service-object-method)</sup>
