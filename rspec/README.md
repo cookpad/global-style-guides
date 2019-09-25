@@ -2,7 +2,7 @@
 
 In general we favor testing behavior and functionality over implementation details. This means we favor writing feature and request specs over unit/model/controller/view specs. For additional testing guidance, see also the READMEs in the spec directories:
 
-- [Feature Specs](https://github.com/cookpad/global-web/blob/master/spec/features/README.md) 
+- [Feature Specs](https://github.com/cookpad/global-web/blob/master/spec/features/README.md)
 - [Request (API) Specs](https://github.com/cookpad/global-web/blob/master/spec/requests/api/README.md)
 
 These are some of the conventions we follow:
@@ -225,8 +225,8 @@ These are some of the conventions we follow:
   </details>
 
 - <a name="avoid-assertions-on-classes"></a>
-  Avoid assertions tied to html classes
-  <sup>[link](#avoid-assertions-on-classes)</sup>
+  Avoid assertions tied to html classes or JavaScript-specific attributes
+  <sup>[link](#avoid-assertions-on-classes) [explanation](https://github.com/cookpad/global-style-guides/pull/49)</sup>
 
   <details>
     <summary><em>Example</em></summary>
@@ -242,19 +242,24 @@ These are some of the conventions we follow:
     visit recipes_path
     expect(page).to have_text("Recipe Title", count: 3)
 
+    ## Bad
+    find("[data-action='replies#clearForm']").click
+
+    ## Good
+    click_on("Clear)" # add title or aria-label if needed
 
     ## Bad
     within(".user-info") do
-      click_link("Edit")
+      click_on("Edit")
     end
 
     ## Better
     within("#user_info") do
-      click_link("Edit")
+      click_on("Edit")
     end
 
     ## Best
-    click_link("Edit User Info") # f.ex using unambiguous title="Edit User Info" or aria-label="Edit User Info" attribute
+    click_on("Edit User Info") # f.ex. using unambiguous title="Edit User Info" or aria-label="Edit User Info" attribute
     ```
   </details>
 

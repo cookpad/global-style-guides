@@ -1,7 +1,7 @@
 # Javascript
 
 - <a name="avoid-jquery"></a>
-  Avoid using jQuery and jQuery plugins. Prefer solutions based on plain Javascript or Stimulus.
+  Avoid using jQuery and jQuery plugins. Prefer solutions based on plain JavaScript or Stimulus.
   <sup>[link](#avoid-jquery)</sup>
   <sup>[explanation](https://github.com/cookpad/global-web/issues/9333#issuecomment-434846695)</sup>
 
