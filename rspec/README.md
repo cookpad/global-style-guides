@@ -246,7 +246,7 @@ These are some of the conventions we follow:
     find("[data-action='replies#clearForm']").click
 
     ## Good
-    click_on("Clear)" # add title or aria-label if needed
+    click_on("Clear") # add title or aria-label if needed
 
     ## Bad
     within(".user-info") do
