@@ -136,7 +136,8 @@ Style/ModuleFunction:
   Enabled: false
 
 Style/NegatedIf:
-  Enabled: both
+  Enabled: true
+  EnforcedStyle: both
 
 Style/NegatedWhile:
   Enabled: false
