@@ -36,7 +36,7 @@ HTML:
 SCSS:
 ```scss
 .tab-list {
-  margin: 10px 0;
+  padding: 10px 0;
 
   &__item {
     display: inline-block;
