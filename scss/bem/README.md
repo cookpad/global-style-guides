@@ -6,7 +6,7 @@ Currently not all CSS have been converted to this style so it's a work in progre
 ## BEM
 
 BEM is a set of guidelines for naming classes which helps us produce maintainable CSS by:
-- Avoiding the infinite inheritance of CSS and providing the concept of clojures by using unique CSS classes per element <sup>[1](useful-links-and-citations)</sup>
+- Avoiding the infinite inheritance of CSS and providing the concept of closures by using unique CSS classes per element <sup>[1](useful-links-and-citations)</sup>
 - Reducing style conflicts by limiting the specificity of the CSS rules we create <sup>[1](useful-links-and-citations)</sup>
 
 
