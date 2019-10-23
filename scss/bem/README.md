@@ -118,7 +118,7 @@ However, when it isn't clear if a section should be a block or an element or if 
 
 ## Useful Links and Citations
 
-- 1: https://blog.decaf.de/2015/06/24/why-bem-in-a-nutshell/
+- https://blog.decaf.de/2015/06/24/why-bem-in-a-nutshell/
 - https://en.bem.info/methodology/solved-problems/
 - http://fullstackradio.com/episodes/1/
 - https://mattstauffer.co/blog/organizing-css-oocss-smacss-and-bem
