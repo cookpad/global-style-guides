@@ -119,7 +119,7 @@ However, when it isn't clear if a section should be a block or an element or if 
 ## Useful Links and Citations
 
 1. [Why BEM In A Nutshell](https://blog.decaf.de/2015/06/24/why-bem-in-a-nutshell/)
-1. [BEM Methodology - Solved Problems](https://en.bem.info/methodology/solved-problems/)
-1. [Full Stack Radio - Matt Stauffer - CSS Semantics](http://www.fullstackradio.com/1)
-1. [Organizing CSS OOCSS SMACSS And BEM](https://mattstauffer.co/blog/organizing-css-oocss-smacss-and-bem)
-1. [BEM 101](https://css-tricks.com/bem-101/)
+2. [BEM Methodology - Solved Problems](https://en.bem.info/methodology/solved-problems/)
+3. [Full Stack Radio - Matt Stauffer - CSS Semantics](http://www.fullstackradio.com/1)
+4. [Organizing CSS OOCSS SMACSS And BEM](https://mattstauffer.co/blog/organizing-css-oocss-smacss-and-bem)
+5. [BEM 101](https://css-tricks.com/bem-101/)
