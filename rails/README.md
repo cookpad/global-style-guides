@@ -351,10 +351,10 @@
 
     ```erb
     <!-- Bad -->
-    
+
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count" %>
-  
+
     <!-- app/views/users/_follows_count.html.erb -->
     <div>
       <strong><%= @user.name %></strong><br>
@@ -363,10 +363,10 @@
     </div>
 
     <!-- Good -->
-    
+
     <!-- app/views/users/show.html.erb -->
     <%= render "users/follows_count", user: @user %>
-   
+
     <!-- app/views/users/_follows_count.html.erb -->
     <div>
       <strong><%= user.name %></strong><br>
@@ -375,3 +375,8 @@
     </div>
     ```
   </details>
+
+- <a name="leverage-top-down"></a>
+  Leverage top-down development and features toggles to keep pull requests small.
+  <sup>[link](#leverage-top-down)
+[explanation](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)</sup>
