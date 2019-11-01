@@ -377,6 +377,6 @@
   </details>
 
 - <a name="leverage-top-down"></a>
-  Leverage top-down development and features toggles to keep pull requests small.
+  Leverage top-down development and feature toggles to keep pull requests small.
   <sup>[link](#leverage-top-down)
 [explanation](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)</sup>
