@@ -36,3 +36,7 @@
     let recipeLink = event.currentTarget
     ```
   </details>
+
+- <a name="leverage-progressive-enhancement"></a>
+  Leverage progressive enhancement as a development approach.
+  <sup>[link](#leverage-progressive-enhancement) [explanation](https://sourcediving.com/progressive-enhancement-as-a-valuable-philosophy-in-the-age-of-javascript-aac2e26364d2)</sup>
