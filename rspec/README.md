@@ -485,3 +485,6 @@ These are some of the conventions we follow:
     end
     ```
   </details>
+- <a name="#methodical-flaky-specs"></a>
+  Be methodical towards flaky specs.
+  <sup>[link](#methodical-flaky-specs) [explanation](https://medium.com/@davidstosik/a-methodological-approach-to-fixing-flaky-tests-92a39162b769?postPublishedType=repub)</sup>
