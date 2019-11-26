@@ -1,1 +1,9 @@
-* @cookpad/web-chapter
+git/  @cookpad/web-chapter
+javascript/ @cookpad/web-chapter
+rails/ @cookpad/web-chapter
+rake/ @cookpad/web-chapter
+redis/ @cookpad/web-chapter
+rspec/ @cookpad/web-chapter
+ruby/ @cookpad/web-chapter
+scss/ @cookpad/web-chapter
+*.yml @cookpad/web-chapter
