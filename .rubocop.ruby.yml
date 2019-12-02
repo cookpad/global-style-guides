@@ -164,7 +164,7 @@ Style/PerlBackrefs:
   Enabled: false
 
 Naming/PredicateName:
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
     - is_
 
 Style/Proc:
@@ -248,7 +248,7 @@ Lint/DeprecatedClassMethods:
 Lint/ElseLayout:
   Enabled: false
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 Lint/LiteralInInterpolation:
