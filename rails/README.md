@@ -261,8 +261,8 @@
 
 - <a name="dont-html-in-locale"></a>
   Don't include HTML in locale file
-  <sup>[link](#dont-html-in-locale)</sup>
-
+  <sup>[link](#dont-html-in-locale)
+  [explanation](https://github.com/cookpad/global-web/pull/15763#issuecomment-554836409)</sup>
   <details>
     <summary><em>Example</em></summary>
 
