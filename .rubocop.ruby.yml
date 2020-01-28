@@ -6,7 +6,7 @@ Metrics/BlockLength:
     - lib/tasks/**/*.rake
     - Gemfile
 
-Metrics/LineLength:
+Layout/LineLength:
   AllowHeredoc: true
   AllowURI: true
   Max: 120
