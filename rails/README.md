@@ -262,7 +262,7 @@
 - <a name="dont-html-in-locale"></a>
   Don't include HTML in locale file
   <sup>[link](#dont-html-in-locale)
-  [explanation](https://github.com/cookpad/global-web/pull/15763#issuecomment-554836409)</sup>
+  [explanation](https://sourcediving.com/rails-i18n-handling-formatting-within-translated-content-e45f4d6cf63d)</sup>
   <details>
     <summary><em>Example</em></summary>
 
