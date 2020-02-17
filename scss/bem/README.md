@@ -19,7 +19,7 @@ BEM is a set of guidelines for naming classes which helps us produce maintainabl
 - **Modifier:** Different states/exceptions
 
 We follow the recommendations of the [Official BEM Methodology](https://en.bem.info/methodology/quick-start) as our BEM style guide with one exception: 
-- Instead of `block__element_modifier` we use `block__element--modifier`
+- Instead of `block__element_modifier` we use [`block__element--modifier`](https://en.bem.info/methodology/naming-convention/#two-dashes-style)
 
 ### Example
 
