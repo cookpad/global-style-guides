@@ -145,6 +145,10 @@ These are some of the conventions we follow:
 - <a name="prefer-have-text"></a>
   Prefer `have_text` over `have_content`
   <sup>[link](#prefer-have-text)</sup>
+  
+- <a name="prefer-click-on"></a>
+  Prefer `click_on` over `click_link` or `click_button`
+  <sup>[link](#prefer-click-on)</sup>
 
 - <a name="prefer-descriptive-dummy-data"></a>
   Prefer "descriptive" dummy data over realistic dummy data
