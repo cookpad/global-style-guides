@@ -8,7 +8,7 @@
 - [Redis](/redis)
 - [RSpec](/rspec)
 - [Ruby](/ruby)
-- [SCSS](/scss)
+- [CSS](/css)
 
 ## Contributing
 
