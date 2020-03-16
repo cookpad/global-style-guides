@@ -492,3 +492,26 @@ These are some of the conventions we follow:
 - <a name="#methodical-flaky-specs"></a>
   Be methodical towards flaky specs.
   <sup>[link](#methodical-flaky-specs) [explanation](https://medium.com/@davidstosik/a-methodological-approach-to-fixing-flaky-tests-92a39162b769?postPublishedType=repub)</sup>
+- <a name="#magic-guest"></a>
+  Explicitly setup values used in assertions.
+  <sup>[link](#magic-guest) [explanation](https://thoughtbot.com/blog/mystery-guest)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    it "does something" do
+      user = create(:recipe)
+
+      expect(recipe.title).to eq("Recipe Title")
+    end
+
+    ## Good
+    it "does something" do
+      user = create(:recipe, title: "Recipe Title")
+
+      expect(recipe.title).to eq("Recipe Title")
+    end
+    ```
+  </details>
