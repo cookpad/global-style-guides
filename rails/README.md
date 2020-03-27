@@ -380,3 +380,25 @@
   Leverage top-down development and feature toggles to keep pull requests small.
   <sup>[link](#leverage-top-down)
 [explanation](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)</sup>
+- <a name="enum"></a>
+  Use string to store enum state instead of integer.
+  <sup>[link](#enum)</sup>
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    # Bad
+    class AddColumnMigration < ActiveRecord::Migration[6.0]
+      def change
+        add_column :status, :table, :integer
+      end
+    end
+
+    # Good
+    class AddColumnMigration < ActiveRecord::Migration[6.0]
+      def change
+        add_column :status, :table, :string
+      end
+    end
+    ```
+  </details>
