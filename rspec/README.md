@@ -502,14 +502,14 @@ These are some of the conventions we follow:
     ```ruby
     ## Bad
     it "does something" do
-      user = create(:recipe)
+      recipe = create(:recipe)
 
       expect(recipe.title).to eq("Recipe Title")
     end
 
     ## Good
     it "does something" do
-      user = create(:recipe, title: "Recipe Title")
+      recipe = create(:recipe, title: "Recipe Title")
 
       expect(recipe.title).to eq("Recipe Title")
     end
