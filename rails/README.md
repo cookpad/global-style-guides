@@ -256,8 +256,19 @@
   <sup>[link](#scope-generic-phrases-under-common)</sup>
 
 - <a name="dont-abuse-zero-key"></a>
-  Don't use i18n `zero:` key to display a "no results" message (it is intended only to allow proper grammar)
+  Don't use i18n `zero:` key to display a "no results" message. 
   <sup>[link](#dont-abuse-zero-key)</sup>
+  <details>
+    <summary><em>Explanation</em></summary>
+  
+    <pre>  
+      Pluralization rules vary from language to language and keys are automatically added and 
+      removed from the translation files. So, the `zero:` key cannot be relied on to be present 
+      for every language. 
+      
+      Use a specific key for the "no results" message instead.
+    </pre>
+  </details>
 
 - <a name="dont-html-in-locale"></a>
   Don't include HTML in locale file
