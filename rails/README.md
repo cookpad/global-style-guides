@@ -259,7 +259,7 @@
   Don't use i18n `zero:` key to display a "no results" message. 
   <sup>[link](#dont-abuse-zero-key)</sup>
   <details>
-    <summary><em>Explanation</em></summary>
+    <summary><em>Example</em></summary>
     
     ```yml
     # Pluralization rules vary from language to language and keys are automatically added and 
