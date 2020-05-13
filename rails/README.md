@@ -256,7 +256,7 @@
   <sup>[link](#scope-generic-phrases-under-common)</sup>
 
 - <a name="dont-abuse-zero-key"></a>
-  Don't use i18n `zero:` key to display a "no results" message. 
+  Don't use i18n `zero:` key to display a "no results" message.
   <sup>[link](#dont-abuse-zero-key)</sup>
   <details>
     <summary><em>Example</em></summary>
