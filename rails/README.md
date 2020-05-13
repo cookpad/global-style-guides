@@ -260,14 +260,26 @@
   <sup>[link](#dont-abuse-zero-key)</sup>
   <details>
     <summary><em>Explanation</em></summary>
-  
-    <pre>  
-      Pluralization rules vary from language to language and keys are automatically added and 
-      removed from the translation files. So, the `zero:` key cannot be relied on to be present 
-      for every language. 
-      
-      Use a specific key for the "no results" message instead.
-    </pre>
+    
+    ```yml
+    # Pluralization rules vary from language to language and keys are automatically added and 
+    # removed from the translation files. So the `zero:` key cannot be relied on to be present 
+    # for every language. 
+    # 
+    # Use a separate key for the "no results" message instead.
+    #
+    # Bad
+    search_results:
+      zero: "There were no results"
+      one: "1 recipe found"
+      other: "%{count} recipes found"
+ 
+    # Good
+    search_results:
+      one: "1 recipe found"
+      other: "%{count} recipes found"
+    search_no_results: "There were no results"
+    ``` 
   </details>
 
 - <a name="dont-html-in-locale"></a>
