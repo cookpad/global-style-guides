@@ -314,11 +314,11 @@ These are some of the conventions we follow:
       recipe = create(:recipe)
 
       visit recipe_path(recipe)
-      click_link t("recipes.show.bookmark_link")
+      click_on t("recipes.show.bookmark_link")
 
       expect(page).to have_text(t("bookmarks.bookmarked"))
 
-      click_link t("recipes.show.unbookmark_link")
+      click_on t("recipes.show.unbookmark_link")
 
       expect(page).to have_text(t("bookmarks.unbookmarked"))
     end
@@ -328,7 +328,7 @@ These are some of the conventions we follow:
       recipe = create(:recipe)
 
       visit recipe_path(recipe)
-      click_link t("recipes.show.bookmark_link")
+      click_on t("recipes.show.bookmark_link")
 
       expect(page).to have_text(t("bookmarks.bookmarked"))
     end
@@ -337,7 +337,7 @@ These are some of the conventions we follow:
       bookmark = create(:bookmark)
 
       visit recipe_path(bookmark.recipe)
-      click_link t("recipes.show.unbookmark_link")
+      click_on t("recipes.show.unbookmark_link")
 
       expect(page).to have_text(t("bookmarks.unbookmarked"))
     end
@@ -353,11 +353,11 @@ These are some of the conventions we follow:
 
     ```ruby
     ## Bad
-    click_link "Sign up"
+    click_on "Sign up"
     expect(page).to have_text("Welcome!")
 
     ## Good
-    click_link t("signups.new.signup_button")
+    click_on t("signups.new.signup_button")
     expect(page).to have_text t("signups.create.welcome_message")
     ```
   </details>
