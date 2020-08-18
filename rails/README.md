@@ -310,6 +310,24 @@
     ```
   </details>
 
+- <a name="service-object-naming"></a>
+  Prefer `ActorAction` format for naming service objects.
+  <sup>[link](#service-object-naming)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    class UnpublishRecipeService
+    end
+
+    ## Good
+    class RecipeUnpublishService
+    end
+    ```
+  </details>
+
 - <a name="service-object-method"></a>
   Service objects should have a single public method `#run`, which does not accept arguments
   <sup>[link](#service-object-method)</sup>
