@@ -399,6 +399,42 @@
     ```
   </details>
 
+- <a name="consistent-erb-indent"></a>
+  Follow consistent ERB indent style
+  <sup>[link](#consistent-erb-indent)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```erb
+    <!-- Bad -->
+
+      <!-- ERB tag opener/closer on its own line -->
+
+        <%= render "accounts/header",
+              left_navigation: link_to(...),
+              dismissable: local_assigns[:dismissable]
+        %>
+
+        <%=
+          render "accounts/header",
+            left_navigation: link_to(...),
+            dismissable: local_assigns[:dismissable]
+        %>
+
+      <!-- Wrong indentation for lines after first inside ERB tag -->
+
+        <%= render "accounts/header",
+            left_navigation: link_to(...),
+            dismissable: local_assigns[:dismissable] %>
+
+    <!-- Good -->
+
+      <%= render "accounts/header",
+            left_navigation: link_to(...),
+            dismissable: local_assigns[:dismissable] %>
+    ```
+
 - <a name="leverage-top-down"></a>
   Leverage top-down development and feature toggles to keep pull requests small.
   <sup>[link](#leverage-top-down)
