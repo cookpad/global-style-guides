@@ -409,13 +409,13 @@
     ```erb
     <!-- Bad -->
 
-      <!-- ERB tag opener/closer on its own line -->
+      <!-- ERB tag closer on its own line -->
       <%= render "accounts/header",
             left_navigation: link_to(...),
             dismissable: true
       %>
 
-      <!-- Another example of ERB tag opener/closer on its own line -->
+      <!-- Another example of ERB tag opener & closer on their own line -->
       <%=
         render "accounts/header",
           left_navigation: link_to(...),
