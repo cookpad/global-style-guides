@@ -413,26 +413,26 @@
 
         <%= render "accounts/header",
               left_navigation: link_to(...),
-              dismissable: local_assigns[:dismissable]
+              dismissable: true
         %>
 
         <%=
           render "accounts/header",
             left_navigation: link_to(...),
-            dismissable: local_assigns[:dismissable]
+            dismissable: true
         %>
 
       <!-- Wrong indentation for lines after first inside ERB tag -->
 
         <%= render "accounts/header",
             left_navigation: link_to(...),
-            dismissable: local_assigns[:dismissable] %>
+            dismissable: true %>
 
     <!-- Good -->
 
       <%= render "accounts/header",
             left_navigation: link_to(...),
-            dismissable: local_assigns[:dismissable] %>
+            dismissable: true %>
     ```
 
 - <a name="leverage-top-down"></a>
