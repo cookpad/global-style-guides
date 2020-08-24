@@ -410,23 +410,22 @@
     <!-- Bad -->
 
       <!-- ERB tag opener/closer on its own line -->
-
-        <%= render "accounts/header",
-              left_navigation: link_to(...),
-              dismissable: true
-        %>
-
-        <%=
-          render "accounts/header",
+      <%= render "accounts/header",
             left_navigation: link_to(...),
             dismissable: true
-        %>
+      %>
+
+      <!-- Another example of ERB tag opener/closer on its own line -->
+      <%=
+        render "accounts/header",
+          left_navigation: link_to(...),
+          dismissable: true
+      %>
 
       <!-- Wrong indentation for lines after first inside ERB tag -->
-
-        <%= render "accounts/header",
-            left_navigation: link_to(...),
-            dismissable: true %>
+      <%= render "accounts/header",
+          left_navigation: link_to(...),
+          dismissable: true %>
 
     <!-- Good -->
 
