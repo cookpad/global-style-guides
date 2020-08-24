@@ -415,7 +415,7 @@
             dismissable: true
       %>
 
-      <!-- Another example of ERB tag opener & closer on their own line -->
+      <!-- ERB tag opener & closer on their own line -->
       <%=
         render "accounts/header",
           left_navigation: link_to(...),
