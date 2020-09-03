@@ -7,8 +7,8 @@
 <details>
   <summary><em>Example</em></summary>
 
-```json
-# Bad
+```javascript
+// Bad
 {
   "name": "published_recipe",
   "fields": [{
@@ -37,7 +37,7 @@
     },
 ```
 
-```json
+```javascript
 # Bad
 {
   "name": "deleted_recipe",
