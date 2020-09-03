@@ -26,7 +26,7 @@
       "default": null
     },
 
-# Good
+// Good
 {
   "name": "published_recipe",
   "fields": [{
@@ -38,7 +38,7 @@
 ```
 
 ```javascript
-# Bad
+// Bad
 {
   "name": "deleted_recipe",
   "fields": [{
