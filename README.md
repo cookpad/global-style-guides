@@ -646,6 +646,43 @@ dict = 'something awful'  # pylint: disable=redefined-builtin
 
 ## 5.4 black
 
+Black is an opinionated Python code formatter.
+
+### 5.4.1 Pros :thumbsup:
+
+* Speed, determinism, and freedom from pycodestyle nagging about formatting.
+* Saves time and mental energy for more important matters.
+* Makes code reviews faster by producing the smallest diffs possible.
+* Blackened code looks the same regardless of the project you’re reading.
+* Formatting becomes transparent after a while and you can focus on the content instead.
+
+### 5.4.2 Cons :thumbsdown:
+
+* Not everyone will agree with the formatting.
+* Manual intervention needed for long strings (black will not wrap them).
+* It doesn't and [will not](https://github.com/psf/black/issues/333) order imports. Consider using `isort` for that purpose.
+
+### 5.4.3 Do :heavy_check_mark:
+
+<!-- TODO: Add link to pre-commit once available -->
+* Run black with `pre-commit` before every push.
+* Check code in CI if it is formatted.
+* Map black to a short cut in your IDE.
+  <details>
+  <summary>Example for PyCharm</summary>
+
+  Step 1: register external tool
+  ![step 1](./images/black_1.png)
+
+  Step 2: register keyboard shortcut for running the external tool
+  ![step 2](./images/black_2.png)
+  </details>
+
+### 5.4.4 Don't :heavy_multiplication_x:
+
+* Don't use the PyCharm built-in formatter. While it does a good job at formatting, it is not opinionated. Everyone can have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another. Additionally, not everyone uses PyCharm or runs the formatter on regular basis.
+* Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
+
 ## 5.5 pipenv
 
 ## 5.6 pytest
