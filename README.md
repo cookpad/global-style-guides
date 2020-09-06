@@ -647,6 +647,7 @@ dict = 'something awful'  # pylint: disable=redefined-builtin
 ## 5.4 black
 
 Black is an opinionated Python code formatter.
+<!-- TODO: Add reference to `format` target once it is moved to a shared library. See also section 5.8 (tasks automation). -->
 
 ### 5.4.1 Pros :thumbsup:
 
@@ -664,9 +665,8 @@ Black is an opinionated Python code formatter.
 
 ### 5.4.3 Do :heavy_check_mark:
 
-<!-- TODO: Add link to pre-commit once available -->
-* Run black with `pre-commit` before every push.
-* Check code in CI if it is formatted.
+* Run black with `pre-commit` before every push. See the [Tasks Automation](#5.8-invoke-/-tasks-automation) for guidance on combining black with pre-commit.
+* Check code into CI if it is formatted.
 * Map black to a short cut in your IDE.
   <details>
   <summary>Example for PyCharm</summary>
@@ -1012,6 +1012,69 @@ def should_give_lower_rating_to_recipes(
   ```
 
 ## 5.7 mypy
+
+## 5.8 invoke / tasks automation
+
+Prefer to use [invoke](http://www.pyinvoke.org/) framework for tasks automation. Invoke is a Python task execution tool & library, drawing inspiration from various sources to arrive at a powerful & clean feature set.
+
+<details>
+<summary>Q: Can I use Invoke tasks in pre-commit?</summary>
+
+Yes you can. See the following `.pre-commit-config.yaml` file example for running a `format` task that executes the [`black`](#54-black) formatter through [`pipenv`](#55-pipenv):
+
+```yaml
+repos:
+- repo: local
+  hooks:
+    - id: formatting
+      name: formatting
+      stages: [commit]
+      language: system
+      pass_filenames: false
+      require_serial: true
+      entry: pipenv run inv format
+      types: [python]
+```
+</details>
+
+### 5.8.1 Pros :thumbsup:
+
+* Deduplication of tasks (similar to Makefile)
+* Removes a lot of complexity from running processes from Python - input/output handling, command line options parsing
+* No new language knowledge needed
+* Easy to learn
+
+### 5.8.2 Cons :thumbsdown:
+
+* Harder to debug than plain Python script
+
+### 5.8.3 Do :heavy_check_mark:
+
+* Use the same name for tasks with the same purpose across multiple repositories. It reduces cognitive overhead when switching between repositories.
+
+  ```bash
+  cd apps/sparks-jobs
+  invoke verify-all
+  cd ../recipe-search-svc
+  invoke verify-all
+  ```
+  <!-- TODO: Replace list of standard tasks with a link once they are moved to a shared library. -->
+  Standard task names: `build`, `format`, `lint`, `lint-docstyle`, `lint-pycodestyle`, `lint-pylint`, `test-all`, `test-integration`, `test-unit`, `typecheck`, `verify-all`. Task names should be in kebab case.
+
+### 5.8.4 Don't :heavy_multiplication_x:
+
+* Don't rename tasks if not needed. Simply name the function as the task if possible:
+  ```python
+  @task(name="lint-docstyle")  # can be just `@task`
+  def lint_docstyle(ctx, environment):
+    ...
+  ```
+
+* Don't use other task automation technologies if possible:
+  * `Script` section of `Pipfile` - no benefit over calling invoke directly.
+  * Ad-hoc Python scripts - there is no common interface.
+  * Makefiles or Bash scripts - not everyone knows them on sufficient level to be able to fully understand them or write them well.
+  * Fabric - Invoke is used already in many repositories. Using a single framework for tasks automation has lower cognitive overhead.
 
 # 6 How to Extend This Guide
 
