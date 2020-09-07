@@ -260,12 +260,12 @@
   <sup>[link](#dont-abuse-zero-key)</sup>
   <details>
     <summary><em>Example</em></summary>
-    
+
     ```yml
-    # Pluralization rules vary from language to language and keys are automatically added and 
-    # removed from the translation files. So the `zero:` key cannot be relied on to be present 
-    # for every language. 
-    # 
+    # Pluralization rules vary from language to language and keys are automatically added and
+    # removed from the translation files. So the `zero:` key cannot be relied on to be present
+    # for every language.
+    #
     # Use a separate key for the "no results" message instead.
     #
     # Bad
@@ -273,13 +273,13 @@
       zero: "There were no results"
       one: "1 recipe found"
       other: "%{count} recipes found"
- 
+
     # Good
     search_results:
       one: "1 recipe found"
       other: "%{count} recipes found"
     search_no_results: "There were no results"
-    ``` 
+    ```
   </details>
 
 - <a name="dont-html-in-locale"></a>
@@ -398,6 +398,38 @@
     </div>
     ```
   </details>
+
+- <a name="consistent-erb-indent"></a>
+  Follow consistent ERB indent style
+  <sup>[link](#consistent-erb-indent)</sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```erb
+    <!-- Bad: ERB tag closer on its own line -->
+    <%= render "accounts/header",
+          left_navigation: link_to(...),
+          dismissable: true
+    %>
+
+    <!-- Bad: ERB tag opener & closer on their own line -->
+    <%=
+      render "accounts/header",
+        left_navigation: link_to(...),
+        dismissable: true
+    %>
+
+    <!-- Bad: Wrong indentation for lines after first inside ERB tag -->
+    <%= render "accounts/header",
+        left_navigation: link_to(...),
+        dismissable: true %>
+
+    <!-- Good -->
+    <%= render "accounts/header",
+      left_navigation: link_to(...),
+      dismissable: true %>
+    ```
 
 - <a name="leverage-top-down"></a>
   Leverage top-down development and feature toggles to keep pull requests small.
