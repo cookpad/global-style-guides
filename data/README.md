@@ -91,7 +91,15 @@
   ```
 </details>
 
-- Provide a unique identifier for stream of events, The event ID typically maps to individual entities <sup>[link](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>
+- Prefer `{EntityName}_#{ID}` format for message key providing a unique identifier for stream of events, The event ID typically maps to individual entities <sup>[link](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>,
+
+<details>
+  <summary><em>Example</em></summary>
+
+  - recipe_e5cb6e1c65bc
+  - tip_d1851256
+
+</details>
 
 ## Consumers
 
