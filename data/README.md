@@ -106,6 +106,12 @@
 ## Consumers
 
 - Build idempotent operations with at least once delivery
+- The number of consumers sharing the work of consuming can be at most the number of log partition in that topic, because messages within the same partition are delivered to the same consumer.
+
+<details>
+  <summary><em>Example</em></summary>
+  ![consumer_example](https://user-images.githubusercontent.com/505427/92496663-55abf800-f1f0-11ea-8214-e603b8bbb392.png)
+</details>
 
 ## Topics
 
