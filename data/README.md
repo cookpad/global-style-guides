@@ -1,6 +1,6 @@
-# Data
+# Kafka
 
-## Streaming 	
+## Streaming
 
 - Keep messages as small as possible using simple RESTish. Borrowed from [Smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes) pattern and the [Aggregate root pattern](https://martinfowler.com/bliki/DDD_Aggregate.html)
 
@@ -54,7 +54,7 @@
       "default": null
     },
 
-# Good
+// Good
 {
   "name": "deleted_recipe",
   "fields": [{
@@ -81,5 +81,12 @@
   ```
 </details>
 
+- Provide a unique identifier for stream of events, The event ID typically maps to individual entities <sup>[link](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>
+
 ## Consumers
 
+- Build idempotent operations with at least once delivery
+
+## Topics
+
+- Prefer `#{produce-name}.#{enviroment}.#{entity}.avro` format for naming the topics
