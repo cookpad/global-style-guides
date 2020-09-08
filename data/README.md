@@ -101,6 +101,8 @@
 
 </details>
 
+- [The orders of these events matters](https://www.confluent.io/blog/put-several-event-types-kafka-topic/) for [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) pattern, make sure preserve the order of those events by putting them all in the same topic partition.
+
 ## Consumers
 
 - Build idempotent operations with at least once delivery
