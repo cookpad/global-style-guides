@@ -110,7 +110,7 @@
 
 <details>
   <summary><em>Example</em></summary>
-  ![consumer_example](https://user-images.githubusercontent.com/505427/92496663-55abf800-f1f0-11ea-8214-e603b8bbb392.png)
+  <img src="https://user-images.githubusercontent.com/505427/92496663-55abf800-f1f0-11ea-8214-e603b8bbb392.png" alt="consumer_example">
 </details>
 
 ## Topics
