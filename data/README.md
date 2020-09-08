@@ -7,77 +7,87 @@
 <details>
   <summary><em>Example</em></summary>
 
-```javascript
-// Bad
-{
-  "name": "published_recipe",
-  "fields": [{
-    "name": "approved_at",
-    "type":  {
-      "type": "long",
-      "logicalType": "timestamp-micros"
-    },
+  ```javascript
+    // Bad
     {
-      "name": "first_approved_at",
-      "type": ["null", {
-         "type": "long",
-         "logicalType": "timestamp-micros"
-      }],
-      "default": null
-    },
+      "type": "record",
+      "name": "published_recipe",
+      "fields": [{
+        "name": "approved_at",
+        "type":  {
+          "type": "long",
+          "logicalType": "timestamp-micros"
+        },
+        {
+          "name": "first_approved_at",
+          "type": ["null", {
+             "type": "long",
+             "logicalType": "timestamp-micros"
+          }],
+          "default": null
+        },
 
-// Good
-{
-  "name": "published_recipe",
-  "fields": [{
-    "name": "approved_at",
-    "type":  {
-      "type": "long",
-      "logicalType": "timestamp-micros"
-    },
-```
-
-```javascript
-// Bad
-{
-  "name": "deleted_recipe",
-  "fields": [{
-      "name": "event_time",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-micros"
-      }
-    },
+    // Good
     {
-      "name": "title",
-      "type": ["null", "string"],
-      "default": null
-    },
+      "type": "record",
+      "name": "published_recipe",
+      "fields": [{
+        "name": "approved_at",
+        "type":  {
+          "type": "long",
+          "logicalType": "timestamp-micros"
+        },
+  ```
 
-// Good
-{
-  "name": "deleted_recipe",
-  "fields": [{
-      "name": "event_time",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-micros"
-      }
-    }
-```
+  ```javascript
+    // Bad
+    {
+      "type": "record",
+      "name": "deleted_recipe",
+      "fields": [{
+          "name": "event_time",
+          "type": {
+            "type": "long",
+            "logicalType": "timestamp-micros"
+          }
+        },
+        {
+          "name": "title",
+          "type": ["null", "string"],
+          "default": null
+        },
+
+    // Good
+    {
+      "type": "record",
+      "name": "deleted_recipe",
+      "fields": [{
+          "name": "event_time",
+          "type": {
+            "type": "long",
+            "logicalType": "timestamp-micros"
+          }
+        }
+  ```
 
 </details>
 
-- Prefer `{PastVerb}{Entity}Event`format for naming the events
+- Prefer `{PastVerb}_{Entity}`format for naming the events
 
 <details>
   <summary><em>Example</em></summary>
 
-  ```ruby
-  ## Bad
-  VotingContestEvent
-  ## Good
-  VotedContestEvent
+  ```javascript
+    // Bad
+    {
+      "type": "record",
+      "name": "voting_contest",
+
+    // Good
+    {
+      "type": "record",
+      "name": "voted_contest",
+
   ```
 </details>
 
