@@ -1,4 +1,4 @@
-# Kafka
+# Data
 
 ## Streaming
 
@@ -91,7 +91,7 @@
   ```
 </details>
 
-- Prefer `{EntityName}_#{ID}` format for message key providing a unique identifier for stream of events, The event ID typically maps to individual entities <sup>[link](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>,
+- Prefer `{EntityName}_#{ID}` format for message key providing a unique identifier for stream of events, [The event ID typically maps to individual entities](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations).
 
 <details>
   <summary><em>Example</em></summary>
@@ -106,7 +106,7 @@
 ## Consumers
 
 - Build idempotent operations with at least once delivery
-- The number of consumers sharing the work of consuming can be at most the number of log partition in that topic, because messages within the same partition are delivered to the same consumer. <sup>[link](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)</sup>
+- The number of consumers sharing the work of consuming can be at most the number of log partition in that topic, because messages within the same partition are delivered to the same consumer. <sup>[ref](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)</sup>
 
 <details>
   <summary><em>Example</em></summary>
@@ -115,4 +115,4 @@
 
 ## Topics
 
-- Prefer `#{produce-name}.#{enviroment}.#{entity}.avro` format for naming the topics
+- Prefer `#{produce-name}.#{enviroment}.#{topic_name}.avro` format for naming the topics
