@@ -115,7 +115,7 @@
 
 ## Topics
 
-- Prefer `#{produce-name}.#{enviroment}.#{topic_name}.avro` format for naming the topics
+- Prefer `#{produce-name}.#{enviroment}.#{topic_name}.avro` format for naming the topics.<sup>[ref](https://itlabs.jyotirmegha.in/kiranprabhu/kafka-topic-naming-conventions-best-practices/)</sup>
 - Choosing the proper number of partitions for a topic requires estimation based on the desired throughput of producers and consumers per partition, a simple formula could be: <sup>[ref](https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/)</sup>
 
 ```
