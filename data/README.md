@@ -116,3 +116,16 @@
 ## Topics
 
 - Prefer `#{produce-name}.#{enviroment}.#{topic_name}.avro` format for naming the topics
+- Choosing the proper number of partitions for a topic requires estimation based on the desired throughput of producers and consumers per partition, a simple formula could be: <sup>[ref](https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/)</sup>
+
+```
+TopicPartitions = max(t/p, t/c)
+```
+
+`p`  throughout that you can achieve on a single partition for production
+
+`c` throughout that you can achieve on a single partition for consumption
+
+`t` target throughput
+
+For example, if you want to be able to read 1 GB/sec, but your consumer is only able process 50 MB/sec, then you need at least 20 partitions and 20 consumers in the consumer group. Similarly, if you want to achieve the same for producers, and 1 producer can only write at 100 MB/sec, you need 10 partitions. In this case, if you have 20 partitions, you can maintain 1 GB/sec for producing and consuming messages.<sup>[ref](https://docs.cloudera.com/runtime/7.2.1/kafka-performance-tuning/topics/kafka-tune-sizing-partition-number.html)</sup>
