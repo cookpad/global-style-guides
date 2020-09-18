@@ -105,7 +105,7 @@
 
 ## Consumers
 
-- Build idempotent operations with at least once delivery
+- Build idempotent consumers with **at-least-once** delivery, non-idempotent could be accepted when using **at-most-once** and **exactly-once** delivery semantics.<sup>[ref](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)</sup>
 - The number of consumers sharing the work of consuming can be at most the number of log partition in that topic, because messages within the same partition are delivered to the same consumer. <sup>[ref](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)</sup>
 
 <details>
