@@ -39,37 +39,6 @@
         },
   ```
 
-  ```javascript
-    // Bad
-    {
-      "type": "record",
-      "name": "deleted_recipe",
-      "fields": [{
-          "name": "event_time",
-          "type": {
-            "type": "long",
-            "logicalType": "timestamp-micros"
-          }
-        },
-        {
-          "name": "title",
-          "type": ["null", "string"],
-          "default": null
-        },
-
-    // Good
-    {
-      "type": "record",
-      "name": "deleted_recipe",
-      "fields": [{
-          "name": "event_time",
-          "type": {
-            "type": "long",
-            "logicalType": "timestamp-micros"
-          }
-        }
-  ```
-
 </details>
 
 - Prefer `{PastVerb}_{Entity}`format for naming the events
@@ -91,7 +60,7 @@
   ```
 </details>
 
-- Prefer `{EntityName}_#{ID}` format for message key providing a unique identifier for stream of events, [The event ID typically maps to individual entities](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations).
+- Prefer `{EntityName}_#{ID}` format for [domain events](https://martinfowler.com/eaaDev/DomainEvent.html) key providing a unique identifier for stream of events, [The event ID typically maps to individual entities](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations).
 
 <details>
   <summary><em>Example</em></summary>
