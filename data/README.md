@@ -41,7 +41,7 @@
 
 </details>
 
-- Prefer `{PastVerb}_{Entity}`format for naming the events
+- Prefer `{PastVerb}_{Entity}`format for naming the events, [event names should be in past tense](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/)
 
 <details>
   <summary><em>Example</em></summary>
