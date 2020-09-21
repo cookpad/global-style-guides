@@ -1,6 +1,6 @@
-# Data
+# Kafka
 
-## Streaming
+## Producers
 
 - Keep messages as small as possible using simple RESTish payloads. Borrowed from [Smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes) pattern and the [Aggregate root pattern](https://martinfowler.com/bliki/DDD_Aggregate.html)
 
@@ -41,7 +41,7 @@
 
 </details>
 
-- Prefer `{PastVerb}_{Entity}`format for naming the events, [event names should be in past tense](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/)
+- Prefer `{PastVerb}_{Entity}`format for naming the events, [event names should be in past tense.](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/)
 
 <details>
   <summary><em>Example</em></summary>
