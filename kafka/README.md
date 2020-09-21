@@ -7,37 +7,39 @@
 <details>
   <summary><em>Example</em></summary>
 
-  ```javascript
-    // Bad
+```javascript
+// Bad
+{
+  "type": "record",
+  "name": "published_recipe",
+  "fields": [{
+    "name": "approved_at",
+    "type":  {
+      "type": "long",
+      "logicalType": "timestamp-micros"
+    },
     {
-      "type": "record",
-      "name": "published_recipe",
-      "fields": [{
-        "name": "approved_at",
-        "type":  {
-          "type": "long",
-          "logicalType": "timestamp-micros"
-        },
-        {
-          "name": "first_approved_at",
-          "type": ["null", {
-             "type": "long",
-             "logicalType": "timestamp-micros"
-          }],
-          "default": null
-        },
+      "name": "first_approved_at",
+      "type": ["null", {
+         "type": "long",
+         "logicalType": "timestamp-micros"
+      }],
+      "default": null
+    }]
+}
 
-    // Good
-    {
-      "type": "record",
-      "name": "published_recipe",
-      "fields": [{
-        "name": "approved_at",
-        "type":  {
-          "type": "long",
-          "logicalType": "timestamp-micros"
-        },
-  ```
+// Good
+{
+  "type": "record",
+  "name": "published_recipe",
+  "fields": [{
+    "name": "approved_at",
+    "type":  {
+      "type": "long",
+      "logicalType": "timestamp-micros"
+    }}]
+}},
+```
 
 </details>
 
@@ -46,18 +48,19 @@
 <details>
   <summary><em>Example</em></summary>
 
-  ```javascript
-    // Bad
-    {
-      "type": "record",
-      "name": "voting_contest",
+```javascript
+// Bad
+{
+  "type": "record",
+  "name": "voting_contest"
+}
 
-    // Good
-    {
-      "type": "record",
-      "name": "voted_contest",
-
-  ```
+// Good
+{
+  "type": "record",
+  "name": "voted_contest"
+}
+```
 </details>
 
 - Prefer `{EntityName}_#{ID}` format for [domain events](https://martinfowler.com/eaaDev/DomainEvent.html) key providing a unique identifier for stream of events, [The event ID typically maps to individual entities](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations).
