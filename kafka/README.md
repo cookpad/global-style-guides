@@ -71,6 +71,8 @@
 </details>
 
 - [The orders of these events matters](https://www.confluent.io/blog/put-several-event-types-kafka-topic/) for [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) pattern, make sure preserve the order of those events by putting them all in the same topic partition by either using the same message key or specifying the partition.
+- The events should be aligned with real-world events, you are dealing with changes that have a native equivalence, by modelling with DDD leads to less fragile design.
+- 
 
 ## Consumers
 
