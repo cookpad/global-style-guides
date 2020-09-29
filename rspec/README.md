@@ -9,11 +9,11 @@ These are some of the conventions we follow:
 
 - <a name="avoid-subject-and-friends"></a>
   Avoid using `subject`, `described_class`, `shared_examples`, `shared_context`
-  <sup>[link](#avoid-subject-and-friends)</sup>
+  <sup>[link](#avoid-subject-and-friends) [explanation](https://sourcediving.com/life-beyond-the-cargo-cult-14964dbb6854)</sup>
 
 - <a name="avoid-using-context"></a>
   Avoid using `context`
-  <sup>[link](#avoid-using-context)</sup>
+  <sup>[link](#avoid-using-context) [explanation](https://sourcediving.com/life-beyond-the-cargo-cult-14964dbb6854)</sup>
 
   <details>
     <summary><em>Example</em></summary>
@@ -85,7 +85,7 @@ These are some of the conventions we follow:
 
 - <a name="avoid-using-let"></a>
   Avoid using `let`
-  <sup>[link](#avoid-using-let)</sup>
+  <sup>[link](#avoid-using-let) [explanation](https://sourcediving.com/life-beyond-the-cargo-cult-14964dbb6854)</sup>
 
   <details>
     <summary><em>Example</em></summary>
@@ -145,7 +145,7 @@ These are some of the conventions we follow:
 - <a name="prefer-have-text"></a>
   Prefer `have_text` over `have_content`
   <sup>[link](#prefer-have-text)</sup>
-  
+
 - <a name="prefer-click-on"></a>
   Prefer `click_on` over `click_link` or `click_button`
   <sup>[link](#prefer-click-on)</sup>
