@@ -2,10 +2,12 @@
 
 ## Producers
 
-- Keep messages as small as possible using simple RESTish payloads. Borrowed from [Smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes) pattern and the [Aggregate root pattern](https://martinfowler.com/bliki/DDD_Aggregate.html)
+- <a name="keep-small-messages"></a>
+  Keep messages as small as possible, exposing just enough that makes sense to the other systems Using simple RESTish payloads <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
 
 <details>
   <summary><em>Example</em></summary>
+
 
 ```javascript
 // Bad
@@ -43,10 +45,12 @@
 
 </details>
 
-- Prefer `{SimplePastTenseVerb}_{Entity}`format for naming the events, [event names should be in simple past tense.](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/)
+- <a name="events-name-past-tense"></a>
+  Prefer `{PastTenseVerb}_{Entity}`format for naming the events, [event names should be in past tense.](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/) <sup>[link](#events-name-past-tense)</sup> <sup>[explanation](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid)</sup>
 
 <details>
   <summary><em>Example</em></summary>
+
 
 ```javascript
 // Bad
@@ -61,30 +65,34 @@
   "name": "voted_contest"
 }
 ```
+
 </details>
 
-- Prefer `{EntityName}_#{ID}` format for [domain events](https://martinfowler.com/eaaDev/DomainEvent.html) key providing a unique identifier for stream of events, [The event ID typically maps to individual entities](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations).
+- <a name="topic-message-key"></a>
+  Prefer `{EntityName}_#{ID}` as format of messages keys. The event ID typically maps to individual entities <sup>[link](#topic-message-key)</sup> <sup>[explanation](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>
 
 <details>
   <summary><em>Example</em></summary>
 
-  - recipe_e5cb6e1c65bc
-  - tip_d1851256
+
+  - recipe_1
+  - tip_1
 
 </details>
 
-- [The orders of these events matters](https://www.confluent.io/blog/put-several-event-types-kafka-topic/) for [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) pattern, make sure preserve the order of those events by putting them all in the same topic partition by either using the same message key or specifying the partition.
-- The events should be aligned with real-world events, you are dealing with changes that have a native equivalence, by modelling with DDD leads to less fragile design.
+- <a name="event-orders-matters"></a>
+  For topics where the events order matters, make sure to keep them on the same topic partition by using the same message key or specifying the partition. <sup>[link](#event-orders-matters)</sup> <sup>[explanation](https://www.confluent.io/blog/put-several-event-types-kafka-topic/)</sup>
+
+- Align events with real-world events.
 
 ## Consumers
 
-- Build idempotent consumers with **at-least-once** delivery, non-idempotent could be accepted when using **at-most-once** and **exactly-once** delivery semantics.<sup>[ref](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)</sup>
-- The number of consumers sharing the work of consuming can be at most the number of log partition in that topic, because messages within the same partition are delivered to the same consumer. <sup>[ref](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)</sup>
+- <a name="at-least-once-consumers"></a>
+  Make sure consumers are idempotent when using **at-least-once** delivery <sup>[link](#at-least-once-consumers)</sup> <sup>[explanation](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it)</sup>
 
-<details>
-  <summary><em>Example</em></summary>
-  <img src="https://user-images.githubusercontent.com/505427/92496663-55abf800-f1f0-11ea-8214-e603b8bbb392.png" alt="consumer_example">
-</details>
+- <a name="number-consumers-within-consumer-group"></a>
+  Make sure number of consumers within a consumer group is less or equal to the number of topic partitions <sup>[link](#number-consumers-within-consumer-group)</sup> <sup>[explanation](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html#T1_overflow_nomessage)</sup>
+
 
 ## Topics
 
