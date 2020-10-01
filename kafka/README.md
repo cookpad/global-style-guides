@@ -3,7 +3,7 @@
 ## Producers
 
 - <a name="keep-small-messages"></a>
-  Keep messages as small as possible, exposing just enough that makes sense to the other systems Using simple RESTish payloads <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
+  Keep messages as small as possible. Expose just enough data so messages make sense to other systems. Use simple RESTish payloads <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
 
 <details>
   <summary><em>Example</em></summary>
