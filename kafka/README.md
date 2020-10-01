@@ -56,7 +56,7 @@
 // Bad
 {
   "type": "record",
-  "name": "voting_contest"
+  "name": "publishing_recipe"
 }
 
 // Good
