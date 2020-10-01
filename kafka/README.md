@@ -62,7 +62,7 @@
 // Good
 {
   "type": "record",
-  "name": "voted_contest"
+  "name": "published_recipe"
 }
 ```
 
