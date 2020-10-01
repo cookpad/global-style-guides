@@ -76,7 +76,7 @@
 
 
   - recipe_1
-  - tip_1
+  - tip_42
 
 </details>
 
