@@ -7,8 +7,6 @@
 
 <details>
   <summary><em>Example</em></summary>
-
-
 ```javascript
 // Bad
 {
@@ -46,12 +44,10 @@
 </details>
 
 - <a name="events-name-past-tense"></a>
-  Prefer `{PastTenseVerb}_{Entity}`format for naming the events, [event names should be in past tense.](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid/) <sup>[link](#events-name-past-tense)</sup> <sup>[explanation](https://danielwhittaker.me/2014/10/18/6-code-smells-cqrs-events-avoid)</sup>
+  Prefer `{PastTenseVerb}_{Entity}`format for naming the events, event names should be in past tense. <sup>[link](#real-world-events) [explanation](https://youtu.be/JzWJI8kW2kc?t=707)</sup>
 
 <details>
   <summary><em>Example</em></summary>
-
-
 ```javascript
 // Bad
 {
@@ -73,8 +69,6 @@
 
 <details>
   <summary><em>Example</em></summary>
-
-
   - recipe_1
   - tip_42
 
@@ -82,8 +76,6 @@
 
 - <a name="event-orders-matters"></a>
   For topics where the events order matters, make sure to keep them on the same topic partition by using the same message key or specifying the partition. <sup>[link](#event-orders-matters)</sup> <sup>[explanation](https://www.confluent.io/blog/put-several-event-types-kafka-topic/)</sup>
-
-- Align events with real-world events.
 
 ## Consumers
 
