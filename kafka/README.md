@@ -48,6 +48,7 @@
 
 <details>
   <summary><em>Example</em></summary>
+  
 ```javascript
 // Bad
 {
