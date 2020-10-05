@@ -83,7 +83,7 @@
   Prefer `#{consumer-app-name}.#{enviroment}.#{consumer-group-name}` format for naming the consumer groups. <sup>[link](#consumer-group-name-format)</sup> <sup>[explanation](https://itlabs.jyotirmegha.in/kiranprabhu/kafka-topic-naming-conventions-best-practices/)</sup>
 
 - <a name="at-least-once-consumers"></a>
-  Make sure consumers are idempotent when using **at-least-once** delivery <sup>[link](#at-least-once-consumers)</sup> <sup>[explanation](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it)</sup>
+  Make sure consumers are idempotent when using **at-least-once** delivery. <sup>[link](#at-least-once-consumers)</sup> <sup>[explanation](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it)</sup>
 
 - <a name="number-consumers-within-consumer-group"></a>
   Ensure the number of consumers within a consumer group is less or equal to the number of topic partitions <sup>[link](#number-consumers-within-consumer-group)</sup> <sup>[explanation](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html#T1_overflow_nomessage)</sup>
