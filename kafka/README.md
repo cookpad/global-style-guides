@@ -32,6 +32,7 @@
 
 <details>
   <summary><em>Example</em></summary>
+
   - recipe_1
   - tip_42
 
