@@ -65,7 +65,7 @@
 </details>
 
 - <a name="topic-message-key"></a>
-  Prefer `{EntityName}_#{ID}` as format of messages keys. The event ID typically maps to individual entities <sup>[link](#topic-message-key)</sup> <sup>[explanation](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>
+  Prefer `{EntityName}_#{ID}` as the messages key format. The event ID typically maps to individual entities. <sup>[link](#topic-message-key)</sup> <sup>[explanation](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing#issues-and-considerations)</sup>
 
 <details>
   <summary><em>Example</em></summary>
