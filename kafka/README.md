@@ -5,51 +5,12 @@
 - <a name="keep-small-messages"></a>
   Keep messages as small as possible. Expose just enough data so messages make sense to other systems. Use simple RESTish payloads. <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
 
-<details>
-  <summary><em>Example</em></summary>
-  
-```javascript
-// Bad
-{
-  "type": "record",
-  "name": "published_recipe",
-  "fields": [{
-    "name": "published_at",
-    "type":  {
-      "type": "long",
-      "logicalType": "timestamp-micros"
-    },
-    {
-      "name": "first_approved_at",
-      "type": ["null", {
-         "type": "long",
-         "logicalType": "timestamp-micros"
-      }],
-      "default": null
-    }]
-}
-
-// Good
-{
-  "type": "record",
-  "name": "published_recipe",
-  "fields": [{
-    "name": "published_at",
-    "type":  {
-      "type": "long",
-      "logicalType": "timestamp-micros"
-    }}]
-}},
-```
-
-</details>
-
 - <a name="events-name-past-tense"></a>
   Prefer `{PastTenseVerb}_{Entity}`format for naming the events, event names should be in past tense. <sup>[link](#real-world-events) [explanation](https://youtu.be/JzWJI8kW2kc?t=707)</sup>
 
 <details>
   <summary><em>Example</em></summary>
-  
+
 ```javascript
 // Bad
 {
