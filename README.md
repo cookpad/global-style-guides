@@ -1,11 +1,36 @@
-# Cookpad Python Style Guide
+<!--
+    How to generate TOC from PyCharm:
+    https://github.com/vsch/idea-multimarkdown/wiki/Table-of-Contents-Extension
+-->
+[TOC levels=1,2 markdown formatted bullet hierarchy]: # "Cookpad Python Style Guide"
 
-* [1 Background](#1-background)
-* [2 Python Language Rules](#2-python-language-rules)
-* [3 Python Style Rules](#3-python-style-rules)
-* [4 Libraries](#4-libraries)
-* [5 Tools](#5-tools)
-* [6 How to Extend This Guide](#6-how-to-extend-this-guide)
+# Cookpad Python Style Guide
+- [1 Background](#1-background)
+  - [1.1 Conventions Precedence](#11-conventions-precedence)
+- [2 Python Language Rules](#2-python-language-rules)
+  - [2.1 Python Version Support](#21-python-version-support)
+  - [2.2 Imports](#22-imports)
+  - [2.3 Conditional expressions](#23-conditional-expressions)
+  - [2.4 Type Annotations](#24-type-annotations)
+- [3 Python Style Rules](#3-python-style-rules)
+  - [3.1 Line length](#31-line-length)
+  - [3.2 Naming](#32-naming)
+  - [3.5 Interfaces](#35-interfaces)
+  - [3.6 Comments and docstrings](#36-comments-and-docstrings)
+  - [3.7 Exceptions](#37-exceptions)
+  - [3.8 Classes](#38-classes)
+  - [3.9 Type access](#39-type-access)
+- [4 Libraries](#4-libraries)
+- [5 Tools](#5-tools)
+  - [5.1 pylint](#51-pylint)
+  - [5.2 pycodestyle](#52-pycodestyle)
+  - [5.3 pydocstyle](#53-pydocstyle)
+  - [5.4 black](#54-black)
+  - [5.5 pipenv](#55-pipenv)
+  - [5.6 pytest](#56-pytest)
+  - [5.7 mypy](#57-mypy)
+- [6 How to Extend This Guide](#6-how-to-extend-this-guide)
+  - [6.1 Editing tips](#61-editing-tips)
 
 # 1 Background
 
