@@ -5,6 +5,30 @@
 - <a name="keep-small-messages"></a>
   Keep messages as small as possible. Expose just enough data so messages make sense to other systems. Use simple RESTish payloads. <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
 
+- <a name="message-consistency"></a>
+  Keep messages payloads consistant between messages that share the same key format, if the topic is configured to be compacted. <sup>[link](#message-consistency)</sup>
+
+```json
+// Bad
+{
+  "type": "edited_user_event",
+  "key": "users_123",
+  "body": {
+    "title": "edited title"
+  }
+}
+
+// Good
+{
+  "type": "edited_user_event",
+  "key": "users_123",
+  "body": {
+    "title": "edited title",
+    "description": "previous description"
+  }
+}
+```
+
 - <a name="events-name-past-tense"></a>
   Prefer `{PastTenseVerb}_{Entity}`format for naming the events, event names should be in past tense. <sup>[link](#real-world-events) [explanation](https://youtu.be/JzWJI8kW2kc?t=707)</sup>
 
