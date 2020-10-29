@@ -14,7 +14,7 @@
   "type": "registered_user_event",
   "key": "users_123",
   "body": {
-    "title": "registered title"
+    "title": "registered title",
     "description": "registered description"
   }
 }
@@ -29,6 +29,14 @@
 
 
 // Good
+{
+  "type": "registered_user_event",
+  "key": "users_123",
+  "body": {
+    "title": "registered title",
+    "description": "registered description"
+  }
+}
 {
   "type": "edited_user_event",
   "key": "users_123",
