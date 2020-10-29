@@ -10,6 +10,7 @@
 
 <details>
   <summary><em>Example</em></summary>
+
 ```json
 // Bad (notice missing description key in second message)
 {
@@ -28,7 +29,6 @@
     "title": "edited title"
   }
 }
-
 
 // Good
 {
@@ -49,7 +49,9 @@
   }
 }
 ```
+
 </details>
+
 - <a name="events-name-past-tense"></a>
   Prefer `{PastTenseVerb}_{Entity}`format for naming the events, event names should be in past tense. <sup>[link](#real-world-events) [explanation](https://youtu.be/JzWJI8kW2kc?t=707)</sup>
 
