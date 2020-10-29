@@ -6,7 +6,7 @@
   Keep messages as small as possible. Expose just enough data so messages make sense to other systems. Use simple RESTish payloads. <sup>[link](#keep-small-messages)</sup> <sup>[explanation](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)</sup>
 
 - <a name="message-consistency"></a>
-  Keep messages payloads consistant between messages that share the same key format, if the topic is configured to be compacted. <sup>[link](#message-consistency)</sup>
+  Keep message payloads consistent between messages that share the same key format, if the topic is configured to be compacted, and if consumers expect to replay the compacted events and get a full picture of a resource's current state. <sup>[link](#message-consistency)</sup>
 
 ```json
 // Bad
