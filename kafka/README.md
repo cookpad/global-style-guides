@@ -8,6 +8,8 @@
 - <a name="message-consistency"></a>
   Keep message payloads consistent between messages that share the same key format, if the topic is configured to be compacted, and if consumers expect to replay the compacted events and get a full picture of a resource's current state. <sup>[link](#message-consistency)</sup>
 
+<details>
+  <summary><em>Example</em></summary>
 ```json
 // Bad
 {
