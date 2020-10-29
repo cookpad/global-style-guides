@@ -11,13 +11,6 @@
 ```json
 // Bad
 {
-  "type": "edited_user_event",
-  "key": "users_123",
-  "body": {
-    "title": "edited title"
-  }
-}
-{
   "type": "registered_user_event",
   "key": "users_123",
   "body": {
@@ -26,13 +19,22 @@
   }
 }
 
+{
+  "type": "edited_user_event",
+  "key": "users_123",
+  "body": {
+    "title": "edited title"
+  }
+}
+
+
 // Good
 {
   "type": "edited_user_event",
   "key": "users_123",
   "body": {
     "title": "edited title",
-    "description": "previous description"
+    "description": "registered description"
   }
 }
 ```
