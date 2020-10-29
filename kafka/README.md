@@ -17,6 +17,14 @@
     "title": "edited title"
   }
 }
+{
+  "type": "registered_user_event",
+  "key": "users_123",
+  "body": {
+    "title": "registered title"
+    "description": "registered description"
+  }
+}
 
 // Good
 {
