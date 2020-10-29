@@ -11,7 +11,7 @@
 <details>
   <summary><em>Example</em></summary>
 ```json
-// Bad
+// Bad (notice missing description key in second message)
 {
   "type": "registered_user_event",
   "key": "users_123",
