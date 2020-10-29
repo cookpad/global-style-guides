@@ -39,6 +39,7 @@
     "description": "registered description"
   }
 }
+
 {
   "type": "edited_user_event",
   "key": "users_123",
