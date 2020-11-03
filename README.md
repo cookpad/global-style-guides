@@ -22,13 +22,14 @@
   - [3.9 Type access](#39-type-access)
 - [4 Libraries](#4-libraries)
 - [5 Tools](#5-tools)
-  - [5.1 pylint](#51-pylint)
-  - [5.2 pycodestyle](#52-pycodestyle)
-  - [5.3 pydocstyle](#53-pydocstyle)
-  - [5.4 black](#54-black)
-  - [5.5 pipenv](#55-pipenv)
-  - [5.6 pytest](#56-pytest)
-  - [5.7 mypy](#57-mypy)
+  - [5.1 pylint (static code analysis)](#51-pylint-static-code-analysis)
+  - [5.2 pycodestyle (static code analysis)](#52-pycodestyle-static-code-analysis)
+  - [5.3 pydocstyle (static code analysis)](#53-pydocstyle-static-code-analysis)
+  - [5.4 black (automatic code formatting)](#54-black-automatic-code-formatting)
+  - [5.5 pipenv (virtualenv management)](#55-pipenv-virtualenv-management)
+  - [5.6 pytest (testing)](#56-pytest-testing)
+  - [5.7 mypy (static type checks)](#57-mypy-static-type-checks)
+  - [5.8 invoke (tasks automation)](#58-invoke-tasks-automation)
 - [6 How to Extend This Guide](#6-how-to-extend-this-guide)
   - [6.1 Editing tips](#61-editing-tips)
 
@@ -608,7 +609,7 @@ TODO: Candidates. Please expand if you can think of anything there are more choi
 
 Following section describe recommended and commonly used tools, including conventions for their use.
 
-## 5.1 pylint
+## 5.1 pylint (static code analysis)
 
 pylint is a tool for finding bugs and style problems in Python source code. It finds problems that are typically caught by a compiler for less dynamic languages like C and C++. Because of the dynamic nature of Python, some warnings may be incorrect; however, spurious warnings should be infrequent.
 
@@ -665,11 +666,11 @@ dict = 'something awful'  # pylint: disable=redefined-builtin
   ```
   Is this disable still needed? What was the motivation?
 
-## 5.2 pycodestyle
+## 5.2 pycodestyle (static code analysis)
 
-## 5.3 pydocstyle
+## 5.3 pydocstyle (static code analysis)
 
-## 5.4 black
+## 5.4 black (automatic code formatting)
 
 Black is an opinionated Python code formatter.
 <!-- TODO: Add reference to `format` target once it is moved to a shared library. See also section 5.8 (tasks automation). -->
@@ -708,9 +709,58 @@ Black is an opinionated Python code formatter.
 * Don't use the PyCharm built-in formatter. While it does a good job at formatting, it is not opinionated. Everyone can have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another. Additionally, not everyone uses PyCharm or runs the formatter on regular basis.
 * Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
 
-## 5.5 pipenv
+## 5.5 pipenv (virtualenv management)
 
-## 5.6 pytest
+[Pipenv](https://pipenv.pypa.io/en/latest/) automatically creates and manages a virtualenv for projects, as well as adds/removes packages from a `Pipfile` as you install/uninstall packages. It also generates a `Pipfile.lock`, which is used to produce deterministic builds.
+
+<details>
+<summary>Q: Why not poetry?</summary>
+
+pipenv was chosen when both pipenv and [poetry](https://python-poetry.org/) were equals. Poetry has evolved since then to have better support. But there wasn't any reason good enough to migrate all project yet. See how they [compare in star rating](https://star-history.t9t.io/#python-poetry/poetry&pypa/pipenv). A future migration could be made easier with [dephell](https://github.com/dephell/dephell).
+</details>
+
+### 5.5.1 Pros :thumbsup:
+
+* deterministic builds (as opposed to requirements.txt)
+
+### 5.5.2 Cons :thumbsdown:
+
+* slow (as opposed to poetry, requirements.txt)
+* maintenance is almost non-existent
+
+### 5.5.3 Do :heavy_check_mark:
+
+* Lock [semantically versioned](https://semver.org/) dependencies to minor version with the [PEP-440 compatible release operator](https://www.python.org/dev/peps/pep-0440/#compatible-release):
+  ```text
+  pytest = "~=5.4"
+  # version 6 will have breaking changes, upgrade should be explicit
+  # version 5.5 is not breaking, upgrade can be automatic
+  ```
+* Lock dependencies that are not semantically versioned to a specific version with the [PEP-440 version matching operator](https://www.python.org/dev/peps/pep-0440/#version-matching):
+  ```text
+  mypy = "==0.790"
+  # any new version can be breaking, upgrade mustn't be automatic
+  ```
+* Leave development dependencies unlocked if breaking changes don't affect anybody:
+  ```text
+  ipython = "*"
+  # you often use ipython in the project but want the latest
+  ```
+* Install packages in a reproducible way:
+  ```bash
+  pipenv install --deploy
+  # Aborts if the Pipfile.lock is out-of-date, or Python version is wrong.
+  ```
+
+### 5.5.4 Don't :heavy_multiplication_x:
+
+* Don't leave code or testing dependencies unlocked:
+  ```text
+  pytest = "*"  # could unexpectedly start failing in CI pipeline
+  requests = "*"  # could have API change and break the code
+  ```
+
+## 5.6 pytest (testing)
 
 The pytest framework makes it easy to write small tests yet scales to support complex functional testing for applications and libraries.
 
@@ -1036,9 +1086,9 @@ def should_give_lower_rating_to_recipes(
       ] == recipe_ids_in_relevance_order, "Exactly 2 IDs were expected in this order."
   ```
 
-## 5.7 mypy
+## 5.7 mypy (static type checks)
 
-## 5.8 invoke / tasks automation
+## 5.8 invoke (tasks automation)
 
 Prefer to use [invoke](http://www.pyinvoke.org/) framework for tasks automation. Invoke is a Python task execution tool & library, drawing inspiration from various sources to arrive at a powerful & clean feature set.
 
