@@ -730,16 +730,19 @@ pipenv was chosen when both pipenv and [poetry](https://python-poetry.org/) were
 
 ### 5.5.3 Do :heavy_check_mark:
 
-* Lock [semantically versioned](https://semver.org/) dependencies to minor version with the [PEP-440 compatible release operator](https://www.python.org/dev/peps/pep-0440/#compatible-release):
+* Lock [semantically versioned](https://semver.org/) stable dependencies (version >= 1.0) to minor version with the [PEP-440 compatible release operator](https://www.python.org/dev/peps/pep-0440/#compatible-release):
   ```text
   pytest = "~=5.4"
   # version 6 will have breaking changes, upgrade should be explicit
   # version 5.5 is not breaking, upgrade can be automatic
   ```
-* Lock dependencies that are not semantically versioned to a specific version with the [PEP-440 version matching operator](https://www.python.org/dev/peps/pep-0440/#version-matching):
+* Lock dependencies that are not semantically versioned or in [initial development](https://semver.org/#spec-item-4) (version 0.x) to a specific version with the [PEP-440 version matching operator](https://www.python.org/dev/peps/pep-0440/#version-matching):
   ```text
   mypy = "==0.790"
   # any new version can be breaking, upgrade mustn't be automatic
+  
+  respx = "==0.15.0"
+  # semantically versioned but any version can be breaking at this stage
   ```
 * Leave development dependencies unlocked if breaking changes don't affect anybody:
   ```text
@@ -1153,7 +1156,7 @@ repos:
 
 # 6 How to Extend This Guide
 
-This is a live document and everyone is welcome to improve it. 
+This is a live document and everyone is welcome to improve it. Feel free to open a PR in this repository to suggest changes or gather feedback.  
 
 ## 6.1 Editing tips
 
