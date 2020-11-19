@@ -251,6 +251,30 @@
   Use fully qualified i18n name. eg. `recipes.show.title` rather than shorthand `.title`
   <sup>[link](#use-fully-qualified)</sup>
 
+- <a name="avoid-single-language-translation"></a>
+  Avoid adding i18n during experiments running for a single language
+  <sup>[link](#avoid-single-language-translation)</sup>
+  
+  <details>
+    <summary><em>Explanation</em></summary>
+    
+    Translations that have been added to the yaml files notifies the translation team who will attempt to add a 
+    translation for the feature, if it is experimental and only needed for one language there is no need to add 
+    your translation to the yaml file.
+  </details>
+  
+  <details>
+    <summary><em>Example</em></summary>
+    
+    ```ruby
+    # Bad
+    t("key.present.in.yml")
+
+    # Good
+    t("key.absent.in.yml", default: "Text in the country language")
+    ```
+  </details>
+
 - <a name="scope-generic-phrases-under-common"></a>
   Scope _very_ generic i18n phrases under `common.` eg. 'Delete' or 'Cookpad' are good candidates for common
   <sup>[link](#scope-generic-phrases-under-common)</sup>
