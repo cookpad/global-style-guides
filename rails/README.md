@@ -259,7 +259,7 @@
     <summary><em>Explanation</em></summary>
     
     Translations that have been added to the yaml files notifies the translation team who will attempt to add a 
-    translation for the feature, if it is experimental and only needed for one language there is no need to add 
+    translation for the feature. If it is experimental and only needed for one language there is no need to add 
     your translation to the yaml file.
   </details>
   
@@ -268,10 +268,10 @@
     
     ```ruby
     # Bad
-    t("key.present.in.yml")
+    t("new.key.in.yml")
 
     # Good
-    t("key.absent.in.yml", default: "Text in the country language")
+    t("absent.key.in.yml", default: "Text in the country language")
     ```
   </details>
 
