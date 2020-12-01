@@ -251,28 +251,17 @@
   Use fully qualified i18n name. eg. `recipes.show.title` rather than shorthand `.title`
   <sup>[link](#use-fully-qualified)</sup>
 
-- <a name="avoid-single-language-translation"></a>
-  Avoid adding i18n during experiments running for a single language
-  <sup>[link](#avoid-single-language-translation)</sup>
-  
+- <a name="experiments-xx-yml"></a>
+  Use `config/locales/experiments.XX.yml` files to store experiment strings that do not need to be translated in all languages yet.
+  <sup>[link](#experiments-xx-yml)</sup>
+
   <details>
     <summary><em>Explanation</em></summary>
-    
-    Translations that have been added to the yaml files notifies the translation team who will attempt to add a 
-    translation for the feature. If it is experimental and only needed for one language there is no need to add 
-    your translation to the yaml file.
-  </details>
-  
-  <details>
-    <summary><em>Example</em></summary>
-    
-    ```ruby
-    # Bad
-    t("new.key.in.yml")
 
-    # Good
-    t("absent.key.in.yml", default: "Text in the country language")
-    ```
+    Strings that have been added to `config/locales/en.yml` get sent to OneSky for translation, which notifies the translation team, who will then attempt to add translations, even in the case of an experiment that does not require the effort.
+    Keeping those strings in a separate translation file (as opposed to using the `default:` option) provides the following benefits:
+    1. There is no need to maintain the same default strings in multiple locations in the code.
+    2. If the experiment graduates to a permanent feature, graduating the translation strings requires a lower effort.
   </details>
 
 - <a name="scope-generic-phrases-under-common"></a>
