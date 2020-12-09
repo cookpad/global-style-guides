@@ -119,7 +119,7 @@ These are some of the conventions we follow:
   </details>
 
 - <a name="avoid-unused-dummy-data"></a>
-  Avoid adding dummy data that is not asserted in the spec
+  Avoid adding dummy values that are not asserted in the spec
   <sup>[link](#avoid-unused-dummy-data)</sup>
 
   <details>
