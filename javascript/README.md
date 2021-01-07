@@ -1,5 +1,9 @@
  # JavaScript
 
+ - <a name="use-prettier"></a>
+  Use [Prettier](https://prettier.io) to format javascript code.
+  <sup>[link](#use-prettier)</sup>
+
 - <a name="avoid-jquery"></a>
   Avoid using jQuery and jQuery plugins. Prefer solutions based on plain JavaScript or Stimulus.
   <sup>[link](#avoid-jquery)</sup>
