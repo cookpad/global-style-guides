@@ -26,7 +26,7 @@
   - [5.2 pycodestyle (static code analysis)](#52-pycodestyle-static-code-analysis)
   - [5.3 pydocstyle (static code analysis)](#53-pydocstyle-static-code-analysis)
   - [5.4 black (automatic code formatting)](#54-black-automatic-code-formatting)
-  - [5.5 pipenv (virtualenv management)](#55-pipenv-virtualenv-management)
+  - [5.5 pipenv (virtualenv management and dependency management)](#55-pipenv-virtualenv-management-and-dependency-management)
   - [5.6 pytest (testing)](#56-pytest-testing)
   - [5.7 mypy (static type checks)](#57-mypy-static-type-checks)
   - [5.8 invoke (tasks automation)](#58-invoke-tasks-automation)
@@ -727,7 +727,7 @@ Black is an opinionated Python code formatter.
 * Don't use the PyCharm built-in formatter. While it does a good job at formatting, it is not opinionated. Everyone can have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another. Additionally, not everyone uses PyCharm or runs the formatter on regular basis.
 * Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
 
-## 5.5 pipenv (virtualenv management)
+## 5.5 pipenv (virtualenv management and dependency management)
 
 [Pipenv](https://pipenv.pypa.io/en/latest/) automatically creates and manages a virtualenv for projects, as well as adds/removes packages from a `Pipfile` as you install/uninstall packages. It also generates a `Pipfile.lock`, which is used to produce deterministic builds.
 
@@ -780,6 +780,37 @@ pipenv was chosen when both pipenv and [poetry](https://python-poetry.org/) were
   pytest = "*"  # could unexpectedly start failing in CI pipeline
   requests = "*"  # could have API change and break the code
   ```
+
+### 5.5.5 Good hygiene for third party packages
+
+As an organisation, we embrace the use of third party open source packages in our software. (To read more, refer to the Cookpad [open source policy](https://github.com/cookpad/company/blob/master/opensource.md).)
+Third party software comes with some risks and can be a vector for malicious software attacks. To mitigate risks we recommended following industry best practices.
+
+This section is used to record recommendations for dealing with third party packages, although it is not yet complete. You should follow your own discretion (and industry best practices) when dealing with third party packages. All code authors and code reviewers should take particular care to evaluate new third party packages they are introducing, and also to vet version updates when bumping existing dependencies.
+
+#### 5.5.5.1 Do :heavy_check_mark:
+
+* When updating existing third party dependencies, verify the provenance of each updated version. Use `pipenv update --dry-run` for a list of packages that can be updated. This is to avoid dependency hijack attacks.
+* When referring to any package that is not hosted on the official PyPI (Python Package Index), you should explicitly refer to the source index from which the dependency will be imported, using `{..., index="my-index-name"}`. The following example is a Pipfile that is correctly adhering to this rule:
+  
+  ```toml```
+  [[source]]
+  name = "pypi"
+  url = "https://pypi.org/simple"
+  verify_ssl = true
+
+  [[source]]
+  url = "http://pypi.home.kennethreitz.org/simple"
+  verify_ssl = false
+  name = "kennethreitz"
+
+  # ...
+
+  [packages]
+  "your-favorite-lib" = {version="~=1.0", index="kennethreitz"}  # <-- refers to `kennethreitzth` from the source list
+  ```
+
+This will ensure that the package comes from the intended source, rather than a package from PyPI (or any other index on your list of sources) that happens to have the same name. This applies when referring to _any_ non-PyPI index, including internal Cookpad packages hosted on our internal index. A project that fails to follow this rule is at risk of a [dependency confusion attack](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
 
 ## 5.6 pytest (testing)
 
