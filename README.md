@@ -214,7 +214,7 @@ def func(a: int) -> List[int]:
       dictionary: dict[str, bool] = {} 
   ```
 
-### 2.4.5 Common types usage
+### 2.4.5 Correct return type for iterators
 
 * When annotating a generator that only `yield`s but doesn't `return` or [`send()`](https://realpython.com/introduction-to-python-generators/#how-to-use-send), use [`Iterator[...]`](https://docs.python.org/3/library/typing.html#typing.Iterator), not [`Generator[...]`](https://docs.python.org/3/library/typing.html#typing.Generator):
   ```python
@@ -223,6 +223,24 @@ def func(a: int) -> List[int]:
       for i in range(10):
         yield i
   ```
+
+### 2.4.6 Include `Optional` for an argument that has a `None` default
+
+If a function's argument defaults to `None`, it should include the `Optional` type annotation. This convention is in accordance with [PEP 484](https://www.python.org/dev/peps/pep-0484/), which specifies "_Type checkers should move towards requiring the optional type to be made explicit_". In type checker parlance, we have opted to follow the so-called ["no implicit optional"](https://github.com/python/mypy/issues/9091) rule.
+
+#### 2.4.6.1 Do :heavy_check_mark::
+
+```python
+def create_new_index(self, overide_index_timestamp: Optional[datetime] = None) -> str:
+    ...
+```
+
+#### 2.4.6.2 Don't :heavy_multiplication_x::
+
+```python
+def create_new_index(self, overide_index_timestamp: datetime = None) -> str:
+    ...
+```
 
 # 3 Python Style Rules
 
@@ -1161,6 +1179,7 @@ This is a live document and everyone is welcome to improve it. Feel free to open
 ## 6.1 Editing tips
 
 * Prefer adding content to end of sections to prevent broken links and tedious relabeling of all subsequent sections.
+* Do include section numbering (e.g. `2.4.3.1`) in the section title for _do_ and _don't_ items. These headings generate anchors that can be used in PRs to link to the particular example directly. Without a section numbering, it won't have a unique anchor.
 * There is a section template at the end of this document, hidden in a block comment. It has a lot of TODO comments to help you capture all information in a consistent style.
 
 <!--
