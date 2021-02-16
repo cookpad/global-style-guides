@@ -273,6 +273,9 @@ Lint/UselessAssignment:
   Exclude:
     - spec/**/*
 
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
 Layout/EmptyLines:
   Exclude:
     - spec/**/*
