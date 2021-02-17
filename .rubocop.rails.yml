@@ -1,8 +1,5 @@
 require: rubocop-rails
 
-Rails:
-  Enabled: true
-
 Rails/ActionFilter:
   Enabled: false
 
@@ -10,7 +7,6 @@ Rails/Delegate:
   Enabled: false
 
 Rails/Output:
-  Enabled: true
   Include:
     - app/**/*.rb
     - config/**/*.rb
