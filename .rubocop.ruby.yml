@@ -136,7 +136,6 @@ Style/ModuleFunction:
   Enabled: false
 
 Style/NegatedIf:
-  Enabled: true
   EnforcedStyle: both
 
 Style/NegatedWhile:
@@ -195,15 +194,12 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/TrailingCommaInArrayLiteral:
-  Enabled: true
   EnforcedStyleForMultiline: no_comma
 
 Style/TrailingCommaInHashLiteral:
-  Enabled: true
   EnforcedStyleForMultiline: no_comma
 
 Style/TrailingCommaInArguments:
-  Enabled: true
   EnforcedStyleForMultiline: no_comma
 
 Style/FormatStringToken:
@@ -266,9 +262,6 @@ Lint/RequireParentheses:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
-Lint/Void:
-  Enabled: true
-
 Lint/UselessAssignment:
   Exclude:
     - spec/**/*
@@ -297,24 +290,3 @@ Style/PercentLiteralDelimiters:
 
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: required
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
