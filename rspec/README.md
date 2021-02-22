@@ -2,8 +2,8 @@
 
 In general we favor testing behavior and functionality over implementation details. This means we favor writing feature and request specs over unit/model/controller/view specs. For additional testing guidance, see also the READMEs in the spec directories:
 
-- [Feature Specs](https://github.com/cookpad/global-web/blob/master/spec/features/README.md)
-- [Request (API) Specs](https://github.com/cookpad/global-web/blob/master/spec/requests/api/README.md)
+- [Feature Specs](https://github.com/cookpad/global-web/blob/main/spec/features/README.md)
+- [Request (API) Specs](https://github.com/cookpad/global-web/blob/main/spec/requests/api/README.md)
 
 These are some of the conventions we follow:
 
