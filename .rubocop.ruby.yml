@@ -262,6 +262,9 @@ Lint/RequireParentheses:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
+Lint/MissingSuper:
+  Enabled: false
+
 Lint/UselessAssignment:
   Exclude:
     - spec/**/*
