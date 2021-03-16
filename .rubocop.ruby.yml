@@ -1,3 +1,6 @@
+Bundler/OrderedGems:
+  ConsiderPunctuation: true
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
@@ -11,6 +14,7 @@ Layout/LineLength:
   AllowURI: true
   Max: 120
   Exclude:
+    - Gemfile
     - spec/**/*
 
 Metrics/ModuleLength:
