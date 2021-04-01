@@ -724,7 +724,18 @@ Black is an opinionated Python code formatter.
 
 ### 5.4.4 Don't :heavy_multiplication_x:
 
-* Don't use the PyCharm built-in formatter. While it does a good job at formatting, it is not opinionated. Everyone can have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another. Additionally, not everyone uses PyCharm or runs the formatter on regular basis.
+* Don't use the [magic trailing comma](https://black.readthedocs.io/en/stable/the_black_code_style.html#the-magic-trailing-comma) unless you want to communicate adding more items soon:
+  ```python
+  # The parameters are not going to change any time soon
+  ingredients=[
+    {
+      "name": "Turkey",
+      "quantity": "1",
+      "position": 0  # Do not use a comma here
+    },
+  ]
+  ```
+* Don't use the editor built-in formatter. While it may do a good job at formatting, it also may not be opinionated. Everyone could have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another.
 * Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
 
 ## 5.5 pipenv (virtualenv management and dependency management)
