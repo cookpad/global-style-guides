@@ -22,3 +22,6 @@ Rails/RequestReferer:
 
 Rails/DynamicFindBy:
   Enabled: false
+
+Rails/ContentTag:
+  Enabled: false
