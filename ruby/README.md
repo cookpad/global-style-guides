@@ -322,3 +322,27 @@
     end
     ```
   </details>
+
+- <a name="prefer-custom-error-class-in-abstract-methods"></a>
+  Prefer a custom error class over a plain raise or raising NotImplementedError in abstract methods.
+  <sup>[link](#prefer-custom-error-class-in-abstract-methods)</sup>
+
+  <details>
+    <summary>Example</summary>
+
+    ```ruby
+    ## Bad
+    def feed_class
+      raise NotImplementedError
+    end
+
+    def search_source
+      raise "Not implemented yet"
+    end
+
+    ## Good
+    def feed_class
+      raise UnimplementedAbstractMethodError.new(self.class.name, __method__)
+    end
+    ```
+  </details>
