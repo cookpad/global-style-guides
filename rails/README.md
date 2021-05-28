@@ -307,20 +307,20 @@
     # In this first example, it is assumed that all languages have the keys `one` and `other`
     # Some languages will not have the first text and it will be completely ignored
     
-    # Bad (This is using Pluralization)
-    reactions:    
-      one: "%{name} reacted"      
+    # Bad (Using pluralization)
+    reactions:
+      one: "%{name} reacted"
       other: "%{name} and others reacted"
     
-    # Good (Not using Pluralization)
-    reactions:    
-      single: "%{name} reacted"      
+    # Good (Not using pluralization)
+    reactions:
+      single: "%{name} reacted"
       multiple: "%{name} and others reacted"
   
-    # Good use of Pluralization (Includes the count)
+    # Good use of pluralization (Includes the count)
     # All the texts have the same meaning
-    reactions:    
-      one: "%{count} reaction"      
+    reactions:
+      one: "%{count} reaction"
       other: "%{count} reactions"
     ```
   </details>
