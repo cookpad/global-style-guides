@@ -295,6 +295,36 @@
     ```
   </details>
 
+- <a name="pluralization-different-texts"></a>
+  Don't use i18n pluralization for different texts.
+  <sup>[link](#pluralization-different-texts)</sup>
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```yml
+    # The only key present in all languages is `other`
+    # Ref: https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
+    # In this first example, it is assumed that all languages have the keys `one` and `other`
+    # Some languages will not have the first text and it will be completely ignored
+    
+    # Bad (This is using Pluralization)
+    reactions:    
+      one: "%{name} reacted"      
+      other: "%{name} and others reacted"
+    
+    # Good (Not using Pluralization)
+    reactions:    
+      single: "%{name} reacted"      
+      multiple: "%{name} and others reacted"
+  
+    # Good use of Pluralization (Includes the count)
+    # All the texts have the same meaning
+    reactions:    
+      one: "%{count} reaction"      
+      other: "%{count} reactions"
+    ```
+  </details>
+
 - <a name="dont-html-in-locale"></a>
   Don't include HTML in locale file
   <sup>[link](#dont-html-in-locale)
