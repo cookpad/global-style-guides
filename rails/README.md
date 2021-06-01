@@ -268,57 +268,39 @@
   Scope _very_ generic i18n phrases under `common.` eg. 'Delete' or 'Cookpad' are good candidates for common
   <sup>[link](#scope-generic-phrases-under-common)</sup>
 
-- <a name="dont-abuse-zero-key"></a>
-  Don't use i18n `zero:` key to display a "no results" message.
-  <sup>[link](#dont-abuse-zero-key)</sup>
+- <a name="pluralization-correct-grammar"></a>
+  Only use i18n pluralization to preserve correct grammar
+  <sup>[link](#pluralization-correct-grammar)</sup>
   <details>
     <summary><em>Example</em></summary>
 
     ```yml
     # Pluralization rules vary from language to language and keys are automatically added and
-    # removed from the translation files. So the `zero:` key cannot be relied on to be present
-    # for every language.
-    #
-    # Use a separate key for the "no results" message instead.
-    #
+    # removed from the translation files. 
+    # The only key present in all languages is `other`
+    # Ref: https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
+  
+    # Don't use i18n `zero:` key to display a "no results" message.
     # Bad
     search_results:
       zero: "There were no results"
       one: "1 recipe found"
       other: "%{count} recipes found"
 
+    # Use a separate key for the "no results" message instead.
     # Good
     search_results:
       one: "1 recipe found"
       other: "%{count} recipes found"
     search_no_results: "There were no results"
-    ```
-  </details>
-
-- <a name="pluralization-different-texts"></a>
-  Don't use i18n pluralization for different texts.
-  <sup>[link](#pluralization-different-texts)</sup>
-  <details>
-    <summary><em>Example</em></summary>
-
-    ```yml
-    # The only key present in all languages is `other`
-    # Ref: https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
-    # In this first example, it is assumed that all languages have the keys `one` and `other`
-    # Some languages will not have the first text and it will be completely ignored
-    
-    # Bad (Using pluralization)
+  
+    # Don't use i18n pluralization for controlling application logic.
+    # Bad
     reactions:
       one: "%{name} reacted"
       other: "%{name} and others reacted"
     
-    # Good (Not using pluralization)
-    reactions:
-      single: "%{name} reacted"
-      multiple: "%{name} and others reacted"
-  
-    # Good use of pluralization (Includes the count)
-    # All the texts have the same meaning
+    # Good 
     reactions:
       one: "%{count} reaction"
       other: "%{count} reactions"
