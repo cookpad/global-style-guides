@@ -748,6 +748,14 @@ Black is an opinionated Python code formatter.
 pipenv was chosen when both pipenv and [poetry](https://python-poetry.org/) were equals. Poetry has evolved since then to have better support. But there wasn't any reason good enough to migrate all project yet. See how they [compare in star rating](https://star-history.t9t.io/#python-poetry/poetry&pypa/pipenv). A future migration could be made easier with [dephell](https://github.com/dephell/dephell).
 </details>
 
+<details>
+<summary>Q: How to fix versions of the "types-*" modular typeshed packages?</summary>
+
+[Mypy 0.900 brings modular typeshed packages](http://mypy-lang.blogspot.com/2021/05/the-upcoming-switch-to-modular-typeshed.html). This can result in a lot of `types-*` packages in the `Pipfile`. While they all use semantic versioning, vast majority seem to be in the "initial development" (version `0.x`). In semantic versioning, this means that any subsequent version can be breaking (for example `0.1.1` -> `0.1.2`). In case of type packages, breaking means it will start failing type checks where it previously hasn't. This is solved by locking these dependencies to an exact version so that upgrade requires a manual edit of the `Pipfile`. However, doing this for a lot of packages without them actually breaking creates a maintenance overhead.
+
+As a reasonable compromise for maintainability of these packages, set all `types-*` packages to `*` (the latest version), fix to major or exact version only if type check fails.
+</details>
+
 ### 5.5.1 Pros :thumbsup:
 
 * deterministic builds (as opposed to requirements.txt)
@@ -778,6 +786,14 @@ pipenv was chosen when both pipenv and [poetry](https://python-poetry.org/) were
   ipython = "*"
   # you often use ipython in the project but want the latest
   ```
+* Leave typeshed packages unlocked, unless it keeps breaking type checks often. If it does, lock to the next least strict version that will prevent the breaking change:
+  ```text
+  types-requests = "*"
+
+  # version 6.x breaks type checks and we are not ready to move the main
+  # package to version 6.x
+  types-PyYAML = "~=5.4"
+  ```
 * Install packages in a reproducible way:
   ```bash
   pipenv install --deploy
@@ -804,7 +820,7 @@ This section is used to record recommendations for dealing with third party pack
 * When updating existing third party dependencies, verify the provenance of each updated version. Use `pipenv update --dry-run` for a list of packages that can be updated. This is to avoid dependency hijack attacks.
 * When referring to any package that is not hosted on the official PyPI (Python Package Index), you should explicitly refer to the source index from which the dependency will be imported, using `{..., index="my-index-name"}`. The following example is a Pipfile that is correctly adhering to this rule:
   
-  ```toml```
+  ```toml
   [[source]]
   name = "pypi"
   url = "https://pypi.org/simple"
