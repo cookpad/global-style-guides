@@ -2,7 +2,6 @@
 
 - [Git](/git)
 - [Javascript](/javascript)
-- [Python](https://github.com/cookpad/python-style-guide)
 - [Rails](/rails)
 - [Rake](/rake)
 - [Redis](/redis)
