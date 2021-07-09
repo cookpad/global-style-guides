@@ -2,7 +2,6 @@
 
 - [Git](/git)
 - [Javascript](/javascript)
-- [Python](/python)
 - [Rails](/rails)
 - [Rake](/rake)
 - [Redis](/redis)
