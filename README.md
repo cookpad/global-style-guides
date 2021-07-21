@@ -12,6 +12,7 @@
   - [2.2 Imports](#22-imports)
   - [2.3 Conditional expressions](#23-conditional-expressions)
   - [2.4 Type Annotations](#24-type-annotations)
+  - [2.5 Asynchronous code](#25-asynchronous-code)
 - [3 Python Style Rules](#3-python-style-rules)
   - [3.1 Line length](#31-line-length)
   - [3.2 Naming](#32-naming)
@@ -241,6 +242,82 @@ def create_new_index(self, overide_index_timestamp: Optional[datetime] = None) -
 def create_new_index(self, overide_index_timestamp: datetime = None) -> str:
     ...
 ```
+
+## 2.5 Asynchronous code
+
+Use async code only when you really need it.
+-  Async code is more prone to errors - forgetting `await` will often not raise any error in static code analysis because it is valid. It will return a `Future` instead of the expected result.
+-  Async code is more difficult to test.
+
+If you use async, make sure you [run tasks concurrently](https://docs.python.org/3/library/asyncio-task.html#running-tasks-concurrently) when possible. Using [`asyncio.gather()`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) will cover most cases. There are other functions available if you need finer grained control.
+
+### 2.5.1 Do :heavy_check_mark:
+
+* Use `asyncio.gather()` to call multiple async functions concurrently:
+  ```python
+  async def load_all(language_code: str, country_code: str):
+      await asyncio.gather(
+          load_definitions(language_code, country_code),
+          load_stopwords(language_code),
+          load_negators(language_code),
+      )
+  ```
+
+* Use `asyncio.gather(*(...))` to call a single async function in a loop concurrently:
+  ```python
+  async def load_all(language_codes: List[str]):
+      await asyncio.gather(
+        *(load_definitions(language_code) for language_code in language_codes)
+      )
+  ```
+
+### 2.5.2 Don't :heavy_multiplication_x:
+
+* Don't use several awaits, unless you want them to be serialized.
+  ```python
+  async def load_all(language_code: str, country_code: str):
+      await load_definitions(language_code, country_code)
+      # `load_stopwords` will start only when `load_definitions` has finished
+      await load_stopwords(language_code)
+      await load_negators(language_code)
+  ```
+  You may need the calls to be serialized if:
+  - Calls are dependent (one uses results of another)
+  - You want to limit the resource utilisation (such as not running 300 calls to a single server concurrently)
+
+* Don't call await in a loop, unless you want the calls to be serialized:
+  ```python
+  async def load_all(language_codes: List[str]):
+      for language_code in language_codes:
+          await load_definitions(language_code)
+          # Next `language_code` will be loaded only when the previous one has finished 
+  ```
+
+* Don't use `asyncio.wait()`, unless you want a finer grained control over results/exceptions:
+  ```python
+  async def load_all(language_code: str, country_code: str):
+      # Any exceptions raised in the `load_*` functions below will be ignored
+      await asyncio.wait(
+          [
+              load_definitions(language_code, country_code),
+              load_stopwords(language_code),
+              load_negators(language_code),
+          ]
+      )
+      
+  # The following code will re-raise exceptions, similar to `asyncio.gather`
+  async def load_all_with_exceptions(language_code: str, country_code: str):
+      done, pending = await asyncio.wait(
+          [
+              load_definitions(language_code, country_code),
+              load_stopwords(language_code),
+              load_negators(language_code),
+          ]
+      )
+      assert not pending
+      for task in done:
+        task.result()
+  ```
 
 # 3 Python Style Rules
 
