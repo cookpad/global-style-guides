@@ -887,7 +887,7 @@ As a reasonable compromise for maintainability of these packages, set all `types
 
 ### 5.5.5 Good hygiene for third party packages
 
-As an organisation, we embrace the use of third party open source packages in our software. (To read more, refer to the Cookpad [open source policy](https://github.com/cookpad/company/blob/master/opensource.md).)
+As an organisation, we embrace the use of third party open source packages in our software.
 Third party software comes with some risks and can be a vector for malicious software attacks. To mitigate risks we recommended following industry best practices.
 
 This section is used to record recommendations for dealing with third party packages, although it is not yet complete. You should follow your own discretion (and industry best practices) when dealing with third party packages. All code authors and code reviewers should take particular care to evaluate new third party packages they are introducing, and also to vet version updates when bumping existing dependencies.
