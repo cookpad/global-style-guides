@@ -56,7 +56,7 @@ Code choices that don't have any effect on the code execution are documented in 
 
 ## 2.1 Python Version Support
 
-The *highest supported version* is the [latest stable Python version](https://www.python.org/downloads/). The *lowest supported version* is 3.6.10.
+The *highest supported version* is the [latest stable 3.9 Python version](https://www.python.org/downloads/). The *lowest supported version* is 3.6.10.
 
 | Type of codebase     | Version support                                      |
 |:---------------------|:-----------------------------------------------------|
