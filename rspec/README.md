@@ -432,7 +432,7 @@ These are some of the conventions we follow:
     ```
   </details>
 - <a name="built-in-matcher"></a>
-  Prefer using [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) over `be_truthy` or `be_falsey`.
+  Prefer using more descriptive [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) over the general `be_truthy` or `eql(true)`.
   <sup>[link](#built-in-matcher)</sup>
 
   <details>
@@ -445,9 +445,9 @@ These are some of the conventions we follow:
     #  expected: truthy value
     #       got: false
 
-    expect(Achievement.unseen.exist?).to be_falsey
+    expect(Achievement.unseen.exist?).to eql(false)
 
-    #  expected: falsey value
+    #  expected: false
     #       got: true
 
     ## Good
