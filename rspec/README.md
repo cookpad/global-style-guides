@@ -432,7 +432,7 @@ These are some of the conventions we follow:
     ```
   </details>
 - <a name="built-in-matcher"></a>
-  Prefer using more descriptive [built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) over the general `be_truthy` or `eql(true)`.
+  Prefer using more descriptive [RSpec matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) over the general `be_truthy` or `eql(true)`.
   <sup>[link](#built-in-matcher)</sup>
 
   <details>
