@@ -13,6 +13,7 @@
   - [2.3 Conditional expressions](#23-conditional-expressions)
   - [2.4 Type Annotations](#24-type-annotations)
   - [2.5 Asynchronous code](#25-asynchronous-code)
+  - [2.6 Caching](#26-caching)
 - [3 Python Style Rules](#3-python-style-rules)
   - [3.1 Line length](#31-line-length)
   - [3.2 Naming](#32-naming)
@@ -39,6 +40,7 @@
 Python is a dynamic language used at Cookpad. This style guide is a list of dos and don’ts for Python programs, inspired by the [Google Python Style Guide]. Rather than being a complete guide, this document aims to be a reference where decisions from previous Python style discussions are captured and to resolve ambiguities when they occur.
 
 ## 1.1 Conventions Precedence
+
 On occasion, you may encounter a stylistic convention that is covered in a few references. These references may also disagree in their convention. When answering a question of style, please follow the following order of precedence:
 1. Project specific conventions (where justified and absolutely necessary, and documented in a project-specific style guide)
 2. Cookpad Python Style Guide (this document)
@@ -50,13 +52,13 @@ consistent coding experience throughout the company. Prefer to update this docum
 
 # 2 Python Language Rules
 
-Language rules are code choices affecting the code behaviour. Some are enforced by [`pylint`](#51-pylint).
+Language rules are code choices affecting the code behaviour. Some are enforced by [`pylint`](#51-pylint-static-code-analysis).
 
 Code choices that don't have any effect on the code execution are documented in the section [3 Python Style Rules](#3-python-style-rules).
 
 ## 2.1 Python Version Support
 
-The *highest supported version* is the [latest stable 3.9 Python version](https://www.python.org/downloads/). The *lowest supported version* is 3.6.10.
+The *highest supported version* is the [latest stable 3.10 Python version](https://www.python.org/downloads/). The *lowest supported version* is 3.7.1.
 
 | Type of codebase     | Version support                                      |
 |:---------------------|:-----------------------------------------------------|
@@ -66,21 +68,21 @@ The *highest supported version* is the [latest stable 3.9 Python version](https:
 
 ## 2.2 Imports
 
-* Use absolute imports.
-* In case of a name conflict, import the module instead. If the package name conflicts as well, you may rename the import.
-* Well known library abbreviations are allowed, if they are documented here.
-* Do not use relative names in imports. Even if the module is in the same package, use the full package name. This helps prevent unintentionally importing a package twice.<sup>[G224]<sup>
-* Do not use star imports. They pollute the module name space and is very rare to want import of everything.
+- Use absolute imports.
+- In case of a name conflict, import the module instead. If the package name conflicts as well, you may rename the import.
+- Well known library abbreviations are allowed, if they are documented here.
+- Do not use relative names in imports. Even if the module is in the same package, use the full package name. This helps prevent unintentionally importing a package twice.<sup>[G224]<sup>
+- Do not use star imports. They pollute the module name space and is very rare to want import of everything.
 
 ### 2.2.1 Do :heavy_check_mark:
 
-* Use absolute imports:
+- Use absolute imports:
   ```python
   import module.sub_module
   from module.sub_module import SomeClass
   ```
 
-* Import module on name conflict:
+- Import module on name conflict:
   ```python
   from module import sub_module_a, sub_module_b
   
@@ -88,14 +90,14 @@ The *highest supported version* is the [latest stable 3.9 Python version](https:
   print(sub_module_b.SomeClass)
   ```
 
-* Rename import on name and module conflict:
+- Rename import on name and module conflict:
   ```python
   from module.sub_a.module import SomeClass as SomeClassA
   from module.sub_b.module import SomeClass as SomeClassB
   ```
 
 <!-- keep the sorting when adding -->
-* Use well known library abbreviation:
+- Use well known library abbreviation:
   ```python
   import dask.dataframe as dd
   import matplotlib as mpl
@@ -108,18 +110,18 @@ The *highest supported version* is the [latest stable 3.9 Python version](https:
 
 ### 2.2.2 Don't :heavy_multiplication_x:
 
-* Don't use relative imports:
+- Don't use relative imports:
   ```python
   from .module import sub_module
   from ..module import sub_sub_module
   ```
 
-* Don't use star imports:
+- Don't use star imports:
   ```python
   from module.sub_module import *
   ```
 
-* Don't use unnecessary renames:
+- Don't use unnecessary renames:
   ```python
   from module.sub_module import SomeClass as SomeOtherClass
   ```
@@ -167,15 +169,15 @@ portion_too_long = (
 
 ## 2.4 Type Annotations
 
-You should annotate code with type hints according to [PEP-484](https://www.python.org/dev/peps/pep-0484/), and type-check the code with [mypy](#57-mypy). Because there is no need to support older Python versions that don't understand type annotations, all type annotations must be in source code, not in [comments](#36-comments-and-docstrings), [docstrings](#36-comments-and-docstrings) or [stub `*.pyi` files](https://www.python.org/dev/peps/pep-0484/#stub-files).<sup>[G221]<sup>
+You should annotate code with type hints according to [PEP-484](https://www.python.org/dev/peps/pep-0484/), and type-check the code with [mypy](#57-mypy-static-type-checks). Because there is no need to support older Python versions that don't understand type annotations, all type annotations must be in source code, not in [comments](#36-comments-and-docstrings), [docstrings](#36-comments-and-docstrings) or [stub `*.pyi` files](https://www.python.org/dev/peps/pep-0484/#stub-files).<sup>[G221]<sup>
 
 Make sure you are familiar with types provided by the [typing](https://docs.python.org/3/library/typing.html) package and you use those, instead of [built-in functions](https://docs.python.org/3/library/functions.html).
 
 ### 2.4.1 Pros :thumbsup:
 
-* Type annotations improve the readability and maintainability of your code.
-* The type checker will convert many runtime errors to build-time errors.
-* Guides towards less complex code (no one wants to write complex annotations).
+- Type annotations improve the readability and maintainability of your code.
+- The type checker will convert many runtime errors to build-time errors.
+- Guides towards less complex code (no one wants to write complex annotations).
 
 ### 2.4.2 Cons :thumbsdown:
 
@@ -192,7 +194,7 @@ def func(a: int) -> List[int]:
 
 ### 2.4.4 Don't :heavy_multiplication_x:
 
-* Don't use docstring type annotations:
+- Don't use docstring type annotations:
   ```python
   def func(a):
       """
@@ -204,12 +206,12 @@ def func(a: int) -> List[int]:
       ...
   ```
 
-* Don't use type annotations in comments:
+- Don't use type annotations in comments:
   ```python
   dictionary = {}  # type: Dict[str, bool] 
   ```
 
-* Don't use built-in function instead of a type:
+- Don't use built-in function instead of a type:
   ```python
   def func(a: int) -> list[int]:
       dictionary: dict[str, bool] = {} 
@@ -217,7 +219,7 @@ def func(a: int) -> List[int]:
 
 ### 2.4.5 Correct return type for iterators
 
-* When annotating a generator that only `yield`s but doesn't `return` or [`send()`](https://realpython.com/introduction-to-python-generators/#how-to-use-send), use [`Iterator[...]`](https://docs.python.org/3/library/typing.html#typing.Iterator), not [`Generator[...]`](https://docs.python.org/3/library/typing.html#typing.Generator):
+- When annotating a generator that only `yield`s but doesn't `return` or [`send()`](https://realpython.com/introduction-to-python-generators/#how-to-use-send), use [`Iterator[...]`](https://docs.python.org/3/library/typing.html#typing.Iterator), not [`Generator[...]`](https://docs.python.org/3/library/typing.html#typing.Generator):
   ```python
   from typing import Iterator
   def func() -> Iterator[int]:
@@ -253,7 +255,7 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
 
 ### 2.5.1 Do :heavy_check_mark:
 
-* Use `asyncio.gather()` to call multiple async functions concurrently:
+- Use `asyncio.gather()` to call multiple async functions concurrently:
   ```python
   async def load_all(language_code: str, country_code: str):
       await asyncio.gather(
@@ -263,7 +265,7 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
       )
   ```
 
-* Use `asyncio.gather(*(...))` to call a single async function in a loop concurrently:
+- Use `asyncio.gather(*(...))` to call a single async function in a loop concurrently:
   ```python
   async def load_all(language_codes: List[str]):
       await asyncio.gather(
@@ -273,7 +275,7 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
 
 ### 2.5.2 Don't :heavy_multiplication_x:
 
-* Don't use several awaits, unless you want them to be serialized.
+- Don't use several awaits, unless you want them to be serialized.
   ```python
   async def load_all(language_code: str, country_code: str):
       await load_definitions(language_code, country_code)
@@ -285,7 +287,7 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
   - Calls are dependent (one uses results of another)
   - You want to limit the resource utilisation (such as not running 300 calls to a single server concurrently)
 
-* Don't call await in a loop, unless you want the calls to be serialized:
+- Don't call await in a loop, unless you want the calls to be serialized:
   ```python
   async def load_all(language_codes: List[str]):
       for language_code in language_codes:
@@ -293,7 +295,7 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
           # Next `language_code` will be loaded only when the previous one has finished 
   ```
 
-* Don't use `asyncio.wait()`, unless you want a finer grained control over results/exceptions:
+- Don't use `asyncio.wait()`, unless you want a finer grained control over results/exceptions:
   ```python
   async def load_all(language_code: str, country_code: str):
       # Any exceptions raised in the `load_*` functions below will be ignored
@@ -319,15 +321,211 @@ If you use async, make sure you [run tasks concurrently](https://docs.python.org
         task.result()
   ```
 
+## 2.6 Caching
+
+Use the appropriate caching technique as using a wrong one may lead to memory leaks.
+
+<details>
+<summary>Q: Should I use a permanent cache or a TTL cache?</summary>
+
+In a live service (as opposed to a job), we should avoid cases where we cache something at service startup and then leave it cached indefinitely, except in cases where the underlying value(s) will certainly not change throughout the lifetime of the service.
+
+:heavy_check_mark: Example where it's OK to permanently cache at startup:
+
+- There are some static values held in a library that we load from disk. Those values only change when a new library version is released, so they'll be the same until the service is redeployed. We want to cache them to avoid repeatedly reloading them from disk during each request.
+
+:x: Example where it's not OK to permanently cache at startup:
+
+- Service pulls list of ingredients from search dictionary and loads them into memory. The reason for this is:
+  - If the underlying data are changing, in most cases you probably want your feature to stay fresh (for some definition of "fresh")
+  - You don't want big surprises when the service restarts. E.g., imagine the service is running for 5 days without restart, during which time the database has gone from 5 entries to 100000 entries.
+
+</details>
+
+<details>
+<summary>Additional resources</summary>
+
+- [Careful when using lru_cache](https://blog.opsi.org/posts/careful_when_using_lru_cache/) by Niko Wenselowski
+- [Python functools lru_cache with instance methods: release object](https://stackoverflow.com/q/33672412/1328576), Stackoverflow
+- [functools.lru_cache keeps objects alive forever](https://bugs.python.org/issue19859), Python 3.5 bug report
+
+A summary of available alternatives at the time of writing:
+
+| library                                                                                                                                                                    | function           | method             | dataclass method       | async function         | async method           | TTL function       | TTL method         | TTL async function     | TTL async method       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|------------------------|------------------------|------------------------|--------------------|--------------------|------------------------|------------------------|
+| [`functools`](https://docs.python.org/3/library/functools.html#functools.lru_cache)                                                                                        | :heavy_check_mark: | :x:[^1]            | :x:[^1]                | :x:                    | :x:                    | :x:                | :x:                | :x:                    | :x:                    |
+| [`boltons.cacheutils`](https://boltons.readthedocs.io/en/latest/cacheutils.html)                                                                                           | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark:[^4] | :x:                    | :x:                    | :x:                | :x:                | :x:                    | :x:                    |
+| [`cachetools`](https://cachetools.readthedocs.io/en/latest/)                                                                                                               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:     | :white_check_mark:[^2] | :white_check_mark:[^2] | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark:[^2] | :white_check_mark:[^2] |
+| [`async-cache`](https://github.com/iamsinghrajat/async-cache)                                                                                                              | :x:                | :x:                | :x:                    | :heavy_check_mark:     | :x:                    | :x:                | :x:                | :heavy_check_mark:     | :x:                    |
+
+[^1]: Only via [`cached_property`](https://docs.python.org/3/library/functools.html#functools.cached_property) so it won't work on methods with arguments, only properties.
+[^2]: Support via [`asyncache`](https://github.com/hephex/asyncache)
+[^3]: Our own wrapper around [`async-cache`](https://github.com/iamsinghrajat/async-cache).
+[^4]: Only with the cache outside the dataclass. So all instances have to share the same cache.
+
+</details>
+
+### 2.6.1 Do :heavy_check_mark:
+
+- Use [`cache`](https://docs.python.org/3/library/functools.html#functools.cache) for zero-parameter, synchronous functions, static or class methods (typically used for postponed evaluation or singletons):
+  ```python
+  from functools import cache
+
+  @cache
+  def get_settings():
+      ...
+  
+  class Singleton: 
+      @cache
+      @staticmethod
+      def get() -> "Singleton":
+          return Singleton()
+  ```
+- Use [`lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache) with `maxsize` set on synchronous functions, static or class methods with parameters:
+  ```python
+  from functools import lru_cache
+
+  @lru_cache(maxsize=128)
+  def multiply(a: int, b: int) -> int:
+      return a * b
+  
+  @lru_cache(maxsize=1)
+  def expensive_object_creation():
+      ...
+  ```
+- Use [`cached_property`](https://docs.python.org/3/library/functools.html#functools.cached_property) on synchronous properties:
+  ```python
+  from functools import cached_property  
+
+  class Query:
+      def __init__(self, value: str):
+          self._value = value
+    
+      @cached_property
+      def normalized(self) -> str:
+          return self._value.strip().lower()
+  ```
+- Use [`cachetools`](https://cachetools.readthedocs.io/en/latest) and [`asyncache.cachedmethod`](https://cachetools.readthedocs.io/en/latest/#cachetools.cachedmethod) on sync/async instance methods:
+  ```python
+  from operator import attrgetter 
+  
+  from cachetools import LRUCache
+  from asyncache import cachedmethod
+
+  class Number:
+      def __init__(self, value: int):
+          self._value = value
+          self._cache = LRUCache(max_size=128)
+    
+      @cachedmethod(attrgetter("_cache"))
+      def multiply(self, other: int) -> int:
+          return self._value * other
+  
+      @cachedmethod(attrgetter("_cache"))
+      async def add(self, other: int) -> int:
+          return self._value + other
+  ```
+  This works on dataclasses too:
+  ```python
+  from typing import Awaitable
+  from dataclasses import dataclass
+  from operator import attrgetter
+  
+  from cachetools import cachedmethod, LRUCache 
+
+  @dataclass(frozen=True)
+  class Number:
+      value: int
+      _cache: LRUCache = LRUCache(max_size=128)
+    
+      @cachedmethod(attrgetter("_cache"))
+      def multiply(self, other: int) -> int:
+          return self._value * other
+  
+      @cachedmethod(attrgetter("_cache"))
+      async def add(self, other: int) -> Awaitable[int]:
+          return self._value + other
+  ```
+- Use [`cachetools`](https://cachetools.readthedocs.io/en/latest) and [`asyncache.cached`](https://github.com/hephex/asyncache#example) for asynchronous functions or methods:
+  ```python
+  from typing import Awaitable
+  
+  from asyncache import cached
+  from cachetools import LRUCache
+
+  @cached(LRUCache(128))
+  def multiply(a: int, b: int) -> int:
+      return a * b
+  
+  @cached(LRUCache(128))
+  async def add(a: int, b: int) -> Awaitable[int]:
+      return a + b
+  ```
+- Use [`cachetools`](https://cachetools.readthedocs.io/en/latest) if you need more advance caching, such as TTL:
+  ```python
+  from cachetools import LRUCache, cached
+  
+  @cached(TTLCache(128, 3600))
+  def multiply(a: int, b: int) -> int:
+      return a * b
+  
+  from typing import Awaitable
+  
+  import asyncache
+  
+  @asyncache.cached(TTLCache(128, 3600))
+  async def async_multiply(a: int, b: int) -> Awaitable[int]:
+      return a * b
+  ```
+
+### 2.6.2 Don't :heavy_multiplication_x:
+
+- Don't use `lru_cache` on instance methods. `self` is kept in the cache as a key, preventing the object to be garbage collected:
+  ```python
+  from functools import lru_cache  
+
+  class Query:
+      def __init__(self, value: str):
+          self._value = value
+    
+      @lru_cache(maxsize=1)
+      def normalized(self) -> str:
+          return self._value.strip().lower()
+          
+      @lru_cache(maxsize=1)
+      def join(self, other: str) -> str:
+          return self._value + other
+  ```
+- Don't use `lru_cache` on asynchronous function or methods. This decorator is not async compatible and the code will fail on subsequent executions:
+  ```python
+  from functools import lru_cache  
+
+  @lru_cache(maxsize=1)
+  async def async_multiply(a: int, b: int) -> Awaitable[int]:
+      return a * b
+  ```
+- Don't use unbound cache for any function/method that takes 1 or more parameters:
+  ```python
+  from functools import lru_cache, cache  
+
+  @lru_cache(maxsize=None)
+  def multiply(a: int, b: int) -> int:
+      return a * b
+  
+  @cache
+  def multiply(a: int, b: int) -> int:
+      return a * b
+  ```
+
 # 3 Python Style Rules
 
-Style rules are (non-)code choices having no effect on code behaviour. They are enforced by [`pylint`](#51-pylint), [`pydocstyle`](#52-pycodestyle), [`pycodestyle`](#53-pydocstyle) and [`black`](#54-black).
+Style rules are (non-)code choices having no effect on code behaviour. They are enforced by [`pylint`](#51-pylint-static-code-analysis), [`pydocstyle`](#52-pycodestyle-static-code-analysis), [`pycodestyle`](#53-pydocstyle-static-code-analysis) and [`black`](#54-black-automatic-code-formatting).
 
 Code choices that do affect code execution are documented in the section [2 Python Language Rules](#2-python-language-rules).
 
 ## 3.1 Line length
 
-Maximum line length is 120 characters. Compliance with this line length requirement is taken care of by [`black`](#54-black).
+Maximum line length is 120 characters. Compliance with this line length requirement is taken care of by [`black`](#54-black-automatic-code-formatting).
 
 ## 3.2 Naming
 
@@ -423,8 +621,8 @@ In case of data classes, consider making them [immutable/frozen](https://docs.py
 
 ### 3.5.1 Pros :thumbsup:
 
-* The intended use is clearer with less documentation needed.
-* Less of unexpected side effects.
+- The intended use is clearer with less documentation needed.
+- Less of unexpected side effects.
 
 ### 3.5.2 Do :heavy_check_mark:
 
@@ -468,19 +666,19 @@ class PublicClass:
 
 ## 3.6 Comments and docstrings
 
-Docstrings are formatted using the Google style (as opposed to reST or numpy), as this is the most readable format. See [an example](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html). This format is partially enforced by [`pydocstyle`](#53-pydocstyle).
+Docstrings are formatted using the Google style (as opposed to reST or numpy), as this is the most readable format. See [an example](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html). This format is partially enforced by [`pydocstyle`](#53-pydocstyle-static-code-analysis).
 
 For docstring and comments format, please refer to the Google Python Style Guide, [section 3.10](http://google.github.io/styleguide/pyguide.html#310-comments-and-docstrings). For documenting types, see [2.4 Type Annotations](#24-type-annotations).
 
 ### 3.6.1 Notable conventions
 
-* Use double backticks for code in docstrings:
+- Use double backticks for code in docstrings:
   ```python
   def method(value):
       """Modifies parameter ``value`` in place."""
       ...
   ```
-* Use single backticks for code in comments:
+- Use single backticks for code in comments:
   ```python
   def method(value):
       value += " modified"  # Modifies parameter `value` in place
@@ -561,11 +759,11 @@ There is [no benefit](https://stackoverflow.com/questions/9610993/python-type-or
 
 ### 3.9.1 Pros :thumbsup:
 
-* More readable than `type(obj)`.
+- More readable than `type(obj)`.
 
 ### 3.9.2 Cons :thumbsdown:
 
-* Slightly longer representation.
+- Slightly longer representation.
 
 ### 3.9.3 Do :heavy_check_mark:
 
@@ -589,8 +787,8 @@ Prefer [f-strings](https://www.python.org/dev/peps/pep-0498/) over [`str.format`
 
 There are a few legitimate uses of `str.format`:
 
-* formatting dictionaries
-* string templating
+- formatting dictionaries
+- string templating
 
 ### 3.10.1 Do :heavy_check_mark:
 
@@ -602,7 +800,7 @@ f" [line {lineno:2d}]"
 f"{extra},waiters:{len(self._waiters)}"
 ```
 
-* Formatting a dictionary:
+- Formatting a dictionary:
   ```python
   @dataclass
   class Point:
@@ -613,7 +811,7 @@ f"{extra},waiters:{len(self._waiters)}"
           return "X: {x}, Y: {y}".format(self.__dict__)
   ```
 
-* String templating, template is dynamic:
+- String templating, template is dynamic:
   ```python
   @dataclass
   class Point:
@@ -626,7 +824,7 @@ f"{extra},waiters:{len(self._waiters)}"
   Point(1, 2).format("X: {x}, Y: {y}")
   ```
 
-* String templating, template is used multiple times:
+- String templating, template is used multiple times:
   ```python
   query_template = "/recipes?query={query}&country_code=GB&provider_id=1"
 
@@ -638,12 +836,12 @@ f"{extra},waiters:{len(self._waiters)}"
 
 ### 3.10.2 Don't :heavy_multiplication_x:
 
-* Don't use `%` formatting:
+- Don't use `%` formatting:
   ```python
   'error: %s' % msg
   ```
 
-* Don't use unnecessary `str.format`:
+- Don't use unnecessary `str.format`:
   ```python
   "The value is {value}.".format(value=123) 
   ```
@@ -654,7 +852,7 @@ In multi-line strings, use only regular strings or only f-strings. Combining the
 
 ### 3.11.1 Do :heavy_check_mark:
 
-* Use regular strings if there is no string formatting needed:
+- Use regular strings if there is no string formatting needed:
   ```python
   value = (
       "This is an extra long string "
@@ -662,7 +860,7 @@ In multi-line strings, use only regular strings or only f-strings. Combining the
   )
   ```
 
-* Use f-strings for string formatting:
+- Use f-strings for string formatting:
   ```python
   value = (
       f"This is an extra long string with a {placeholder} "
@@ -670,7 +868,7 @@ In multi-line strings, use only regular strings or only f-strings. Combining the
   )
   ```
 
-* Use f-strings consistently, even when only some lines need to be formatted:
+- Use f-strings consistently, even when only some lines need to be formatted:
   ```python
   value = (
       f"This is an extra long string with a {placeholder}. "
@@ -680,7 +878,7 @@ In multi-line strings, use only regular strings or only f-strings. Combining the
 
 ### 3.11.2 Don't :heavy_multiplication_x:
 
-* Don't mix regular and f-strings:
+- Don't mix regular and f-strings:
   ```python
   value = (
       f"This is an extra long string with a {placeholder} wrapped to "
@@ -696,8 +894,8 @@ The following section describes recommended and commonly used libraries, includi
 <!--
 TODO: Start each section as "Prefer X in favour of Y or Z (because reasons)."
 TODO: Candidates. Please expand if you can think of anything there are more choices and would like to make sure we all use the same one OR there are conventions around certain library that you keep explaining or seeing wrong.
-    * Faker: https://faker.readthedocs.io
-    * Boltons vs. funcy: https://boltons.readthedocs.io
+    - Faker: https://faker.readthedocs.io
+    - Boltons vs. funcy: https://boltons.readthedocs.io
 -->
 
 # 5 Tools
@@ -729,15 +927,15 @@ Suppress warnings if they are inappropriate so that other issues are not hidden.
 * **file-level:** suggests a larger issue where either the rules need to change or the solution needs a different direction. 
 
 Additionally:
-* Use symbolic names to identify `pylint` warnings, not numeric codes.
-* Always add an explanation for your disable above or below the suppression.
+- Use symbolic names to identify `pylint` warnings, not numeric codes.
+- Always add an explanation for your disable above or below the suppression.
 
 See also section [3.4 Unused Function/Method Parameters](#34-unused-functionmethod-parameters).
 
 #### 5.1.3.1 Pros :thumbsup:
 
-* Suppressing in this way has the advantage that we can easily search for suppressions and revisit them.
-* You may realise you don't need the suppression at all while trying to explain it in the comment ([rubber ducking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)).
+- Suppressing in this way has the advantage that we can easily search for suppressions and revisit them.
+- You may realise you don't need the suppression at all while trying to explain it in the comment ([rubber ducking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)).
 
 #### 5.1.3.2 Do :heavy_check_mark:
 
@@ -748,14 +946,14 @@ dict = 'something awful'  # pylint: disable=redefined-builtin
 
 #### 5.1.3.3 Don't :heavy_multiplication_x:
 
-* Don't use numeric code instead of symbolic:
+- Don't use numeric code instead of symbolic:
   ```python
   # My explanation for this disable
   dict = 'something awful'  # pylint: disable=W0622
   ```
   Not clear what is disabled.
 
-* Don't leave out explaining comment:
+- Don't leave out explaining comment:
   ```python
   dict = 'something awful'  # pylint: disable=redefined-builtin
   ```
@@ -772,21 +970,21 @@ Black is an opinionated Python code formatter.
 
 ### 5.4.1 Pros :thumbsup:
 
-* Speed, determinism, and freedom from pycodestyle nagging about formatting.
-* Saves time and mental energy for more important matters.
-* Makes code reviews faster by producing the smallest diffs possible.
-* Blackened code looks the same regardless of the project you’re reading.
-* Formatting becomes transparent after a while and you can focus on the content instead.
+- Speed, determinism, and freedom from pycodestyle nagging about formatting.
+- Saves time and mental energy for more important matters.
+- Makes code reviews faster by producing the smallest diffs possible.
+- Blackened code looks the same regardless of the project you’re reading.
+- Formatting becomes transparent after a while and you can focus on the content instead.
 
 ### 5.4.2 Cons :thumbsdown:
 
-* Not everyone will agree with the formatting.
-* Manual intervention needed for long strings (black will not wrap them).
-* It doesn't and [will not](https://github.com/psf/black/issues/333) order imports. Consider using `isort` for that purpose.
+- Not everyone will agree with the formatting.
+- Manual intervention needed for long strings (black will not wrap them).
+- It doesn't and [will not](https://github.com/psf/black/issues/333) order imports. Consider using `isort` for that purpose.
 
 ### 5.4.3 Do :heavy_check_mark:
 
-* Run black with `pre-commit` before every push. See the [Tasks Automation](#5.8-invoke-/-tasks-automation) for guidance on combining black with pre-commit.
+* Run black with `pre-commit` before every push. See the [Tasks Automation](#58-invoke-tasks-automation) for guidance on combining black with pre-commit.
 * Check code into CI if it is formatted.
 * Map black to a short cut in your IDE.
   <details>
@@ -812,8 +1010,8 @@ Black is an opinionated Python code formatter.
     },
   ]
   ```
-* Don't use the editor built-in formatter. While it may do a good job at formatting, it also may not be opinionated. Everyone could have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another.
-* Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
+- Don't use the editor built-in formatter. While it may do a good job at formatting, it also may not be opinionated. Everyone could have different settings, resulting in different formatting. This difference will result in a lot of unnecessary changes in pull requests by hopping from one style to another.
+- Don't use `yapf`. It is just [less popular alternative](https://star-history.t9t.io/#google/yapf&psf/black).
 
 ## 5.5 pipenv (virtualenv management and dependency management)
 
@@ -835,22 +1033,22 @@ As a reasonable compromise for maintainability of these packages, set all `types
 
 ### 5.5.1 Pros :thumbsup:
 
-* deterministic builds (as opposed to requirements.txt)
+- deterministic builds (as opposed to requirements.txt)
 
 ### 5.5.2 Cons :thumbsdown:
 
-* slow (as opposed to poetry, requirements.txt)
-* maintenance is almost non-existent
+- slow (as opposed to poetry, requirements.txt)
+- maintenance is almost non-existent
 
 ### 5.5.3 Do :heavy_check_mark:
 
-* Lock [semantically versioned](https://semver.org/) stable dependencies (version >= 1.0) to minor version with the [PEP-440 compatible release operator](https://www.python.org/dev/peps/pep-0440/#compatible-release):
+- Lock [semantically versioned](https://semver.org/) stable dependencies (version >= 1.0) to minor version with the [PEP-440 compatible release operator](https://www.python.org/dev/peps/pep-0440/#compatible-release):
   ```text
   pytest = "~=5.4"
   # version 6 will have breaking changes, upgrade should be explicit
   # version 5.5 is not breaking, upgrade can be automatic
   ```
-* Lock dependencies that are not semantically versioned or in [initial development](https://semver.org/#spec-item-4) (version 0.x) to a specific version with the [PEP-440 version matching operator](https://www.python.org/dev/peps/pep-0440/#version-matching):
+- Lock dependencies that are not semantically versioned or in [initial development](https://semver.org/#spec-item-4) (version 0.x) to a specific version with the [PEP-440 version matching operator](https://www.python.org/dev/peps/pep-0440/#version-matching):
   ```text
   mypy = "==0.790"
   # any new version can be breaking, upgrade mustn't be automatic
@@ -858,12 +1056,12 @@ As a reasonable compromise for maintainability of these packages, set all `types
   respx = "==0.15.0"
   # semantically versioned but any version can be breaking at this stage
   ```
-* Leave development dependencies unlocked if breaking changes don't affect anybody:
+- Leave development dependencies unlocked if breaking changes don't affect anybody:
   ```text
   ipython = "*"
   # you often use ipython in the project but want the latest
   ```
-* Leave typeshed packages unlocked, unless it keeps breaking type checks often. If it does, lock to the next least strict version that will prevent the breaking change:
+- Leave typeshed packages unlocked, unless it keeps breaking type checks often. If it does, lock to the next least strict version that will prevent the breaking change:
   ```text
   types-requests = "*"
 
@@ -871,7 +1069,7 @@ As a reasonable compromise for maintainability of these packages, set all `types
   # package to version 6.x
   types-PyYAML = "~=5.4"
   ```
-* Install packages in a reproducible way:
+- Install packages in a reproducible way:
   ```bash
   pipenv install --deploy
   # Aborts if the Pipfile.lock is out-of-date, or Python version is wrong.
@@ -879,7 +1077,7 @@ As a reasonable compromise for maintainability of these packages, set all `types
 
 ### 5.5.4 Don't :heavy_multiplication_x:
 
-* Don't leave code or testing dependencies unlocked:
+- Don't leave code or testing dependencies unlocked:
   ```text
   pytest = "*"  # could unexpectedly start failing in CI pipeline
   requests = "*"  # could have API change and break the code
@@ -894,8 +1092,8 @@ This section is used to record recommendations for dealing with third party pack
 
 #### 5.5.5.1 Do :heavy_check_mark:
 
-* When updating existing third party dependencies, verify the provenance of each updated version. Use `pipenv update --dry-run` for a list of packages that can be updated. This is to avoid dependency hijack attacks.
-* When referring to any package that is not hosted on the official PyPI (Python Package Index), you should explicitly refer to the source index from which the dependency will be imported, using `{..., index="my-index-name"}`. The following example is a Pipfile that is correctly adhering to this rule:
+- When updating existing third party dependencies, verify the provenance of each updated version. Use `pipenv update --dry-run` for a list of packages that can be updated. This is to avoid dependency hijack attacks.
+- When referring to any package that is not hosted on the official PyPI (Python Package Index), you should explicitly refer to the source index from which the dependency will be imported, using `{..., index="my-index-name"}`. The following example is a Pipfile that is correctly adhering to this rule:
   
   ```toml
   [[source]]
@@ -924,14 +1122,14 @@ The pytest framework makes it easy to write small tests yet scales to support co
 
 All tests are expected in a directory called `tests`. This is further subdivided:
 
-* By type of tests:
-  * `unit` for unit tests
-  * `integration` for integration tests
+- By type of tests:
+  - `unit` for unit tests
+  - `integration` for integration tests
 
-* By type of code shared among tests of any type:
-  * `fixtures` for [pytest fixtures](https://docs.pytest.org/en/latest/fixture.html) shared among different tests
-  * `utils` for any extra helper code used exclusively by tests
-  * `fakers` for code generating fake instances of objects, usually with [`faker`](https://faker.readthedocs.io)
+- By type of code shared among tests of any type:
+  - `fixtures` for [pytest fixtures](https://docs.pytest.org/en/latest/fixture.html) shared among different tests
+  - `utils` for any extra helper code used exclusively by tests
+  - `fakers` for code generating fake instances of objects, usually with [`faker`](https://faker.readthedocs.io)
 
 There should be no nested directories of the same names.
 
@@ -941,10 +1139,10 @@ Additionally, all packages must contain an `__init__.py` file to prevent [name c
 
 #### 5.6.1.1 Pros :thumbsup:
 
-* Avoids clash with `test`, which is a standard package.
-* Predictable locations.
-* Allows running tests easily by type or all at once.
-* Discourages code duplication
+- Avoids clash with `test`, which is a standard package.
+- Predictable locations.
+- Allows running tests easily by type or all at once.
+- Discourages code duplication
 
 ### 5.6.2 Unit Tests Organisation
 
@@ -954,7 +1152,7 @@ If the test file grows too large, it may be an indicator or either missing [para
 
 #### 5.6.2.1 Pros :thumbsup:
 
-* Allows easier finding of relevant tests.
+- Allows easier finding of relevant tests.
 
 #### 5.6.2.3 Do :heavy_check_mark:
 
@@ -965,7 +1163,7 @@ src/
         module.py
 ```
 
-* Test file matching source file
+- Test file matching source file
   ```text
   tests/
       unit/
@@ -977,20 +1175,20 @@ src/
 
 For the same source package as in [Do](#5623-do-heavy_check_mark)'s:
 
-* Don't use mismatching path:
+- Don't use mismatching path:
   ```text
   tests/
       unit/
           test_module.py
   ```
-* Don't leave out split by type:
+- Don't leave out split by type:
   ```text
   tests/
       module/
           test_module.py
   ```
 
-* Don't use unpredictable file names:
+- Don't use unpredictable file names:
   ```text
   tests/
       unit/
@@ -1012,13 +1210,13 @@ The class name, method name and test parameters (if used) should for a sentence.
 
 #### 5.6.4.1 Pros :thumbsup:
 
-* Readable test output - it makes sense without additional context.
-* Guides towards small, focused tests because of thinking "I'm testing something. It should do something."
-* Focuses on features rather than line coverage.
+- Readable test output - it makes sense without additional context.
+- Guides towards small, focused tests because of thinking "I'm testing something. It should do something."
+- Focuses on features rather than line coverage.
 
 #### 5.6.4.2 Cons :thumbsdown:
 
-* Tests often need to be static methods because `self` is not used.
+- Tests often need to be static methods because `self` is not used.
 
 #### 5.6.4.3 Do :heavy_check_mark:
 
@@ -1042,20 +1240,20 @@ class TestDatetimeToIsoZulu:
 ```
 
 This will generate tests:
-* `test_utils.TestDatetimeToIsoZulu.should_convert_datetime_to_utc_string`
-* `test_utils.TestDatetimeToIsoZulu.should_refuse.datetime without timezone`
-* `test_utils.TestDatetimeToIsoZulu.should_refuse.None`
+- `test_utils.TestDatetimeToIsoZulu.should_convert_datetime_to_utc_string`
+- `test_utils.TestDatetimeToIsoZulu.should_refuse.datetime without timezone`
+- `test_utils.TestDatetimeToIsoZulu.should_refuse.None`
 
 #### 5.6.4.4 Don't :heavy_multiplication_x:
 
-* Don't leave out a class:
+- Don't leave out a class:
   ```python
   def test_convert_datetime_to_utc_string():
       assert ...
   ```
   Test of what?
 
-* Don't name test cases poorly:
+- Don't name test cases poorly:
   ```python
   def test_1():
       assert ...
@@ -1079,8 +1277,8 @@ If you're not sure what are the test parameters:
 
 #### 5.6.5.1 Pros :thumbsup:
 
-* Decreased maintenance cost due to reduced duplication
-* Readable test output
+- Decreased maintenance cost due to reduced duplication
+- Readable test output
 
 #### 5.6.5.3 Do :heavy_check_mark:
 
@@ -1099,7 +1297,7 @@ class TestDatetimeToIsoZulu:
 
 #### 5.6.5.4 Don't :heavy_multiplication_x:
 
-* Don't use the same assertions in multiple tests, unless the function bodies are too different:
+- Don't use the same assertions in multiple tests, unless the function bodies are too different:
   ```python
   class TestDatetimeToIsoZulu:
       @staticmethod
@@ -1111,7 +1309,7 @@ class TestDatetimeToIsoZulu:
           assert ...
   ```
 
-* Don't use default example IDs:
+- Don't use default example IDs:
   ```python
   class TestDatetimeToIsoZulu:
       @staticmethod
@@ -1120,7 +1318,7 @@ class TestDatetimeToIsoZulu:
           assert ...
   ```
 
-* Don't parametrize values that don't change:
+- Don't parametrize values that don't change:
   ```python
   class TestDatetimeToIsoZulu:
       @staticmethod
@@ -1135,7 +1333,7 @@ class TestDatetimeToIsoZulu:
           assert getattr(obj, key)
   ```
 
-* Don't parametrize if there is just one example, unless you expect more in the next bulk of work:
+- Don't parametrize if there is just one example, unless you expect more in the next bulk of work:
   ```python
   class TestDatetimeToIsoZulu:
       @staticmethod
@@ -1157,7 +1355,7 @@ Don't use the full Gherkin syntax though. If you have a need to explain a compli
 
 #### 5.6.6.1 Pros :thumbsup:
 
-* Better structured tests because of thinking in term of given-when-then.
+- Better structured tests because of thinking in term of given-when-then.
 
 #### 5.6.6.3 Do :heavy_check_mark:
 
@@ -1184,7 +1382,7 @@ def should_give_lower_rating_to_recipes(
 
 #### 5.6.6.4 Don't :heavy_multiplication_x:
 
-* Don't leave long tests without signposting:
+- Don't leave long tests without signposting:
   ```python
   def should_give_lower_rating_to_recipes(
       self, es_client: Elasticsearch, recipe_index: str, attribute: str, value: Any
@@ -1203,7 +1401,7 @@ def should_give_lower_rating_to_recipes(
       ] == recipe_ids_in_relevance_order, "Exactly 2 IDs were expected in this order."
   ```
 
-* Don't use signposting when each section is one statement or evident:
+- Don't use signposting when each section is one statement or evident:
   ```python
   def should_accept_page_number(self):
       # GIVEN
@@ -1216,7 +1414,7 @@ def should_give_lower_rating_to_recipes(
       assert response.status_code == HTTP_200_OK, response.text
   ```
 
-* Don't use the full Gherkin syntax:
+- Don't use the full Gherkin syntax:
   ```python
   def should_give_lower_rating_to_recipes(
       self, es_client: Elasticsearch, recipe_index: str, attribute: str, value: Any
@@ -1251,7 +1449,7 @@ Prefer to use [invoke](http://www.pyinvoke.org/) framework for tasks automation.
 <details>
 <summary>Q: Can I use Invoke tasks in pre-commit?</summary>
 
-Yes you can. See the following `.pre-commit-config.yaml` file example for running a `format` task that executes the [`black`](#54-black) formatter through [`pipenv`](#55-pipenv):
+Yes you can. See the following `.pre-commit-config.yaml` file example for running a `format` task that executes the [`black`](#54-black-automatic-code-formatting) formatter through [`pipenv`](#55-pipenv-virtualenv-management-and-dependency-management):
 
 ```yaml
 repos:
@@ -1270,18 +1468,18 @@ repos:
 
 ### 5.8.1 Pros :thumbsup:
 
-* Deduplication of tasks (similar to Makefile)
-* Removes a lot of complexity from running processes from Python - input/output handling, command line options parsing
-* No new language knowledge needed
-* Easy to learn
+- Deduplication of tasks (similar to Makefile)
+- Removes a lot of complexity from running processes from Python - input/output handling, command line options parsing
+- No new language knowledge needed
+- Easy to learn
 
 ### 5.8.2 Cons :thumbsdown:
 
-* Harder to debug than plain Python script
+- Harder to debug than plain Python script
 
 ### 5.8.3 Do :heavy_check_mark:
 
-* Use the same name for tasks with the same purpose across multiple repositories. It reduces cognitive overhead when switching between repositories.
+- Use the same name for tasks with the same purpose across multiple repositories. It reduces cognitive overhead when switching between repositories.
 
   ```bash
   cd apps/sparks-jobs
@@ -1294,18 +1492,18 @@ repos:
 
 ### 5.8.4 Don't :heavy_multiplication_x:
 
-* Don't rename tasks if not needed. Simply name the function as the task if possible:
+- Don't rename tasks if not needed. Simply name the function as the task if possible:
   ```python
   @task(name="lint-docstyle")  # can be just `@task`
   def lint_docstyle(ctx, environment):
     ...
   ```
 
-* Don't use other task automation technologies if possible:
-  * `Script` section of `Pipfile` - no benefit over calling invoke directly.
-  * Ad-hoc Python scripts - there is no common interface.
-  * Makefiles or Bash scripts - not everyone knows them on sufficient level to be able to fully understand them or write them well.
-  * Fabric - Invoke is used already in many repositories. Using a single framework for tasks automation has lower cognitive overhead.
+- Don't use other task automation technologies if possible:
+  - `Script` section of `Pipfile` - no benefit over calling invoke directly.
+  - Ad-hoc Python scripts - there is no common interface.
+  - Makefiles or Bash scripts - not everyone knows them on sufficient level to be able to fully understand them or write them well.
+  - Fabric - Invoke is used already in many repositories. Using a single framework for tasks automation has lower cognitive overhead.
 
 # 6 How to Extend This Guide
 
@@ -1313,9 +1511,9 @@ This is a live document and everyone is welcome to improve it. Feel free to open
 
 ## 6.1 Editing tips
 
-* Prefer adding content to end of sections to prevent broken links and tedious relabeling of all subsequent sections.
-* Do include section numbering (e.g. `2.4.3.1`) in the section title for _do_ and _don't_ items. These headings generate anchors that can be used in PRs to link to the particular example directly. Without a section numbering, it won't have a unique anchor.
-* There is a section template at the end of this document, hidden in a block comment. It has a lot of TODO comments to help you capture all information in a consistent style.
+- Prefer adding content to end of sections to prevent broken links and tedious relabeling of all subsequent sections.
+- Do include section numbering (e.g. `2.4.3.1`) in the section title for _do_ and _don't_ items. These headings generate anchors that can be used in PRs to link to the particular example directly. Without a section numbering, it won't have a unique anchor.
+- There is a section template at the end of this document, hidden in a block comment. It has a lot of TODO comments to help you capture all information in a consistent style.
 
 <!--
 ########################################################################
@@ -1374,12 +1572,12 @@ TODO: One or more examples of how an undesirable solution looks like, each in in
 TODO: The description of an example starts with "Don't" and ends with a colon ":".
 TODO: Either all examples have a description or none have it.
 
-* Don't …:
+- Don't …:
   ```python
 
   ```
 
-* Don't …:
+- Don't …:
   ```python
 
   ```
