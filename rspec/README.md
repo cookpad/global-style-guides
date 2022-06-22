@@ -515,3 +515,24 @@ These are some of the conventions we follow:
     end
     ```
   </details>
+- <a name="#test-code-specs"></a>
+  Use `.spec` as the file extension when writing tests for code that is part of the test suite.
+  <sup>[link](#test-code-specs) </sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ``` ruby
+    ## Bad
+    # spec/matchers/my_custom_matcher_spec.rb
+    RSpec.describe MyCustomMatcher do
+      # ...
+    end
+  
+    ## Good
+    # spec/matchers/my_custom_matcher_spec.spec
+    RSpec.describe MyCustomMatcher do
+      # ...
+    end
+    ```
+  </details>
