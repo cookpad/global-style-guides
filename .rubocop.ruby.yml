@@ -297,3 +297,7 @@ Style/PercentLiteralDelimiters:
 
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: required
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+  
