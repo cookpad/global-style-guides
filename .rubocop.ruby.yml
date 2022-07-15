@@ -187,6 +187,9 @@ Style/GlobalVars:
 Style/GuardClause:
   Enabled: false
 
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
 Style/IfUnlessModifier:
   Enabled: false
 
