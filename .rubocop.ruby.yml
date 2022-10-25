@@ -188,7 +188,7 @@ Style/GuardClause:
   Enabled: false
 
 Style/HashSyntax:
-  EnforcedShorthandSyntax: never
+  EnforcedShorthandSyntax: consistent
 
 Style/IfUnlessModifier:
   Enabled: false
