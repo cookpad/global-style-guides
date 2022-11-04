@@ -2,6 +2,7 @@ inherit_from:
   - .rubocop.ruby.yml
   - .rubocop.rails.yml
   - .rubocop.performance.yml
+  - .rubocop.rspec.yml
 
 AllCops:
   NewCops: enable
