@@ -1,0 +1,7 @@
+require: rubocop-rspec
+
+AllCops:
+  DisabledByDefault: true
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
