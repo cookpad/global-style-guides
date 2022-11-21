@@ -223,6 +223,14 @@ Style/Next:
 Style/NilComparison:
   Enabled: false
 
+Style/NumberedParameters:
+  Enabled: true
+  EnforcedStyle: allow_single_line
+
+Style/NumberedParametersLimit:
+  Enabled: true
+  Max: 1
+
 Style/NumericLiterals:
   Enabled: false
 
