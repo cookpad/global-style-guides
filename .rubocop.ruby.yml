@@ -31,9 +31,6 @@ Lint/AmbiguousOperator:
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
-Lint/AssignmentInCondition:
-  Enabled: false
-
 Lint/DeprecatedClassMethods:
   Enabled: false
 
