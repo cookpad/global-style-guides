@@ -25,6 +25,9 @@ Layout/LineLength:
   - Gemfile
   - spec/**/*
 
+Lint/AllowSafeAssignment:
+  Enabled: False
+
 Lint/AmbiguousOperator:
   Enabled: false
 
