@@ -26,7 +26,7 @@ Layout/LineLength:
   - spec/**/*
 
 Lint/AllowSafeAssignment:
-  Enabled: False
+  Enabled: false
 
 Lint/AmbiguousOperator:
   Enabled: false
