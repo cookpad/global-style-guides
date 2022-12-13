@@ -276,10 +276,10 @@
 
     ```yml
     # Pluralization rules vary from language to language and keys are automatically added and
-    # removed from the translation files. 
+    # removed from the translation files.
     # The only key present in all languages is `other`
     # Ref: https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
-  
+
     # Don't use i18n `zero:` key to display a "no results" message.
     # Bad
     search_results:
@@ -293,14 +293,14 @@
       one: "1 recipe found"
       other: "%{count} recipes found"
     search_no_results: "There were no results"
-  
+
     # Don't use i18n pluralization for controlling application logic.
     # Bad
     reactions:
       one: "%{name} reacted"
       other: "%{name} and others reacted"
-    
-    # Good 
+
+    # Good
     reactions:
       one: "%{count} reaction"
       other: "%{count} reactions"
@@ -460,3 +460,42 @@
   Leverage top-down development and feature toggles to keep pull requests small.
   <sup>[link](#leverage-top-down)
 [explanation](https://sourcediving.com/a-practical-guide-to-small-and-easy-to-review-pull-requests-a7f04a01d5d5)</sup>
+
+- <a name="prefer-after-action-callbacks-for-logging"></a>
+  Prefer performing logging and similar logic in an `after_action` callback rather than within the action itsel.
+  <sup>
+    [link](#prefer-after-action-callbacks-for-logging)
+    [explanation](https://github.com/cookpad/global-web/pull/33788#discussion_r1046661187)
+  </sup>
+
+  <details>
+    <summary><em>Example</em></summary>
+
+    ```ruby
+    ## Bad
+    class ThingsController < ApplicationController
+      def index
+        log_index_event
+      end
+
+      private
+
+        def log_index_event
+          log_activity("index_event")
+        end
+    end
+
+    ## Good
+    class ThingsController < ApplicationController
+      after_action :log_index_event, only: :index
+
+     def index; end
+
+      private
+
+        def log_index_event
+          log_activity("index_event")
+        end
+    end
+    ```
+  </details>
