@@ -9,6 +9,9 @@ Rails/Delegate:
 Rails/DynamicFindBy:
   Enabled: false
 
+Rails/I18nLazyLookup:
+  Enabled: false
+
 Rails/Output:
   Include:
   - app/**/*.rb
