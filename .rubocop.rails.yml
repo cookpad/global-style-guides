@@ -22,3 +22,6 @@ Rails/RequestReferer:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+Rails/I18nLazyLookup:
+  Enabled: false
