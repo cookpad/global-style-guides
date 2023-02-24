@@ -227,14 +227,14 @@ def func(a: int) -> List[int]:
         yield i
   ```
 
-### 2.4.6 Include `Optional` for an argument that has a `None` default
+### 2.4.6 Include `| None` for an argument that has a `None` default
 
-If a function's argument defaults to `None`, it should include the `Optional` type annotation. This convention is in accordance with [PEP 484](https://www.python.org/dev/peps/pep-0484/), which specifies "_Type checkers should move towards requiring the optional type to be made explicit_". In type checker parlance, we have opted to follow the so-called ["no implicit optional"](https://github.com/python/mypy/issues/9091) rule.
+If a function's argument defaults to `None`, it should include the `| None` type annotation. This is now the preferred approach in Python 3.10 and later. 
 
 #### 2.4.6.1 Do :heavy_check_mark::
 
 ```python
-def create_new_index(self, overide_index_timestamp: Optional[datetime] = None) -> str:
+def create_new_index(self, overide_index_timestamp: datetime | None = None) -> str:
     ...
 ```
 
@@ -244,6 +244,16 @@ def create_new_index(self, overide_index_timestamp: Optional[datetime] = None) -
 def create_new_index(self, overide_index_timestamp: datetime = None) -> str:
     ...
 ```
+
+#### 2.4.6.3 Don't :heavy_multiplication_x::
+
+```python
+def create_new_index(self, overide_index_timestamp: Optional[datetime] = None) -> str:
+    ...
+```
+
+(Unless using Python <= 3.9)
+
 
 ## 2.5 Asynchronous code
 
