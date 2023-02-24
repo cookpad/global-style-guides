@@ -58,13 +58,13 @@ Code choices that don't have any effect on the code execution are documented in 
 
 ## 2.1 Python Version Support
 
-The *highest supported version* is the [latest stable 3.10 Python version](https://www.python.org/downloads/). The *lowest supported version* is 3.7.1.
+The *highest supported version* is the [latest stable 3.10 Python version](https://www.python.org/downloads/).
 
 | Type of codebase     | Version support                                      |
 |:---------------------|:-----------------------------------------------------|
 | New project          | *highest*, unless prevented by required dependencies |
 | Existing project     | the closest possible to *highest*                    |
-| New/existing library | all in range \[lowest, highest\]                     |
+| New/existing library | the closest possible to *highest*                    |
 
 ## 2.2 Imports
 
