@@ -6,3 +6,4 @@ inherit_from:
 
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
