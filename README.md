@@ -1,13 +1,14 @@
 # Cookpad Global Style Guides
 
+- [CSS](/css)
 - [Git](/git)
 - [Javascript](/javascript)
+- [Python](/python)
+- [RSpec](/rspec)
 - [Rails](/rails)
 - [Rake](/rake)
 - [Redis](/redis)
-- [RSpec](/rspec)
 - [Ruby](/ruby)
-- [CSS](/css)
 
 ## Contributing
 
