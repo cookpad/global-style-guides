@@ -1,4 +1,4 @@
-require: rubocop-performance
+plugins: rubocop-performance
 
 Performance/RedundantMerge:
   Enabled: false
