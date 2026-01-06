@@ -111,7 +111,7 @@ Naming/FileName:
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: required
 
-Naming/PredicateName:
+Naming/PredicatePrefix:
   ForbiddenPrefixes:
   - is_
 
