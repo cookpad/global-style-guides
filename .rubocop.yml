@@ -1,9 +1,4 @@
-inherit_from:
-  - .rubocop.ruby.yml
-  - .rubocop.rails.yml
-  - .rubocop.performance.yml
-  - .rubocop.rspec.yml
+# This file is deprecated. Please use rubocop.yml instead.
 
-AllCops:
-  NewCops: enable
-  SuggestExtensions: false
+inherit_from:
+  - rubocop.yml
