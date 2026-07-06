@@ -25,3 +25,6 @@ Rails/RequestReferer:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+Rails/SquishedSQLHeredocs:
+  Enabled: false
