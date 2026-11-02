@@ -186,7 +186,7 @@ Style/GlobalVars:
   Enabled: false
 
 Style/HashSyntax:
-  EnforcedShorthandSyntax: consistent
+  EnforcedShorthandSyntax: always
 
 Style/IfUnlessModifier:
   Enabled: false
